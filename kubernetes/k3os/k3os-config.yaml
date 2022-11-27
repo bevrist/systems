@@ -1,0 +1,56 @@
+# https://github.com/rancher/k3os#configuration
+ssh_authorized_keys:
+  - github:bevrist
+hostname: k3os
+k3os:
+  dns_nameservers:
+    - 1.1.1.1
+    - 1.0.0.1
+  labels:
+    k3os.io/upgrade: latest  # auto upgrade node with latest k3os release from github
+    # registry-node: true  # can attach this to first node to ensure registry assignment
+k3s_args:
+  - server
+  - --secrets-encryption
+write_file:
+  # customize containerd to allow insecure local registry
+  # use "http" for docker registry, and ip of node that hosts it
+  - content: |
+      mirrors:
+        docker.io:
+          endpoint:
+            - "http://192.168.86.7:5000"
+    path: /etc/rancher/k3s/registries.yaml
+  # FIXME: update IP
+  - content: |
+      [plugins.opt]
+      path = "{{ .NodeConfig.Containerd.Opt }}"
+
+      [plugins.cri]
+        stream_server_address = "{{ .NodeConfig.AgentConfig.NodeName }}"
+        stream_server_port = "10010"
+        enable_selinux = false
+        sandbox_image = "rancher/pause:3.1"
+
+      [plugins.cri.containerd]
+        disable_snapshot_annotations = true
+        snapshotter = "overlayfs"
+
+      [plugins.cri.containerd.runtimes.runc]
+        runtime_type = "io.containerd.runc.v2"
+
+      [plugins.cri.cni]
+        bin_dir = "{{ .NodeConfig.AgentConfig.CNIBinDir }}"
+        conf_dir = "{{ .NodeConfig.AgentConfig.CNIConfDir }}"
+
+      [plugins.cri.registry]
+        [plugins.cri.registry.mirrors]
+          [plugins.cri.registry.mirrors."192.168.86.7:5000"]
+            endpoint = ["http://192.168.86.7:5000"]
+        [plugins.cri.registry.configs]
+          [plugins.cri.registry.configs."192.168.86.7:5000".tls]
+            insecure_skip_verify = true
+    path: /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl
+  # # Disable local-storage provider
+  # - content: Disabling local-storage
+  #   path: /var/lib/rancher/k3s/server/manifests/local-storage.yaml.skip

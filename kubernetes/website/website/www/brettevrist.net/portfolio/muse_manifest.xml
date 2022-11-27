@@ -1,0 +1,103 @@
+<manifest alg="2" build="2017.0.2.363" opt="true" iceEnabled="false" exportTarget="other" domain="brettevrist.net/portfolio" resolutions="1x" timestamp="1495337675478">
+  <folder name="css">
+    <file name="site_global.css" crc="99996816"/>
+    <file name="master_a-master.css" crc="908054" ref="little-pong:health-app:index:wave:fractal-generator:projects"/>
+    <file name="nomq_preview_master_a-master.css" crc="4282766878" ref="little-pong:health-app:index:wave:fractal-generator:projects"/>
+    <file name="little-pong.css" crc="195743708" ref="little-pong"/>
+    <file name="nomq_little-pong.css" crc="3917806676" ref="little-pong"/>
+    <file name="health-app.css" crc="95107123" ref="health-app"/>
+    <file name="nomq_health-app.css" crc="309944608" ref="health-app"/>
+    <file name="index.css" crc="418817195" ref="index"/>
+    <file name="nomq_index.css" crc="4149726922" ref="index"/>
+    <file name="wave.css" crc="4132272292" ref="wave"/>
+    <file name="nomq_wave.css" crc="340105886" ref="wave"/>
+    <file name="fractal-generator.css" crc="460498163" ref="fractal-generator"/>
+    <file name="nomq_fractal-generator.css" crc="4214616142" ref="fractal-generator"/>
+    <file name="projects.css" crc="173462118" ref="projects"/>
+    <file name="nomq_projects.css" crc="3840784432" ref="projects"/>
+  </folder>
+  <folder name="scripts">
+    <file name="jquery-1.8.3.min.js" crc="209076791" ref="index:projects:health-app:wave:fractal-generator:little-pong"/>
+    <file name="museutils.js" crc="4232573551" ref="index:projects:health-app:wave:fractal-generator:little-pong"/>
+    <file name="whatinput.js" crc="86476730" ref="index:projects:health-app:wave:fractal-generator:little-pong"/>
+    <file name="museconfig.js" crc="4152223963" ref="index:projects:health-app:wave:fractal-generator:little-pong"/>
+    <file name="jquery.watch.js" crc="3844535323" ref="index:projects:health-app:wave:fractal-generator:little-pong"/>
+    <file name="jquery.musemenu.js" crc="38860304" ref="index:projects:health-app:wave:fractal-generator:little-pong"/>
+    <file name="html5shiv.min.js" crc="4241844378" ref="index:projects:health-app:wave:fractal-generator:little-pong"/>
+    <file name="jquery.museresponsive.js" crc="433634197" ref="index:projects:health-app:wave:fractal-generator:little-pong"/>
+    <file name="require.js" crc="4234670167" ref="index:projects:health-app:wave:fractal-generator:little-pong"/>
+  </folder>
+  <folder name="images">
+    <file name="u2061.png" crc="422913045" ref="index"/>
+    <file name="nose.jpg" crc="402255117" seo="true" ref="index">
+      <caption webpage="index" alt=""/>
+      <caption webpage="index" alt=""/>
+    </file>
+    <file name="u2064.png" crc="525333038" ref="index"/>
+    <file name="blank.gif" crc="4208392903" ref="index:projects:health-app:wave:fractal-generator:little-pong"/>
+    <file name="u20612.png" crc="422913045" ref="index"/>
+    <file name="u20642.png" crc="525333038" ref="index"/>
+    <file name="wave-crop-u2253.jpg" crc="3870767435" seo="true" ref="projects">
+      <caption webpage="projects" alt=""/>
+    </file>
+    <file name="fr.jpg" crc="213605536" seo="true" ref="projects:fractal-generator">
+      <caption webpage="projects" alt=""/>
+      <caption webpage="projects" alt=""/>
+      <caption webpage="fractal-generator" alt=""/>
+      <caption webpage="fractal-generator" alt=""/>
+    </file>
+    <file name="health-crop-u2238.jpg" crc="122869618" seo="true" ref="projects">
+      <caption webpage="projects" alt=""/>
+    </file>
+    <file name="pong-crop-u2248.jpg" crc="92343108" seo="true" ref="projects">
+      <caption webpage="projects" alt=""/>
+    </file>
+    <file name="wave-crop-u22532.jpg" crc="3870767435" seo="true" ref="projects">
+      <caption webpage="projects" alt=""/>
+    </file>
+    <file name="health-crop-u22382.jpg" crc="122869618" seo="true" ref="projects">
+      <caption webpage="projects" alt=""/>
+    </file>
+    <file name="pong-crop-u22482.jpg" crc="92343108" seo="true" ref="projects">
+      <caption webpage="projects" alt=""/>
+    </file>
+    <file name="health.jpg" crc="3828762688" seo="true" ref="health-app">
+      <caption webpage="health-app" alt=""/>
+      <caption webpage="health-app" alt=""/>
+    </file>
+    <file name="u1405.png" crc="3775297463" ref="health-app"/>
+    <file name="u14052.png" crc="3775297463" ref="health-app"/>
+    <file name="wave.jpg" crc="4172893801" seo="true" ref="wave">
+      <caption webpage="wave" alt=""/>
+      <caption webpage="wave" alt=""/>
+    </file>
+    <file name="capturehighest.gif" crc="3841965765" seo="true" ref="wave">
+      <caption webpage="wave" alt=""/>
+      <caption webpage="wave" alt=""/>
+    </file>
+    <file name="u1669.png" crc="4047299598" ref="wave"/>
+    <file name="u16692.png" crc="4047299598" ref="wave"/>
+    <file name="fr2.jpg" crc="413033988" seo="true" ref="fractal-generator">
+      <caption webpage="fractal-generator" alt=""/>
+      <caption webpage="fractal-generator" alt=""/>
+    </file>
+    <file name="u1696.png" crc="4217755653" ref="fractal-generator"/>
+    <file name="u16962.png" crc="4217755653" ref="fractal-generator"/>
+    <file name="pong.jpg" crc="4140456544" seo="true" ref="little-pong">
+      <caption webpage="little-pong" alt=""/>
+      <caption webpage="little-pong" alt=""/>
+    </file>
+    <file name="pong2.jpg" crc="3944828207" seo="true" ref="little-pong">
+      <caption webpage="little-pong" alt=""/>
+      <caption webpage="little-pong" alt=""/>
+    </file>
+    <file name="u1739.png" crc="158254892" ref="little-pong"/>
+    <file name="u17392.png" crc="158254892" ref="little-pong"/>
+  </folder>
+  <file name="index.html" crc="4007924479" seo="true" mt="1495337485176" redirect="true"/>
+  <file name="projects.html" crc="3968852217" seo="true" mt="1495337447361" redirect="true"/>
+  <file name="health-app.html" crc="3858981406" seo="true" mt="1495337481713" redirect="true"/>
+  <file name="wave.html" crc="4272546257" seo="true" mt="1495337662955" redirect="true"/>
+  <file name="fractal-generator.html" crc="3913055299" seo="true" mt="1495337474811" redirect="true"/>
+  <file name="little-pong.html" crc="173127059" seo="true" mt="1495337471074" redirect="true"/>
+</manifest>

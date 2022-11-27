@@ -1,0 +1,93 @@
+---
+# Deployment for mealie
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mealie-deployment
+  namespace: mealie
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mealie  # must match spec.template.metadata.labels
+  template:
+    metadata:
+      labels:
+        app: mealie  # must match spec.selector.matchLabels
+    spec:
+      containers:
+      - name: mealie-frontend
+        image: hkotel/mealie:frontend-v1.0.0beta-4
+        env:
+          - name: "API_URL"
+            value: "http://localhost:9000"
+        ports:
+        - name: frontend-port
+          containerPort: 3000
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 1000Mi
+        # readinessProbe:
+        #   httpGet:
+        #     port: 3000
+        # livenessProbe:
+        #   initialDelaySeconds: 300
+        #   httpGet:
+        #     port: 3000
+        volumeMounts:
+        - name: mealie-volume
+          mountPath: /app/data
+      - name: mealie-api
+        image: hkotel/mealie:api-v1.0.0beta-4
+        env:
+          - name: "ALLOW_SIGNUP"
+            value: "true"
+          - name: "PUID"
+            value: "1000"
+          - name: "PGID"
+            value: "1000"
+          - name: "TZ"
+            value: "America/Anchorage"
+          - name: "MAX_WORKERS"
+            value: "1"
+          - name: "WEB_CONCURRENCY"
+            value: "1"
+          - name: "BASE_URL"
+            value: "https://mealie.evri.st"
+        ports:
+        - name: api-port
+          containerPort: 9000
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 1000Mi
+        # readinessProbe:
+        #   httpGet:
+        #     port: 9000
+        # livenessProbe:
+        #   initialDelaySeconds: 300
+        #   httpGet:
+        #     path: "/api"
+        #     port: 9000
+        volumeMounts:
+        - name: mealie-volume
+          mountPath: /app/data
+      volumes:
+      - name: mealie-volume
+        persistentVolumeClaim:
+          claimName: mealie-pvc
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mealie-service
+  namespace: mealie
+spec:
+  selector:
+    app: mealie
+  ports:
+    - name: mealie-frontend-port
+      protocol: TCP
+      port: 3000

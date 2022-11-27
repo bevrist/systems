@@ -1,0 +1,51 @@
+
+# # local k3os kaniko image builder
+# ---
+# apiVersion: v1
+# kind: PersistentVolumeClaim
+# metadata:
+#   name: kaniko-cache-pvc
+# spec:
+#   accessModes:
+#     - ReadWriteOnce
+#   resources:
+#     requests:
+#       storage: 10Gi
+
+# ---
+# apiVersion: batch/v1
+# kind: Job
+# metadata:
+#   name: kaniko-builder
+# spec:
+#   template:
+#     spec:
+#       containers:
+#         - name: kaniko-builder
+#           image: gcr.io/kaniko-project/executor:debug
+#           command: ["sh", "-c","/kaniko/executor --cache --cache-dir=/cache --destination=192.168.86.7:5000/test ; wget -qO - 192.168.86.7:5000/v2/_catalog"] # FIXME: update IP
+#           volumeMounts:
+#           - name: dockerfile-volume
+#             mountPath: /workspace/
+#           - name: kaniko-cache
+#             mountPath: /cache
+#       volumes:
+#         - name: dockerfile-volume
+#           configMap:
+#             name: dockerfile-config
+#         - name: kaniko-cache
+#           persistentVolumeClaim:
+#             claimName: kaniko-cache-pvc
+#       restartPolicy: Never
+
+# ---
+# # kubectl create configmap dockerfile-config --from-file=Dockerfile=Dockerfile
+# apiVersion: v1
+# kind: ConfigMap
+# metadata:
+#   name: dockerfile-config
+# data:
+#   Dockerfile: |
+#     FROM ubuntu
+#     RUN echo hiiiiThere > /hi.txt
+#     CMD cat /hi.txt

@@ -1,0 +1,4 @@
+.DS_Store
+**/credentials.ini
+b-web/certbot/letsencrypt/*
+b-play/garrys-mod/data/

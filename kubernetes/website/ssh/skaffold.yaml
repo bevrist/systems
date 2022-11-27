@@ -1,0 +1,13 @@
+apiVersion: skaffold/v2beta27
+kind: Config
+metadata:
+  name: ssh-skaffold
+build:
+  artifacts:
+  - image: ssh-image
+    docker:
+      dockerfile: Dockerfile
+deploy:
+  kubectl:
+    manifests:
+    - kube/ssh.yaml

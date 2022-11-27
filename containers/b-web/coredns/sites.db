@@ -1,0 +1,3 @@
+example.com.        IN  SOA dns.example.com. site.example.com. 2015082542 7200 3600 1209600 108000
+example.com.        IN  A   35.233.187.228
+www.example.com.    IN  A   35.233.187.228

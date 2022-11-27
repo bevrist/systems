@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  satisfactory:
+    build:
+      context: .
+    ports:
+      - "7777"
+      - "15000"
+    volumes:
+      - ${PWD}/data:/app
+    restart: on-failure
+    stdin_open: true
+    tty: true
+    environment:
+      - UPDATE=${UPDATE}

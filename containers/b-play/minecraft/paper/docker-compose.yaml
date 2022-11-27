@@ -1,0 +1,19 @@
+version: "2"
+
+services:
+  minecraft-paper:
+    build:
+      context: .
+    ports:
+      - "25565:25565"
+    volumes:
+        - ${PWD}/cache:/root/cache
+        - ${PWD}/logs:/root/logs
+        - ${PWD}/world:/root/world
+        - ${PWD}/world_nether:/root/world_nether
+        - ${PWD}/world_the_end:/root/world_the_end
+        - ${PWD}/banned-ips.json:/root/banned-ips.json
+        - ${PWD}/banned-players.json:/root/banned-players.json
+        - ${PWD}/ops.json:/root/ops.json
+        - ${PWD}/whitelist.json:/root/whitelist.json
+    restart: on-failure

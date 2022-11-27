@@ -1,0 +1,36 @@
+---
+# redirect to https
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: https-redirect
+  namespace: website
+spec:
+  redirectScheme:
+    scheme: https
+    permanent: true
+
+---
+# Redirect www to non-www domain
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: www-redirect
+  namespace: website
+spec:
+  redirectRegex:
+    regex: ^(https?):\/\/www\.(.*)
+    replacement: ${1}://${2}
+    permanent: true
+
+---
+apiVersion: traefik.containo.us/v1alpha1
+kind: Middleware
+metadata:
+  name: redirects
+  namespace: website
+spec:
+  chain:
+    middlewares:
+    - name: www-redirect
+    - name: https-redirect

@@ -1,0 +1,19 @@
+server {
+	server_name svn.brettevrist.net;
+
+	listen 80;
+	listen [::]:80;
+
+	location / {
+		proxy_pass http://192.168.86.16;
+		proxy_redirect off;
+		proxy_set_header Host $host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header X-Forwarded-Proto $scheme;
+		proxy_set_header X-Forwarded-Protocol $scheme;
+		proxy_set_header X-Url-Scheme $scheme;
+	}
+
+	client_max_body_size 10000m;
+}

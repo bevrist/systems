@@ -1,0 +1,10 @@
+.:53 {
+    forward . 1.1.1.1 1.0.0.1
+    log
+    errors
+}
+example.com:53 {
+    file /root/sites.db
+    log
+    errors
+}
