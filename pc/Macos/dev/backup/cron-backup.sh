@@ -64,6 +64,7 @@ fi
 ##### BACKUPS #####
 ### PRE BACKUP ###
 # vscode extensions
+mkdir -p "$HOME/.backup/backup"
 code --list-extensions > "$HOME/.backup/backup/vscode-extensions.txt"
 
 ### RESTIC BACKUP ###
