@@ -25,5 +25,6 @@ CMD ["/entrypoint.sh"]
 RUN useradd -ms /bin/bash -d /app satisfactory
 USER satisfactory
 
-EXPOSE 7777
-EXPOSE 15000
+EXPOSE 7777/udp
+EXPOSE 15000/udp
+EXPOSE 15777/udp
