@@ -43,19 +43,20 @@ fi
 brew update
 
 #Install Apps
+brew install --cask xquartz google-drive  # install apps that require system password first
 brew install --cask rectangle keepingyouawake homebrew/cask-fonts/font-fira-code-nerd-font numi maccy
-brew install --cask xquartz iterm2 keepassxc firefox google-chrome google-drive visual-studio-code obsidian
-brew install --cask cider discord iina grandperspective microsoft-remote-desktop db-browser-for-sqlite
-#brew install --cask rancher lens openlens
-#brew install --cask blender flutter steam epic-games ios-app-signer alt-tab vlc
+brew install --cask iterm2 keepassxc orion firefox google-chrome visual-studio-code obsidian
+brew install --cask discord iina grandperspective microsoft-remote-desktop db-browser-for-sqlite
+brew install --cask rancher openlens ios-app-signer
+#brew install --cask blender flutter steam epic-games alt-tab
 #brew install --cask bootstrap-studio chromium http-toolkit postman stoplight-studio drone figma
-# monitorcontrol hiddenbar
+# monitorcontrol hiddenbar cider
 
 brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions
 brew install starship wget grep findutils rsync watch git git-lfs coreutils lsd restic terminal-notifier archey4 python@3.11
-brew install netcat p7zip pv htop tree rename gnu-sed jq macchina watchexec dstask hyperfine
-brew install docker docker-compose docker-buildx docker-credential-helper ctop kubernetes-cli yq helm kubectx skaffold     #linkerd argocd
-# brew install lolcat sl nyancat cowsay rclone fastlane foreman lazydocker lazygit tokei
+brew install netcat p7zip pv htop tree rename gnu-sed jq macchina watchexec dstask hyperfine rclone
+brew install docker docker-compose docker-buildx docker-credential-helper ctop kubernetes-cli yq helm kubectx skaffold   #linkerd argocd
+# brew install lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit tokei
 
 
 # symlink aliases
@@ -72,16 +73,10 @@ rsync -rv Macos/dev ~/
 chmod -R 700 ~/dev
 
 
-# ========== Zsh Configuration ==========
-# brew install zsh
-echo "Changing shell to zsh..."
-/usr/bin/chsh -s /bin/zsh
-
+# ========== Tool Configuration ==========
 # customize zsh prompt
 cp Macos/zshrc ~/.zshrc
 
-
-# ========== Tool Configuration ==========
 #.config/starship.toml
 mkdir ~/.config
 cp Macos/starship.toml ~/.config/starship.toml
@@ -112,40 +107,51 @@ Sort all Apple apps to folders to make room for new Apps
 Sign ~/.ssh/${USER}_key key with ca_cert
 Log into Google Drive App
 Setup 'dev/backup/cron-backup.sh' in crontab
-Launch apps to initialize: xquartz, rectangle
-Google Chrome: Ublock: Setup custom filters https://github.com/quenhus/uBlock-Origin-dev-filter
-Manually test backup script then add to crontab (instructions at top): 'dev/backup/cron-backup.sh'
 macos Preferences:
+  Apple id > disable photos sync and other unused services
   Sign into Google Account for Contacts
-  Desktop & Screen Saver > Screen Saver > Hot Corners: Set botom right to 'Desktop'
+  General > Default browser 'orion'
+  Desktop & Screen Saver > Screen Saver > Hot Corners: Set bottom right to 'Desktop'
+  Dock & Menu Bar: check 'Automatically hide and show the dock', uncheck 'Show recent applications in the dock'
   Add 'Full Disk Access' for iTerm, Terminal, and VSCode
   Mission Control > uncheck 'When switching to an Application, switch to a Space with open windows for that application'
   Spotlight: Disable all but Applications and Calculator
 Setup preferences for apps:
+  orion browser:
+    get extensions: firefox: KeepassXC, SponsorBlock
+    preferences:
+      appearance > Show Tabs: On the side. Toolbar: check 'Show bookmarks bar' & 'use compact size'. Bookmarks bar: 'Text Only'
+      passwords > password provider: '3rd party provider'
+      search > search engine: kagi (set up private window key)
+      websites > auto play: youtube
+    extension settings:
+      KeepassXC: sync with desktop app
 	rectangle: start on login, hide menu bar icon
 	keepingyouawake: set enabled by default
 	keepassxc:
-    set mac prefrences to allow auto type '⌘+⇧+V'
-    general > File Management: 'Automatically save after every change' = off
-    security: 'Hide entry notes by default' = on
-  numi: Precision = 3, 'Show in menu bar' = off, 'Launch numi at login' = on
+    general > File Management: uncheck all variants of 'Automatically save ...'
+    general > startup: check 'automatically launch keepass at system startup', check 'minimize window after unlocking database'
+    set mac preferences to allow auto type '⌘+⇧+V' (security > accessibility: add keepassxc)
+    security > check 'Hide entry notes by default', 'lock database after inactivity'=600 sec
+    browser integration > enable, firefox. advanced > check 'never ask before accessing credentials'
+    connect KeepassXC to orion browser extension
+  numi: Precision = 3, uncheck 'Show in menu bar', check 'Launch numi at login'
   maccy:
     General > 'Launch at login'
     Storage > Dont save 'Files' & 'Images', HistorySize = 25
     Appearance > 'Show recent copy next to menu icon'
 	iTerm:
     General > Closing: disable 'Confirm Quit'
-    Appearence > Tabs: 'Show tab bar even when...'
+    Appearance > Tabs: 'Show tab bar even when...'
     Profiles > Colors: Color Preset: 'Tango Dark'
     Profiles > Text: Cursor->'Vertical Bar' & 'Blinking Cursor', Font->'Fira code' & Font Size->'12', check: 'Use Ligatures'
     Profiles > Window: Transparency->25%, enable blur->5,
-    Profiles > Window: Settings for New Windows: Colums: '100', Rows: '50'
+    Profiles > Window: Settings for New Windows: Columns: '100', Rows: '50'
     Profiles > Terminal: Scrollback Lines: '20,000',
   Rancher Desktop:
     Configure PATH: 'Manual'
 
 Get store apps: XCode, Wireguard
-Get Orion Browser: https://browser.kagi.com/
 Setup Affinity Designer: https://affinity.serif.com
   brew install --cask affinity-designer
 Get Pureref: https://pureref.com
