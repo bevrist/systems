@@ -7,4 +7,4 @@ if [ ! -z $UPDATE ] || [ ! -d "/app/satisfactory" ]; then
   exit
 fi
 
-/app/satisfactory/FactoryServer.sh
+/app/satisfactory/FactoryServer.sh -log -unattended
