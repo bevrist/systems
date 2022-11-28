@@ -121,7 +121,7 @@ Setup preferences for apps:
     get extensions: firefox: KeepassXC, SponsorBlock
     preferences:
       appearance > Show Tabs: On the side. Toolbar: check 'Show bookmarks bar' & 'use compact size'. Bookmarks bar: 'Text Only'
-      passwords > password provider: '3rd party provider'
+      passwords > password provider: 'orion', password autofill: uncheck 'offer to autofill...' and uncheck 'offer to save...'
       search > search engine: kagi (set up private window key)
       websites > auto play: youtube
     extension settings:
