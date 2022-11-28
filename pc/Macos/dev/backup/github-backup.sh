@@ -1,5 +1,5 @@
 #!/bin/bash
-# REPOS LIST Updated `Apr 26 2022` # TODO UPDATE THIS LIST!
+# REPOS LIST Updated `Nov 28 2022` # TODO UPDATE THIS LIST!
 REPOS="git@github.com:bevrist/ITC-2020.git
 git@github.com:bevrist/advent-of-code.git
 git@github.com:bevrist/aws-hackathon.git
@@ -12,7 +12,9 @@ git@github.com:bevrist/playground.git
 git@github.com:bevrist/scouting-app.git
 git@github.com:bevrist/shell-compose.git
 git@github.com:bevrist/simple-notify.git
-git@github.com:bevrist/workout-site.git"
+git@github.com:bevrist/workout-site.git
+git@github.com:bevrist/systems.git
+git@github.com:bevrist/go-wake-on-lan-server.git"
 
 BACKUP_DIR="./github-backup-$(date +"%Y_%m_%d")"
 echo "backing up bevrist git repos to $BACKUP_DIR ..."; sleep 5
