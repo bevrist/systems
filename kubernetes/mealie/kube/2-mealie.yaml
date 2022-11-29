@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: mealie-frontend
-        image: hkotel/mealie:frontend-v1.0.0beta-4
+        image: hkotel/mealie:frontend-v1.0.0beta-5
         env:
           - name: "API_URL"
             value: "http://localhost:9000"
@@ -39,7 +39,7 @@ spec:
         - name: mealie-volume
           mountPath: /app/data
       - name: mealie-api
-        image: hkotel/mealie:api-v1.0.0beta-4
+        image: hkotel/mealie:api-v1.0.0beta-5
         env:
           - name: "ALLOW_SIGNUP"
             value: "true"

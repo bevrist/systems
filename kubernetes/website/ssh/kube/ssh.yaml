@@ -19,10 +19,11 @@ spec:
       containers:
       - name: ssh
         image: 192.168.86.7:5000/ssh-image # FIXME: update IP
+        imagePullPolicy: Always
         resources:
           limits:
-            cpu: 500m
-            memory: 1000Mi
+            cpu: 5m
+            memory: 100Mi
         livenessProbe:
           initialDelaySeconds: 10
           tcpSocket:
