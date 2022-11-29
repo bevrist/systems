@@ -86,6 +86,7 @@ cp Macos/vimrc ~/.vimrc
 
 #Zsh-Completions: first time setup
 chmod -R go-w '/usr/local/share/zsh'
+chmod -R go-w '/usr/local/share'
 
 #TextEdit: use plain text mode as default
 defaults write com.apple.TextEdit RichText -int 0
