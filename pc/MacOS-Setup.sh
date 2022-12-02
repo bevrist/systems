@@ -88,9 +88,6 @@ cp Macos/vimrc ~/.vimrc
 chmod -R go-w '/usr/local/share/zsh'
 chmod -R go-w '/usr/local/share'
 
-#TextEdit: use plain text mode as default
-defaults write com.apple.TextEdit RichText -int 0
-
 #Run programs for first time setup
 git lfs install
 git config --global credential.helper store
@@ -109,15 +106,17 @@ Sign ~/.ssh/${USER}_key key with ca_cert
 Log into Google Drive App
 Setup 'dev/backup/cron-backup.sh' in crontab
 macos Preferences:
-  Apple id > disable photos sync and other unused services
+  Apple id: disable photos sync and other unused services
   Sign into Google Account for Contacts
-  General > Default browser 'orion'
+  General: Default browser 'orion'
   Desktop & Screen Saver > Screen Saver > Hot Corners: Set bottom right to 'Desktop'
   Dock & Menu Bar: check 'Automatically hide and show the dock', uncheck 'Show recent applications in the dock'
   Add 'Full Disk Access' for iTerm, Terminal, and VSCode
-  Mission Control > uncheck 'When switching to an Application, switch to a Space with open windows for that application'
+  Mission Control: uncheck 'When switching to an Application, switch to a Space with open windows for that application'
   Spotlight: Disable all but Applications and Calculator
+  Keyboard > Text: uncheck 'Add period with double-space'
 Setup preferences for apps:
+  text edit: preferences: check 'Plain Text'
   orion browser:
     get extensions: firefox: KeepassXC, SponsorBlock
     preferences:
