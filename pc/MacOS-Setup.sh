@@ -115,6 +115,7 @@ macos Preferences:
   Mission Control: uncheck 'When switching to an Application, switch to a Space with open windows for that application'
   Spotlight: Disable all but Applications and Calculator
   Keyboard > Text: uncheck 'Add period with double-space'
+  Battery > Power Adapter: uncheck 'Wake for network access'
 Setup preferences for apps:
   text edit: preferences: check 'Plain Text'
   orion browser:
