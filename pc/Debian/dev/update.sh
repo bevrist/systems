@@ -1,7 +1,8 @@
+#!/bin/bash
 set -e
 
 #Check for non sudo
-if [ $USER == "root" ]; then
+if [ "$USER" == "root" ]; then
   echo "must run script as user..."
   exit 1
 fi
