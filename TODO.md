@@ -1,5 +1,8 @@
 # TODO
 
+# TODO: volume store b-web system key so ssh doesnt freak out every redeploy
+
+
 website restic backup cronjob
 
 - add wireguard container
