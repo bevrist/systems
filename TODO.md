@@ -1,7 +1,7 @@
 # TODO
 
-# TODO: volume store b-web system key so ssh doesnt freak out every redeploy
-
+> TODO: volume store b-web system key so ssh doesnt freak out every redeploy
+> TODO: change kubernetes to use metallb instead of klipper
 
 website restic backup cronjob
 
