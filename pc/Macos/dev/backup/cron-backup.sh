@@ -72,16 +72,18 @@ code --list-extensions > "$HOME/.backup/backup/vscode-extensions.txt"
 # Obsidian Shared Vault (dir)
 # Orion Browser Bookmarks
 # Orion Browser Tabs
-# Vscode Settings
+# Backup folder (dir)
+## Vscode Settings
+## Keepass Database
 # Vscode Extensions
 # Hledger Files (dir)
 restic -r "$RESTIC_REPO" --host "$RESTIC_HOSTNAME" backup --exclude .git --compression max \
-  $HOME/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/B-Obsidian-Vault \
-  $HOME/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/Shared-Vault \
+  $HOME/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/B-Obsidian-Vault/ \
+  $HOME/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/Shared-Vault/ \
   $HOME/Library/Application\ Support/Orion/Defaults/favourites.plist \
   $HOME/Library/Application\ Support/Orion/Defaults/browser_state.plist \
   $HOME/Library/Application\ Support/Code/User/settings.json \
-  $HOME/.backup/backup/vscode-extensions.txt \
+  $HOME/.backup/backup/ \
   $HOME/.hledger
 
 # restic cleanup
