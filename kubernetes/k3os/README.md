@@ -1,5 +1,7 @@
 # Kube Instructions
 
+<!-- TODO REPLACE klipper with metallb -->
+
 # Skaffold:
 configure registry for cluster (use registry node IP):  
 `skaffold config set default-repo 192.168.86.7:5000`  
