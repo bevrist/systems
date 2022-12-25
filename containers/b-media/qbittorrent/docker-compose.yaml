@@ -1,0 +1,18 @@
+# run simply with `docker-compose build --pull --no-cache`
+# MAKE SURE IP IS CORRECT BEFORE STARTING: `docker-compose up -d`
+
+version: "3"
+
+services:
+  plex:
+    build:
+        context: .
+    ports:
+      - 8080:8080/tcp
+    # environment:
+    #   - TZ="America/Los_Angeles"
+    volumes:
+      #! UPDATE THESE FOR CURRENT SYSTEM
+      - /mnt/DRIVE/:/config
+    hostname: "seedbox"
+    restart: always
