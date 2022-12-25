@@ -18,4 +18,4 @@ sleep 30 \n\
 
 CMD ["/entrypoint.sh"]
 
-# docker run -d --restart -v /root/ip-test:/app always ip-test
+# docker run -d --restart always -v /root/ip-test:/app ip-test
