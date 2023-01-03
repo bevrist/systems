@@ -1,0 +1,12 @@
+# run simply with `docker-compose build --pull --no-cache`
+
+# # docker run -d --restart always -v /root/ip-test:/app ip-test
+
+version: "3"
+
+services:
+  ip-test:
+    volumes:
+      - /root/ip-test:/app
+    restart: always
+
