@@ -10,10 +10,12 @@ RUN apt-get update \
 
 RUN mkdir -p /app/
 
-RUN printf "#!/bin/bash \n\
-curl -s http://v4.ipv6-test.com/api/myip.php >> /app/ip.txt \n\
-echo '' >> /app/ip.txt \n\
-sleep 30 \n\
+RUN printf "#!/bin/bash  \n\
+printf '%s ' $(date --rfc-3339=s)  \n\
+printf '| '  \n\
+curl -s http://v4.ipv6-test.com/api/myip.php >> /app/ip.txt  \n\
+echo '' >> /app/ip.txt  \n\
+sleep 30  \n\
 " > /entrypoint.sh && chmod +x /entrypoint.sh
 
 CMD ["/entrypoint.sh"]
