@@ -7,8 +7,8 @@ services:
     ports:
       - 8080:8080/tcp
     volumes:
-      - /var/qbittorrent:root/.config/qBittorrent
+      - /var/qbittorrent:/root/.config/qBittorrent
       #! UPDATE THIS FOR CURRENT SYSTEM
       - /mnt/DIRECTORY/downloads:/mnt
-    hostname: "seedbox"
+    hostname: "seedbox-qb"
     restart: always
