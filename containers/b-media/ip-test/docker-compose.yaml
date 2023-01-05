@@ -5,4 +5,4 @@ services:
     image: ip-test
     volumes:
       - /root/ip-test:/app
-    restart: on-failure
+    restart: unless-stopped
