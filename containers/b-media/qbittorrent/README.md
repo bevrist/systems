@@ -5,6 +5,6 @@
 2) copy config: `mkdir /var/qbittorrent/ && cp qBittorrent.conf /var/qbittorrent/`  
 3) ENSURE IP IS CORRECT BEFORE STARTING
 
-4) *** `docker compose up -d` ***  
+4) *** `docker-compose up -d` ***  
 
 5) add watched folders and rss feeds after starting for first time

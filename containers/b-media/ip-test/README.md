@@ -5,4 +5,4 @@ for testing that network and docker startup configuration are functioning correc
 
 > Requires building and loading the `ip-test` docker image on the target machine first
 
-`docker compose up -d`
+`docker-compose up -d`
