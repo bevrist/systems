@@ -11,4 +11,4 @@ services:
       #! UPDATE THIS FOR CURRENT SYSTEM
       - /mnt/DIRECTORY/downloads:/mnt
     hostname: "seedbox-qb"
-    restart: on-failure
+    restart: unless-stopped
