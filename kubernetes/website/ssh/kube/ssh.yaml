@@ -22,7 +22,7 @@ spec:
         imagePullPolicy: Always
         resources:
           limits:
-            cpu: 5m
+            cpu: 100m
             memory: 100Mi
         livenessProbe:
           initialDelaySeconds: 10
