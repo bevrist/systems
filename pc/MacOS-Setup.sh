@@ -54,7 +54,7 @@ brew install --cask rancher openlens ios-app-signer
 
 brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions
 brew install starship wget grep findutils rsync watch entr git git-lfs coreutils lsd restic terminal-notifier archey4 python@3.11
-brew install netcat p7zip pv htop tree rename gnu-sed jq macchina watchexec dstask hyperfine rclone
+brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq macchina watchexec dstask hyperfine rclone
 brew install docker docker-compose docker-buildx docker-credential-helper ctop kubernetes-cli yq helm kubectx skaffold   #linkerd argocd
 # brew install lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit tokei
 
