@@ -9,7 +9,7 @@ RUN adduser -D user
 RUN echo -e "password1\npassword1" | smbpasswd -a user
 
 COPY --chown=root:root smb.conf /etc/samba/smb.conf
-RUN mkdir /share && chmod -R 777 /share
+RUN mkdir /share && chmod -R 777 /share && echo "works!" > /share/test.txt
 
 ENTRYPOINT ["/sbin/tini", "--", "smbd", "--foreground", "--debug-stdout", "--no-process-group"]
 
