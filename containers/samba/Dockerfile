@@ -6,7 +6,7 @@ RUN chmod 700 /usr/local/samba/var/cores
 
 RUN adduser -D user
 # RUN echo "user:pass" | chpasswd
-RUN echo -e "password\npassword" | smbpasswd -a user
+RUN echo -e "password1\npassword1" | smbpasswd -a user
 
 COPY --chown=root:root smb.conf /etc/samba/smb.conf
 RUN mkdir /share && chmod -R 777 /share
