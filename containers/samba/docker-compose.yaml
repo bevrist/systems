@@ -11,6 +11,6 @@ services:
       - 139:139/tcp
       - 445:445/tcp
     volumes:
-      - "/mnt/6TB-5400RPM/BACKUP/Games Archive:/games-archive"
+      - "/mnt/6TB-5400RPM/BACKUP/Games Archive:/games-archive:ro"
     hostname: "samba"
     restart: unless-stopped
