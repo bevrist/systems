@@ -18,5 +18,6 @@ git@github.com:bevrist/go-wake-on-lan-server.git"
 
 BACKUP_DIR="./github-backup-$(date +"%Y_%m_%d")"
 echo "backing up bevrist git repos to $BACKUP_DIR ..."; sleep 5
-cd $BACKUP_DIR
+mkdir "$BACKUP_DIR"
+cd "$BACKUP_DIR"
 for repo in $REPOS ; do git clone --mirror $repo ; done

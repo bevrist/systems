@@ -6,7 +6,6 @@ macchina -U
 ssh-add -q --apple-load-keychain
 
 export HOMEBREW_NO_ENV_HINTS=1
-export LEDGER_FILE=~/.hledger/hledger-$(date "+%Y").journal
 
 ### Aliases
 # alias ls="ls -G"
