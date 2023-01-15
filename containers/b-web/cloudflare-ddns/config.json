@@ -2,10 +2,11 @@
   "cloudflare": [
     {
       "authentication": {
-        #set cloudflare token with `Zone-DNS-Edit` and `Zone-Zone-Read` permissions
+        #set cloudflare token with `Zone-DNS-Edit` permissions
         "api_token": "api_token_here"
       },
-      "zone_id": "brettevrist.net",
+      #get zone id from cloudflare on right side of a domain overview page
+      "zone_id": "zone_id_is_random_numbers_and_letters",
       "subdomains": [
         {
           "name": "home",
