@@ -1,0 +1,20 @@
+{
+  "cloudflare": [
+    {
+      "authentication": {
+        #set cloudflare token with `Zone-DNS-Edit` and `Zone-Zone-Read` permissions
+        "api_token": "api_token_here"
+      },
+      "zone_id": "brettevrist.net",
+      "subdomains": [
+        {
+          "name": "home",
+          "proxied": false
+        }
+      ]
+    }
+  ],
+  "a": true,
+  "aaaa": false,
+  "purgeUnknownRecords": false
+}
