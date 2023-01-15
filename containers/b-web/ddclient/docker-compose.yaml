@@ -1,0 +1,18 @@
+# run simply with `docker-compose build --pull --no-cache && docker-compose up -d`
+# TODO UPDATE CF_* ENV VARS
+# CF_TOKEN needs to be a cloudflare token with `Zone-DNS-Edit` and `Zone-Zone-Read` permissions
+
+version: "3"
+
+services:
+  ddclient:
+    build:
+      context: .
+    environment:
+      - CF_TOKEN= # TODO FILL_ME
+      - CF_ZONE=brettevrist.net
+      - CF_DOMAIN=home.brettevrist.net
+      - PUID=1000
+      - PGID=1000
+      - TZ=America/Los_Angeles
+    restart: unless-stopped

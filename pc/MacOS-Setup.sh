@@ -144,7 +144,7 @@ Setup preferences for apps:
 	iTerm:
     General > Closing: disable 'Confirm Quit'
     Appearance > Tabs: 'Show tab bar even when...'
-    Profiles > Colors: Color Preset: 'Tango Dark'
+    Profiles > Colors: Color Preset: 'Tango Dark', Minimum Contrast->40
     Profiles > Text: Cursor->'Vertical Bar' & 'Blinking Cursor', Font->'Fira code' & Font Size->'12', check: 'Use Ligatures'
     Profiles > Window: Transparency->25%, enable blur->5,
     Profiles > Window: Settings for New Windows: Columns: '100', Rows: '50'

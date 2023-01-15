@@ -117,5 +117,7 @@ done; unset RSYNC_GAME_ARCHIVE_DONE
 
 
 ## Verify Sync Succeeded
-# run rsync with -c to verify all files transferred correctly
-# run `restic check -r "/mnt/g/pc-restic-repo"`
+# > if restic repo mounted on SMB share: `export GODEBUG=asyncpreemptoff=1`
+# > if restic repo mounted on SMB share: use `--no-lock` in restic command
+# run `restic check -r "/mtn/PATH/TO/pc-restic-repo"`
+# run rsync with -c to verify all non-restic files transferred correctly
