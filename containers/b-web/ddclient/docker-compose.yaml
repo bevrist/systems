@@ -6,13 +6,11 @@ version: "3"
 
 services:
   ddclient:
-    build:
-      context: .
+    image: lscr.io/linuxserver/ddclient:latest
     environment:
-      - CF_TOKEN= # TODO FILL_ME
-      - CF_ZONE=brettevrist.net
-      - CF_DOMAIN=home.brettevrist.net
       - PUID=1000
       - PGID=1000
       - TZ=America/Los_Angeles
+    volumes:
+      - $PWD/ddclient.conf:/config/ddclient.conf
     restart: unless-stopped
