@@ -5,15 +5,14 @@ comment out `./perforce-data:/perforce-data` in docker-compose.yml before initia
 
 ```
 mkdir -p p4dctl.conf.d
-mkdir -p perforce-data
 mkdir -p dbs
 mkdir -p setup
 docker-compose run -T --rm perforce tar czf - -C /etc/perforce/p4dctl.conf.d  . | tar xvzf - -C p4dctl.conf.d/
 ```
-uncomment `./p4dctl.conf.d:/etc/perforce/p4dctl.conf.d` in docker-compose.yml
-add `P4PORT    =	1666` below the `P4ROOT` line
+uncomment ONLY `./p4dctl.conf.d:/etc/perforce/p4dctl.conf.d` in docker-compose.yml
+add `P4PORT    =	1666` below the `P4ROOT` line in the file `./p4dctl.conf.d/p4d.template`
 
-change the `CMD` line in Dockerfile to match system user and group: `id -u; id -g` : `usermod -u 501 -g 20 perforce`
+change the `CMD` line in Dockerfile to match system user's group: `id -g` ==> `groupadd -g 1234 perf && usermod -u 1234 perforce`
 
 `docker-compose run --rm perforce bash -c "/opt/perforce/sbin/configure-helix-p4d.sh && cp -r /perforce-data /setup"`
 
@@ -24,6 +23,6 @@ change the `CMD` line in Dockerfile to match system user and group: `id -u; id -
 
 uncomment `./perforce-data:/perforce-data` in docker-compose.yml
 
-`mv setup/perforce-data/* perforce-data`
+`sudo mv setup/perforce-data .`
 
 `docker-compose up --build -d` 

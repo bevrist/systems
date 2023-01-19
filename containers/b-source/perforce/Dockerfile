@@ -22,6 +22,6 @@ RUN apt-get install -y helix-p4d
 
 # Go into our directory, start Perforce, and view the log outputs
 
-CMD usermod -u 501 -g 20 perforce \
+CMD groupadd -g 1234 perf && usermod -u 1234 perforce \
   && cd /dbs && p4dctl start master \
   && tail -F /perforce-data/logs/log
