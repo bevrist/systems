@@ -18,7 +18,8 @@ change the `CMD` line in Dockerfile to match system user's group: `id -g` ==> `g
 
 - Configure the server name as `master`, 
 - ensure that the server root is set to `/perforce-data`, 
-- and that the port is set to `1666`. 
+- "Perforce Server case-sensitive" `n`,
+- and that the port is set to `1666`, 
 - also set up superuser credentials for your server during this step.
 
 uncomment `./perforce-data:/perforce-data` in docker-compose.yml
