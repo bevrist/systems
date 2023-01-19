@@ -7,7 +7,7 @@ comment out `./perforce-data:/perforce-data` in docker-compose.yml before initia
 mkdir -p p4dctl.conf.d
 mkdir -p dbs
 mkdir -p setup
-docker-compose run -T --rm perforce tar czf - -C /etc/perforce/p4dctl.conf.d  . | tar xvzf - -C p4dctl.conf.d/
+docker-compose build ; docker-compose run -T --rm perforce tar czf - -C /etc/perforce/p4dctl.conf.d  . | tar xvzf - -C p4dctl.conf.d/
 ```
 uncomment ONLY `./p4dctl.conf.d:/etc/perforce/p4dctl.conf.d` in docker-compose.yml
 add `P4PORT    =	1666` below the `P4ROOT` line in the file `./p4dctl.conf.d/p4d.template`
@@ -23,6 +23,6 @@ change the `CMD` line in Dockerfile to match system user's group: `id -g` ==> `g
 
 uncomment `./perforce-data:/perforce-data` in docker-compose.yml
 
-`sudo mv setup/perforce-data .`
+`sudo chown -R bevrist:bevrist . && mv setup/perforce-data .`
 
 `docker-compose up --build -d` 
