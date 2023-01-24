@@ -14,25 +14,29 @@ sudo echo "starting..."
 if [ ! -d ~/.ssh ]
 then
   mkdir -p ~/.ssh
-  echo "Generating SSH Key, MUST USE A PASSWORD!"
-  ssh-keygen -f ~/.ssh/${USER}_key
-  chmod 500 ~/.ssh/${USER}_key
-  echo "Adding SSH Key to Keychain..."
-  ssh-add --apple-use-keychain ~/.ssh/${USER}_key
+#   # If using apple keychain for keys
+#   echo "Generating SSH Key, MUST USE A PASSWORD!"
+#   ssh-keygen -f ~/.ssh/${USER}_key
+#   chmod 500 ~/.ssh/${USER}_key
+#   echo "Adding SSH Key to Keychain..."
+#   ssh-add --apple-use-keychain ~/.ssh/${USER}_key
 fi
 
 echo "Host *
-  UseKeychain yes
-  AddKeysToAgent yes
-  IdentityFile ~/.ssh/${USER}_key
+  #secretive keystore
+	IdentityAgent /Users/${USER}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
   ServerAliveInterval 5
   ServerAliveCountMax 1
+  # #apple keychain
+  # UseKeychain yes
+  # AddKeysToAgent yes
+  # IdentityFile ~/.ssh/${USER}_key
 
 Host play.brettevrist.net
   HostName play.brettevrist.net
   Port 2213
-  User bevrist" > ~/.ssh/config
-
+  User bevrist
+" > ~/.ssh/config
 
 # ========= Install Applications =========
 #if not installed, Install Homebrew
@@ -44,7 +48,7 @@ brew update
 
 #Install Apps
 brew install --cask xquartz google-drive  # install apps that require system password first
-brew install --cask rectangle keepingyouawake homebrew/cask-fonts/font-fira-code-nerd-font numi maccy
+brew install --cask rectangle keepingyouawake homebrew/cask-fonts/font-fira-code-nerd-font numi maccy secretive
 brew install --cask iterm2 keepassxc orion firefox google-chrome visual-studio-code obsidian
 brew install --cask discord iina grandperspective microsoft-remote-desktop db-browser-for-sqlite
 brew install --cask rancher openlens ios-app-signer
@@ -102,6 +106,7 @@ git config --global user.email "brettevrist10@gmail.com"
 echo "=============== NOTES ==============="
 echo "Restore restic backup files
 Sort all Apple apps to folders to make room for new Apps
+Open 'secretive' and create an ssh key
 Sign ~/.ssh/${USER}_key key with ca_cert
 Log into Google Drive App
 Setup 'dev/backup/cron-backup.sh' in crontab
