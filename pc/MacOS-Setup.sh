@@ -62,6 +62,9 @@ brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq macchina watchexec
 brew install docker docker-compose docker-buildx docker-credential-helper ctop kubernetes-cli yq helm kubectx skaffold   #linkerd argocd
 # brew install lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit tokei
 
+# brew install svn; brew install --cask smartsvn
+# brew install pandoc basictex
+
 
 # symlink aliases
 ln -sf /usr/local/bin/kubectl /usr/local/bin/k
