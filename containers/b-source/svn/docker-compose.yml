@@ -1,0 +1,16 @@
+# docker-compose up --build
+version: '3'
+services:
+  svn:
+    build:
+      context: .
+      dockerfile: svn+ssh.Dockerfile
+    restart: unless-stopped
+    volumes:
+      - ./svn:/svn
+    ports:
+      # - "3690:3690"
+      - "2222:22"
+
+# after creation, create a project:
+  # svnadmin create /svn/SampleProject
