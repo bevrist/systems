@@ -1,4 +1,4 @@
-FROM debian:11
+FROM debian:11-slim
 
 # install sshd and subversion
 ENV DEBIAN_FRONTEND=noninteractive

@@ -53,6 +53,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: svn-secret
+  namespace: source
 type: Opaque
 data:
   BEVRIST_PASS: "password-goes-here-in-base-64"

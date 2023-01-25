@@ -1,4 +1,4 @@
-FROM debian:11
+FROM debian:11-slim
 
 # install sshd and subversion
 ENV DEBIAN_FRONTEND=noninteractive
@@ -9,7 +9,8 @@ RUN apt-get update \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
-RUN locale-gen en_US.UTF-8
+RUN sed -i 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
+RUN locale-gen
 
 # configure sshd
 COPY --chown=root:root ./ca_key.pub /etc/ssh/ca_key.pub
