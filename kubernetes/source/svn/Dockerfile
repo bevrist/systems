@@ -50,9 +50,9 @@ EXPOSE 22
 #edit `~/.subversion/config`:
 #   [tunnels]
 #   # ssh = $SVN_SSH ssh -q --
-#   ssh2222 = $SVN_SSH ssh -p 2222 -q --
+#   ssh2500 = $SVN_SSH ssh -p 2500 -q --
 #use this to checkout repo
-#   svn co svn+ssh2222://bevrist@<IP>/svn/SampleProject dirname-optional
+#   svn co svn+ssh2500://bevrist@<IP>/svn/SampleProject dirname-optional
 
 #connect with GUI client
-#   svn+ssh://<IP>:2222/svn/SampleProject
+#   svn+ssh://<IP>:2500/svn/SampleProject

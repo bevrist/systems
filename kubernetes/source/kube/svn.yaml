@@ -1,0 +1,76 @@
+
+# local k3os docker registry
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: source
+  annotations:
+    linkerd.io/inject: enabled
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: subversion
+  namespace: source
+  labels:
+    app: subversion
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: "subversion"
+  template:
+    metadata:
+      labels:
+        app: subversion
+    spec:
+      containers:
+      - name: subversion
+        image: 192.168.86.7:5000/svn-image # FIXME: update IP
+        imagePullPolicy: Always
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 1000Mi
+        ports:
+        - containerPort: 22
+          protocol: TCP
+        volumeMounts:
+        - name: svn-storage
+          mountPath: /svn
+      volumes:
+      - name: svn-storage
+        persistentVolumeClaim:
+          claimName: subversion-pvc
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: subversion-pvc
+  namespace: source
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Gi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: subversion-service
+  namespace: source
+  labels:
+    run: subversion
+spec:
+  selector:
+    app: subversion
+  ports:
+    - name: svn-port
+      port: 2500
+      targetPort: 22
+  type: LoadBalancer

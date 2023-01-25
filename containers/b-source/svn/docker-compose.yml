@@ -1,4 +1,4 @@
-# docker-compose up --build
+# docker-compose up --build -d
 version: '3'
 services:
   svn:
@@ -12,5 +12,18 @@ services:
       # - "3690:3690"
       - "2222:22"
 
-# after creation, create a project:
-  # svnadmin create /svn/SampleProject
+#On Container: Create Repository
+#   svnadmin create /svn/SampleProject
+#   chown -R bevrist:svn-writers /svn/SampleProject
+#   chmod -R ug+w /svn/SampleProject
+
+#connect with CLI client:
+#edit `~/.subversion/config`:
+#   [tunnels]
+#   # ssh = $SVN_SSH ssh -q --
+#   ssh2222 = $SVN_SSH ssh -p 2222 -q --
+#use this to checkout repo
+#   svn co svn+ssh2222://bevrist@<IP>/svn/SampleProject dirname-optional
+
+#connect with GUI client
+#   svn+ssh://<IP>:2222/svn/SampleProject

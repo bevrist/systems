@@ -14,6 +14,7 @@ RUN groupadd svn
 # create ssh users
 RUN useradd -g svn -ms /bin/bash bevrist
 RUN useradd -ms /bin/bash guest
+# TODO make passwords env vars set at startup
 # RUN echo 'bevrist:Apassword1!' | chpasswd
 # RUN echo 'guest:guest' | chpasswd
 
