@@ -31,6 +31,10 @@ echo guest:$GUEST_PASS | chpasswd  \n\
 \n\
 echo bevrist:$BEVRIST_PASS | chpasswd  \n\
 \n\
+# copy stored ssh host keys between volume  \n\
+cp /ssh-host-keys/* /etc/ssh/ || true  \n\
+find /etc/ssh -name "*_host_*" -exec cp {} /ssh-host-keys/ \;  \n\
+\n\
 /usr/sbin/sshd -De &  \n\
 echo "starting svn server"  \n\
 /usr/bin/svnserve --daemon --foreground --root /svn  \n\
@@ -39,6 +43,7 @@ echo "starting svn server"  \n\
 CMD ["/usr/bin/tini", "-v", "--", "/entrypoint.sh"]
 
 EXPOSE 22
+# TODO run ssh on a high port number as non-root user
 
 # create repo root directory
 RUN mkdir -p /svn

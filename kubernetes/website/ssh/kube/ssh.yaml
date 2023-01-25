@@ -36,6 +36,8 @@ spec:
           mountPath: /www/brettevrist.net/share
         - name: website-ios-volume
           mountPath: /www/brettevrist.net/ios
+        - name: ssh-host-keys
+          mountPath: /ssh-host-keys
       volumes:
       - name: website-share-volume
         persistentVolumeClaim:
@@ -43,6 +45,9 @@ spec:
       - name: website-ios-volume
         persistentVolumeClaim:
           claimName: website-ios-pvc
+      - name: ssh-host-keys
+        persistentVolumeClaim:
+          claimName: ssh-host-key-pvc
 
 ---
 apiVersion: v1

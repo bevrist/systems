@@ -40,6 +40,8 @@ spec:
         volumeMounts:
         - name: svn-storage
           mountPath: /svn
+        - name: svn-ssh-host-keys
+          mountPath: /ssh-host-keys
         envFrom:
         - secretRef:
             name: svn-secret
@@ -47,6 +49,9 @@ spec:
       - name: svn-storage
         persistentVolumeClaim:
           claimName: subversion-pvc
+      - name: svn-ssh-host-keys
+        persistentVolumeClaim:
+          claimName: subversion-ssh-host-key-pvc
 
 ---
 apiVersion: v1
@@ -71,6 +76,19 @@ spec:
   resources:
     requests:
       storage: 50Gi
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: subversion-ssh-host-key-pvc
+  namespace: source
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Mi
 
 ---
 apiVersion: v1
