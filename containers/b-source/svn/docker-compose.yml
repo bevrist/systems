@@ -8,6 +8,7 @@ services:
     restart: unless-stopped
     volumes:
       - ./svn:/svn
+      - ./ssh-host-keys:/ssh-host-keys
     ports:
       # - "3690:3690"
       - "2222:22"
