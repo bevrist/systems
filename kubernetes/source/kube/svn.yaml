@@ -1,5 +1,5 @@
 
-# local k3os docker registry
+# subversion server
 ---
 apiVersion: v1
 kind: Namespace
@@ -40,10 +40,23 @@ spec:
         volumeMounts:
         - name: svn-storage
           mountPath: /svn
+        envFrom:
+        - secretRef:
+            name: svn-secret
       volumes:
       - name: svn-storage
         persistentVolumeClaim:
           claimName: subversion-pvc
+
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: svn-secret
+type: Opaque
+data:
+  BEVRIST_PASS: "password-goes-here-in-base-64"
+  # GUEST_PASS: "Z3Vlc3Q="  # "guest"
 
 ---
 apiVersion: v1

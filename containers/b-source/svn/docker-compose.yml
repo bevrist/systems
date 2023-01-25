@@ -4,7 +4,7 @@ services:
   svn:
     build:
       context: .
-      dockerfile: svn+ssh.Dockerfile
+      dockerfile: Dockerfile
     restart: unless-stopped
     volumes:
       - ./svn:/svn

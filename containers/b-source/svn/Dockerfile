@@ -1,38 +1,62 @@
-FROM ubuntu:20.04
+FROM debian:11
 
-# install subversion
+# install sshd and subversion
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install tini subversion -y \
+    && apt-get install locales tini ssh subversion -y \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
 
-RUN groupadd svn
+RUN locale-gen en_US.UTF-8
+
+# configure sshd
+COPY --chown=root:root ./ca_key.pub /etc/ssh/ca_key.pub
+RUN echo "TrustedUserCAKeys /etc/ssh/ca_key.pub" >> /etc/ssh/sshd_config
+RUN echo "ForceCommand /usr/bin/svnserve -t" >> /etc/ssh/sshd_config
+RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/' /etc/ssh/sshd_config
+RUN mkdir -p /run/sshd
+
+RUN groupadd svn-writers
 
 # create ssh users
-RUN useradd -g svn -ms /bin/bash bevrist
+RUN useradd -g svn-writers -ms /bin/bash bevrist
 RUN useradd -ms /bin/bash guest
-# TODO make passwords env vars set at startup
-# RUN echo 'bevrist:Apassword1!' | chpasswd
-# RUN echo 'guest:guest' | chpasswd
 
-RUN printf 'bevrist = rw  \n\
-guest = r  \n\
-' > /authz
+RUN printf '#!/bin/bash  \n\
+export GUEST_PASS=${GUEST_PASS:-"guest"}  \n\
+echo guest:$GUEST_PASS | chpasswd  \n\
+\n\
+echo bevrist:$BEVRIST_PASS | chpasswd  \n\
+\n\
+/usr/sbin/sshd -De &  \n\
+echo "starting svn server"  \n\
+/usr/bin/svnserve --daemon --foreground --root /svn  \n\
+' > /entrypoint.sh && chmod +x /entrypoint.sh
 
+CMD ["/usr/bin/tini", "-v", "--", "/entrypoint.sh"]
 
-RUN mkdir -p /run/sshd
+EXPOSE 22
+
+# create repo root directory
 RUN mkdir -p /svn
-
-CMD ["/usr/bin/tini", "-v", "--", "/usr/bin/svnserve", "--daemon", "--foreground", "--root", "/svn"]
-
-EXPOSE 3690
-
 # VOLUME /svn
-# svnadmin create /svn/SampleProject
-# cp /authz /svn/SampleProject/conf/authz
+# ENV GUEST_PASS
+# ENV BEVRIST_PASS
 
-#connect with client:
-# svn://<IP>/svn/SampleProject
+#On Container: Create Repository
+#   svnadmin create /svn/SampleProject
+#   chown -R bevrist:svn-writers /svn/SampleProject
+#   chmod -R ug+w /svn/SampleProject
+
+#connect with CLI client:
+#edit `~/.subversion/config`:
+#   [tunnels]
+#   # ssh = $SVN_SSH ssh -q --
+#   ssh2222 = $SVN_SSH ssh -p 2222 -q --
+#use this to checkout repo
+#   svn co svn+ssh2222://bevrist@<IP>/svn/SampleProject dirname-optional
+
+#connect with GUI client
+#   svn+ssh://<IP>:2222/svn/SampleProject

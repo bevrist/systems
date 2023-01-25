@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM debian:11
 
 # install sshd and subversion
 ENV DEBIAN_FRONTEND=noninteractive
@@ -16,20 +16,20 @@ COPY --chown=root:root ./ca_key.pub /etc/ssh/ca_key.pub
 RUN echo "TrustedUserCAKeys /etc/ssh/ca_key.pub" >> /etc/ssh/sshd_config
 RUN echo "ForceCommand /usr/bin/svnserve -t" >> /etc/ssh/sshd_config
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/' /etc/ssh/sshd_config
+RUN mkdir -p /run/sshd
 
 RUN groupadd svn-writers
 
 # create ssh users
 RUN useradd -g svn-writers -ms /bin/bash bevrist
 RUN useradd -ms /bin/bash guest
-# TODO make passwords env vars set at startup
-RUN echo 'bevrist:Apassword1!' | chpasswd
-RUN echo 'guest:guest' | chpasswd
-
-RUN mkdir -p /run/sshd
-RUN mkdir -p /svn
 
 RUN printf '#!/bin/bash  \n\
+export GUEST_PASS=${GUEST_PASS:-"guest"}  \n\
+echo guest:$GUEST_PASS | chpasswd  \n\
+\n\
+echo bevrist:$BEVRIST_PASS | chpasswd  \n\
+\n\
 /usr/sbin/sshd -De &  \n\
 echo "starting svn server"  \n\
 /usr/bin/svnserve --daemon --foreground --root /svn  \n\
@@ -39,7 +39,11 @@ CMD ["/usr/bin/tini", "-v", "--", "/entrypoint.sh"]
 
 EXPOSE 22
 
+# create repo root directory
+RUN mkdir -p /svn
 # VOLUME /svn
+# ENV GUEST_PASS
+# ENV BEVRIST_PASS
 
 #On Container: Create Repository
 #   svnadmin create /svn/SampleProject
