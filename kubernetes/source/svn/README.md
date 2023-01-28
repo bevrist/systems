@@ -11,15 +11,15 @@ chmod -R ug+w /svn/SampleProject
 
 ## Connect
 connect with CLI client:
-> edit `~/.subversion/config`:
+> edit `~/.ssh/config`:
 ```
-[tunnels]
-# ssh = $SVN_SSH ssh -q --
-ssh2500 = $SVN_SSH ssh -p 2500 -q --
+Host svn.brettevrist.net
+  Port 2500
+  User bevrist
 ```
 use this to checkout repo:
-`svn co svn+ssh2500://bevrist@<IP>/svn/SampleProject dirname-optional`
+`svn co svn+ssh://svn.brettevrist.net/svn/SampleProject dirname-optional`
 
 
 connect with GUI client:
-`svn+ssh://<IP>:2500/svn/SampleProject`
+`svn+ssh://svn.brettevrist.net:2500/svn/SampleProject`

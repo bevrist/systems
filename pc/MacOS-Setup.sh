@@ -33,8 +33,11 @@ echo "Host *
   # IdentityFile ~/.ssh/${USER}_key
 
 Host play.brettevrist.net
-  HostName play.brettevrist.net
   Port 2213
+  User bevrist
+
+Host svn.brettevrist.net
+  Port 2500
   User bevrist
 
 # Host 192.168.1.10
