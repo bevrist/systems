@@ -1,0 +1,9 @@
+SUBVERSION Repo Management
+
+To create a new repo:
+  svnadmin create /svn/SampleProject
+  chown -R bevrist:svn-writers /svn/SampleProject
+  chmod -R ug+w /svn/SampleProject
+
+To dump a repo:
+  svnadmin dump /svn/SampleProject > full.dump

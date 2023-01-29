@@ -5,6 +5,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
     && apt-get upgrade -y \
     && apt-get install locales tini ssh subversion -y \
+    && apt-get install rsync -y \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
@@ -19,6 +20,8 @@ RUN echo "ForceCommand /usr/bin/svnserve -t" >> /etc/ssh/sshd_config
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/' /etc/ssh/sshd_config
 RUN mkdir -p /run/sshd
 
+COPY --chown=root:root --chmod=777 ./help.txt /help.txt
+
 RUN groupadd svn-writers
 
 # create ssh users
@@ -26,6 +29,7 @@ RUN useradd -g svn-writers -ms /bin/bash bevrist
 RUN useradd -ms /bin/bash guest
 
 RUN printf '#!/bin/bash  \n\
+cp /help.txt /svn/help.txt  \n\
 export GUEST_PASS=${GUEST_PASS:-"guest"}  \n\
 echo guest:$GUEST_PASS | chpasswd  \n\
 \n\
@@ -40,6 +44,7 @@ echo "starting svn server"  \n\
 /usr/bin/svnserve --daemon --foreground --root /svn  \n\
 ' > /entrypoint.sh && chmod +x /entrypoint.sh
 
+WORKDIR /svn
 CMD ["/usr/bin/tini", "-v", "--", "/entrypoint.sh"]
 
 EXPOSE 22
