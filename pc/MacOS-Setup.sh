@@ -69,7 +69,7 @@ brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq macchina watchexec
 brew install podman podman-compose ctop kubernetes-cli yq helm kubectx skaffold   # # linkerd argocd  # docker docker-compose docker-buildx docker-credential-helper
 # lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit tokei
 
-# brew install --cask unity-hub smartsvn ; brew install dotnet mono svn
+# brew install --cask unity-hub; brew install dotnet mono
 # brew install pandoc basictex
 
 
@@ -165,9 +165,10 @@ Setup preferences for apps:
     Profiles > Window: Settings for New Windows: Columns: '100', Rows: '50'
     Profiles > Terminal: Scrollback Lines: '20,000',
   Menuwhere:
-    Hide Menus > 'Apple'
+    Hide Menus > 'Apple,Menuwhere'
     check 'Hide disabled menu items'
     Advanced > check 'Launch automatically at login'
+    Advanced > uncheck 'Show preferences at launch'
     Advanced > Run as 'Faceless' application
   Rancher Desktop:
     Configure PATH: 'Manual'
