@@ -57,16 +57,16 @@ brew install --cask xquartz google-drive  # install apps that require system pas
 brew install --cask rectangle keepingyouawake homebrew/cask-fonts/font-fira-code-nerd-font numi maccy secretive menuwhere
 brew install --cask iterm2 keepassxc orion firefox google-chrome visual-studio-code obsidian
 brew install --cask discord iina grandperspective microsoft-remote-desktop db-browser-for-sqlite
-brew install --cask rancher openlens ios-app-signer
+brew install --cask openlens ios-app-signer
 # blender flutter steam epic-games alt-tab
 # bootstrap-studio chromium http-toolkit postman stoplight-studio drone figma
-# monitorcontrol hiddenbar cider
+# monitorcontrol hiddenbar cider rancher
 # rocket-typist
 
 brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions
 brew install starship wget grep findutils rsync watch entr git git-lfs coreutils lsd restic terminal-notifier archey4 python@3.11
 brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq macchina watchexec dstask hyperfine rclone
-brew install podman podman-compose docker docker-compose docker-buildx docker-credential-helper ctop kubernetes-cli yq helm kubectx skaffold   # # linkerd argocd
+brew install podman podman-compose ctop kubernetes-cli yq helm kubectx skaffold   # # linkerd argocd  # docker docker-compose docker-buildx docker-credential-helper
 # lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit tokei
 
 # brew install --cask unity-hub smartsvn ; brew install dotnet mono svn
