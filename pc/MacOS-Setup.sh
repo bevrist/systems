@@ -14,7 +14,7 @@ sudo echo "starting..."
 if [ ! -d ~/.ssh ]
 then
   mkdir -p ~/.ssh
-#   # If using apple keychain for keys
+#   # Using apple keychain for SSH keys
 #   echo "Generating SSH Key, MUST USE A PASSWORD!"
 #   ssh-keygen -f ~/.ssh/${USER}_key
 #   chmod 500 ~/.ssh/${USER}_key
@@ -64,16 +64,16 @@ brew install --cask openlens ios-app-signer
 # rocket-typist
 
 brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions
-brew install starship wget grep findutils rsync watch entr git git-lfs coreutils lsd restic terminal-notifier archey4 python@3.11
-brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq macchina watchexec dstask hyperfine rclone
+brew install starship wget grep findutils rsync watch entr git git-lfs coreutils lsd restic terminal-notifier macchina python@3.11
+brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq watchexec dstask hyperfine tokei rclone
 brew install podman podman-compose ctop kubernetes-cli yq helm kubectx skaffold   # # linkerd argocd  # docker docker-compose docker-buildx docker-credential-helper
-# lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit tokei
+# lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit
 
-# brew install --cask unity-hub; brew install dotnet mono
+# brew install --cask unity-hub; brew install dotnet mono svn
 # brew install pandoc basictex
 
 
-# symlink aliases
+# symlink aliases (for `watch` command)
 ln -sf /usr/local/bin/kubectl /usr/local/bin/k
 
 # install cht.sh

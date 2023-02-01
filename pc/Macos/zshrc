@@ -17,6 +17,7 @@ alias ll="lsd -l"
 alias task="dstask"
 alias k="kubectl"
 alias d="docker"
+alias p="podman"
 
 ### set default binaries:
 ## gnu-coreutils (default install with "g" prefix e.g. "gcat")
@@ -73,9 +74,12 @@ source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source <(kubectl completion zsh)
 compdef k='kubectl'  #zsh-completion for `k` alias
+compdef d='docker'   #zsh-completion for `d` alias
+compdef p='podman'   #zsh-completion for `p` alias
 
 # center justify text function
 center () {
+  if [ -z "$1" ]; then echo "usage: $0 'String' [Dividing Char] [Total Length]"; return; fi
   if [ -z "$2" ]; then 2='#'; fi
   if [ -z "$3" ]; then 3=40; fi
   python3 -c "print(\"{:$2^$3}\".format(\" $1 \"))"
