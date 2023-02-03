@@ -173,7 +173,7 @@ Setup preferences for apps:
   Rancher Desktop:
     Configure PATH: 'Manual'
 
-Get store apps: XCode, Wireguard
+Get store apps: XCode, Wireguard, SnailSVN
 Setup Affinity Designer: https://affinity.serif.com
   brew install --cask affinity-designer
 Get Pureref: https://pureref.com
