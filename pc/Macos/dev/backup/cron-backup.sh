@@ -65,7 +65,7 @@ fi
 ### PRE BACKUP ###
 # vscode extensions
 mkdir -p "$HOME/.backup/backup"
-code --list-extensions > "$HOME/.backup/backup/vscode-extensions.txt"
+code --list-extensions > "$HOME/.backup/backup/vscode-extensions.txt" 2> /dev/null
 
 ### RESTIC BACKUP ###
 # Obsidian Personal Vault (dir)
