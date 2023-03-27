@@ -66,11 +66,12 @@ brew install --cask openlens ios-app-signer
 brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions
 brew install starship wget grep findutils rsync watch entr git git-lfs coreutils lsd restic terminal-notifier macchina python@3.11
 brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq watchexec dstask hyperfine tokei rclone
-brew install podman podman-compose ctop kubernetes-cli yq helm kubectx skaffold   # # linkerd argocd  # docker docker-compose docker-buildx docker-credential-helper
+brew install ctop kubernetes-cli yq helm kubectx skaffold   # # linkerd argocd  # docker docker-compose docker-buildx docker-credential-helper podman podman-compose
 # lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit
 
 # brew install --cask unity-hub; brew install dotnet mono svn
 # brew install pandoc basictex
+# brew install typst ; brew insatll --cask skim
 
 
 # symlink aliases (for `watch` command)
