@@ -60,18 +60,21 @@ brew install --cask discord iina grandperspective microsoft-remote-desktop db-br
 brew install --cask openlens ios-app-signer
 # blender flutter steam epic-games alt-tab
 # bootstrap-studio chromium http-toolkit postman stoplight-studio drone figma
-# monitorcontrol hiddenbar cider rancher
+# monitorcontrol hiddenbar cider
 # rocket-typist
 
 brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions
 brew install starship wget grep findutils rsync watch entr git git-lfs coreutils lsd restic terminal-notifier macchina python@3.11
 brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq watchexec dstask hyperfine tokei rclone
-brew install ctop kubernetes-cli yq helm kubectx skaffold   # # linkerd argocd  # docker docker-compose docker-buildx docker-credential-helper podman podman-compose
-# lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit
+brew install ctop kubernetes-cli yq helm kubectx skaffold
+# linkerd argocd  #Kubernetes extras
+# docker docker-compose docker-buildx docker-credential-helper ; brew install --cask rancher #Docker OCI
+brew install podman podman-compose ; brew install --cask podman-desktop  #podman OCI
+# lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit  #fun extras
 
-# brew install --cask unity-hub; brew install dotnet mono svn
-# brew install pandoc basictex
-# brew install typst ; brew insatll --cask skim
+# brew install --cask unity-hub; brew install dotnet mono svn  #unity game dev
+# brew install pandoc basictex  #LaTeX
+# brew install typst ; brew install --cask skim  #better LaTeX alternative
 
 
 # symlink aliases (for `watch` command)
