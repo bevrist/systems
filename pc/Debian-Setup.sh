@@ -64,7 +64,7 @@ sudo apt-get full-upgrade -y
 sudo apt install linux-headers-amd64 -y
 
 # Add "testing main contrib non-free" to apt sources:
-sudo sed -Ei 's/bullseye(.* main)$/testing\1 contrib non-free/g' /etc/apt/sources.list
+sudo sed -Ei 's/bullseye(.* main)$/testing\1 contrib non-free non-free-firmware/g' /etc/apt/sources.list
 sudo apt-get update
 sudo apt-get full-upgrade -y
 sudo apt-get upgrade -y
