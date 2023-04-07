@@ -68,8 +68,8 @@ brew install starship wget grep findutils rsync watch entr git git-lfs coreutils
 brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq watchexec dstask hyperfine tokei rclone
 brew install ctop kubernetes-cli yq helm kubectx skaffold
 # linkerd argocd  #Kubernetes extras
-# docker docker-compose docker-buildx docker-credential-helper ; brew install --cask rancher #Docker OCI
-brew install podman podman-compose ; brew install --cask podman-desktop  #podman OCI
+docker docker-compose docker-buildx docker-credential-helper ; brew install --cask rancher  #rancher-based Docker OCI
+# brew install podman podman-compose ; brew install --cask podman-desktop  #podman OCI
 # lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit  #fun extras
 
 # brew install --cask unity-hub; brew install dotnet mono svn  #unity game dev

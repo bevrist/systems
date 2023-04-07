@@ -83,7 +83,7 @@ restic -r "$RESTIC_REPO" --host "$RESTIC_HOSTNAME" backup --exclude .git --compr
   $HOME/.backup/backup/vscode-extensions.txt
 
 # restic cleanup
-restic -r $RESTIC_REPO forget --prune --compression max \
+restic -r $RESTIC_REPO forget --prune --compression max --group-by '' \
   --keep-hourly  2  \
   --keep-daily   10 \
   --keep-weekly  8  \
