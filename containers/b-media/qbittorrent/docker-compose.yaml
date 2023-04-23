@@ -4,11 +4,15 @@ version: "3"
 services:
   qbittorrent:
     image: qbittorrent
+    build:
+      context: .
     ports:
       - 8080:8080/tcp
+      - 9000:9000
     volumes:
-      - /var/qbittorrent:/root/.config/qBittorrent
+      - /var/qbittorrent/config:/root/.config/qBittorrent
+      - /var/qbittorrent/data:/root/.local/share/qBittorrent/
       #! UPDATE THIS FOR CURRENT SYSTEM
-      - /mnt/DIRECTORY/downloads:/mnt
-    hostname: "seedbox-qb"
+      - /home/bevrist/systems/containers/b-media/qbittorrent/aaa:/mnt
+    hostname: "share-qb"
     restart: unless-stopped

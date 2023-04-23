@@ -1,0 +1,14 @@
+# run simply with `docker-compose build --pull --no-cache`
+version: "3"
+
+services:
+  qbittorrent:
+    image: qbittorrent
+    ports:
+      - 8080:8080/tcp
+    volumes:
+      - /var/qbittorrent:/root/.config/qBittorrent
+      #! UPDATE THIS FOR CURRENT SYSTEM
+      - /mnt/DIRECTORY/downloads:/mnt
+    hostname: "seedbox-qb"
+    restart: unless-stopped
