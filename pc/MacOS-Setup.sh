@@ -63,9 +63,10 @@ brew install --cask openlens ios-app-signer
 # monitorcontrol hiddenbar cider
 # rocket-typist
 
-brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions
-brew install starship wget grep findutils rsync watch entr git git-lfs coreutils lsd restic terminal-notifier macchina python@3.11
-brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq watchexec dstask hyperfine tokei rclone
+brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions starship
+brew install wget grep findutils rsync watch entr git git-lfs coreutils lsd restic terminal-notifier macchina python@3.11
+brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq rclone
+brew install traggo dstask watchexec hyperfine tokei
 brew install ctop kubernetes-cli yq helm kubectx skaffold
 # linkerd argocd  #Kubernetes extras
 docker docker-compose docker-buildx docker-credential-helper ; brew install --cask rancher  #rancher-based Docker OCI
@@ -165,9 +166,9 @@ Setup preferences for apps:
     Appearance > Tabs: 'Show tab bar even when...'
     Profiles > Colors: Color Preset: 'Tango Dark', Minimum Contrast->40
     Profiles > Text: Cursor->'Vertical Bar' & 'Blinking Cursor', Font->'Fira code' & Font Size->'12', check: 'Use Ligatures'
-    Profiles > Window: Transparency->25%, enable blur->5,
+    Profiles > Window: Transparency->25%, enable blur->5%,
     Profiles > Window: Settings for New Windows: Columns: '100', Rows: '50'
-    Profiles > Terminal: Scrollback Lines: '20,000',
+    Profiles > Terminal: Scrollback Lines: '25,000',
   Menuwhere:
     Hide Menus > 'Apple,Menuwhere'
     check 'Hide disabled menu items'

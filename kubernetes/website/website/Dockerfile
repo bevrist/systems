@@ -1,3 +1,4 @@
+# website-image
 # optimize javascript with closure compiler
 FROM debian as closure
 RUN apt-get update && apt-get install closure-compiler htmlmin -y

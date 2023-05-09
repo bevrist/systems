@@ -1,6 +1,6 @@
+# ssh-image
 FROM alpine
-RUN apk add openssh-server tini
-RUN apk add openssh rsync
+RUN apk add openssh-server openssh rsync tini
 
 # configure sshd
 COPY --chown=root:root ./ca_key.pub /etc/ssh/ca_key.pub
