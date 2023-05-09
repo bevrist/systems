@@ -65,7 +65,7 @@ brew install --cask openlens ios-app-signer
 
 brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions starship
 brew install wget grep findutils rsync watch entr git git-lfs coreutils lsd restic terminal-notifier macchina python@3.11
-brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq rclone
+brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq rclone atuin
 brew install traggo dstask watchexec hyperfine tokei
 brew install ctop kubernetes-cli yq helm kubectx skaffold
 # linkerd argocd  #Kubernetes extras
@@ -96,9 +96,12 @@ chmod -R 700 ~/dev
 # customize zsh prompt
 cp Macos/zshrc ~/.zshrc
 
-#.config/starship.toml
+# atuin history
+atuin import auto
+
+#.config/
 mkdir ~/.config
-cp Macos/starship.toml ~/.config/starship.toml
+cp -r Macos/config/ ~/.config/
 
 #.vimrc
 cp Macos/vimrc ~/.vimrc
