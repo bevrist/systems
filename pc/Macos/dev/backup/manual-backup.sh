@@ -2,18 +2,20 @@
 # NOW=$(date +"%Y-%m-%d")
 exit 1
 
-# update `_Backup` files in Drive
-# - genreate ticktick.com backup https://ticktick.com/webapp/#settings/backup
+# update `_Backup` files in Google Drive
+# - all backup files shoud be updated
+# - Emulator Game Saves
+# - generate ticktick.com backup https://ticktick.com/webapp/#settings/backup
 
-# Google Takeout: Calendar, Contacts, Drive, Play Books, Mail, Maps
+# copy updated `_backup` folder to OneDrive
+
+# Google Takeout: Calendar, Contacts, Drive, Mail, Maps
 # - Remove unneeded stuff from drive takeout
 
-# backup:
+# backup big folders:
 # - `Games Archive`
-# - `Emulator Game Saves`
 # - `Google Takeout`
 # - `Google Drive _Backup Folder (update files within)`
-# - `Games Archive`
 # - `Github Backup`
 
 

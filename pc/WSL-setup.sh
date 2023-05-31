@@ -31,12 +31,12 @@ sudo -u ${SUDO_USER} echo "apt update && apt upgrade -y && apt autoremove -y && 
 " > ${USER_HOME}/dev/update.sh
 chmod 500 ${USER_HOME}/dev/update.sh
 
-### keepass-update.sh ###
-sudo -u ${SUDO_USER} echo 'NOW=$(date +"%m_%d_%Y")
-ssh -p 2213 bevrist@play.brettevrist.net "mv /var/www/brettevrist.net/share/keePass/*.kdbx /var/www/brettevrist.net/share/keePass/_OLD/"
-scp -P 2213 /mnt/c/Users/B-PC/Google\ Drive/Documents/_KeePass/BrettsPassDatabase.kdbx bevrist@play.brettevrist.net:/var/www/brettevrist.net/share/keePass/BrettsPassDatabase_"$NOW".kdbx
-' > ${USER_HOME}/dev/keepass-update.sh
-chmod 700 ${USER_HOME}/dev/keepass-update.sh
+# ### keepass-update.sh ###
+# sudo -u ${SUDO_USER} echo 'NOW=$(date +"%m_%d_%Y")
+# ssh -p 2213 bevrist@play.brettevrist.net "mv /var/www/brettevrist.net/share/keePass/*.kdbx /var/www/brettevrist.net/share/keePass/_OLD/"
+# scp -P 2213 /mnt/c/Users/B-PC/Google\ Drive/Documents/_KeePass/BrettsPassDatabase.kdbx bevrist@play.brettevrist.net:/var/www/brettevrist.net/share/keePass/BrettsPassDatabase_"$NOW".kdbx
+# ' > ${USER_HOME}/dev/keepass-update.sh
+# chmod 700 ${USER_HOME}/dev/keepass-update.sh
 
 ### rsync-backup.sh ###
 sudo -u ${SUDO_USER} echo 'echo "Syncing /mnt/e/Game Dev/..."
