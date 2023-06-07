@@ -14,4 +14,16 @@ CMD ["/usr/bin/qbittorrent-nox", "--webui-port=8080"]
 
 EXPOSE 8080
 
-# docker run --rm -it -v $PWD/data:/downloads -p 8080:8080 qbittorrent
+# podman run --name qbittorrent -d \
+# -p 8080:8080 \
+# -v $PWD/qbittorrent/config/:/root/.config/qBittorrent/ \
+# -v $PWD/qbittorrent/share/:/root/.local/share/qBittorrent/ \
+# -v $PWD/qbittorrent/downloads:/mnt \
+# qbittorrent
+
+# podman run --name qbittorrent -d \
+# -p 8080:8080 \
+# -v /var/qbittorrent/config/:/root/.config/qBittorrent/ \
+# -v /var/qbittorrent/share/:/root/.local/share/qBittorrent/ \
+# -v /mnt/DIRECTORY/downloads:/mnt \
+# qbittorrent
