@@ -88,7 +88,7 @@ sudo chmod +x /usr/local/bin/cht.sh
 
 #create dev folder and scripts
 mkdir -p ~/dev
-rsync -rv Macos/dev ~/
+rsync -rvc Macos/dev ~/
 chmod -R 700 ~/dev
 
 
