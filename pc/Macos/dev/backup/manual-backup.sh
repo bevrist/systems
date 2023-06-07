@@ -13,10 +13,10 @@ exit 1
 # - Remove unneeded stuff from drive takeout
 
 # backup big folders:
+# - `Github Backup`
 # - `Games Archive`
 # - `Google Takeout`
 # - `Google Drive _Backup Folder (update files within)`
-# - `Github Backup`
 
 
 ###################### B-PC Backup script ############################
