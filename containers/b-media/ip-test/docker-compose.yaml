@@ -1,8 +1,0 @@
-version: "3"
-
-services:
-  ip-test:
-    image: ip-test
-    volumes:
-      - /root/ip-test:/app
-    restart: unless-stopped
