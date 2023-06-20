@@ -65,7 +65,7 @@ brew install --cask openlens ios-app-signer
 
 brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions starship
 brew install wget grep findutils rsync watch entr git git-lfs coreutils lsd restic terminal-notifier macchina python@3.11
-brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq rclone atuin
+brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq rclone atuin clamav
 brew install traggo dstask watchexec hyperfine tokei
 brew install ctop kubernetes-cli yq helm kubectx skaffold
 # linkerd argocd  #Kubernetes extras
