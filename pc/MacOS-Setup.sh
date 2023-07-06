@@ -65,15 +65,14 @@ brew install --cask openlens ios-app-signer
 
 brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions starship
 brew install wget grep findutils rsync watch entr git git-lfs coreutils lsd restic terminal-notifier macchina python@3.11
-brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq rclone atuin clamav
-brew install traggo dstask watchexec hyperfine tokei
-brew install ctop kubernetes-cli yq helm kubectx skaffold
+brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq yq rclone atuin clamav
+brew install dstask watchexec hyperfine tokei
+brew install ctop kubernetes-cli helm kubectx skaffold
 # linkerd argocd  #Kubernetes extras
-docker docker-compose docker-buildx docker-credential-helper ; brew install --cask rancher  #rancher-based Docker OCI
-# brew install podman podman-compose ; brew install --cask podman-desktop  #podman OCI
+docker podman docker-compose docker-buildx docker-credential-helper
 # lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit  #fun extras
 
-# brew install --cask unity-hub; brew install dotnet mono svn  #unity game dev
+# brew install --cask unity-hub; brew install dotnet mono  #unity game dev
 # brew install pandoc basictex  #LaTeX
 # brew install typst ; brew install --cask skim  #better LaTeX alternative
 
