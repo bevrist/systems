@@ -76,7 +76,6 @@ code --list-extensions > "$HOME/.backup/backup/vscode-extensions.txt" 2> /dev/nu
 # Vscode Extensions
 restic -r "$RESTIC_REPO" --host "$RESTIC_HOSTNAME" backup --exclude .git --compression max \
   $HOME/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/B-Obsidian-Vault/ \
-  $HOME/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/Shared-Vault/ \
   $HOME/Library/Application\ Support/Orion/Defaults/favourites.plist \
   $HOME/Library/Application\ Support/Orion/Defaults/browser_state.plist \
   $HOME/Library/Application\ Support/Code/User/settings.json \
