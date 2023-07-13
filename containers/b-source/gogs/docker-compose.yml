@@ -8,7 +8,7 @@ services:
       - gogs:/data
     ports:
       - "8080:3000" # http
-      - "2222:22" # git
+      - "2016:22" # git
 
 volumes:
   gogs:
