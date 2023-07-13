@@ -1,0 +1,56 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: git-service-external
+  namespace: website
+spec:
+  clusterIP: None
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 8080
+
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: git-service-external
+  namespace: website
+subsets:
+  - addresses:
+      - ip: 192.168.86.16 # FIXME: update IP (Internal git Server)
+    ports:
+      - port: 8080
+        name: http
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: git-ingress
+  namespace: website
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+    traefik.ingress.kubernetes.io/router.middlewares: website-https-redirect@kubernetescrd
+spec:
+  tls:
+  - hosts:
+    - git.brettevrist.net
+      # no secretName specified, use default certificate
+  defaultBackend:
+    service:
+      name: git-service-external
+      port:
+        number: 80
+  rules:
+  - host: git.brettevrist.net
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: git-service-external
+            port:
+              number: 8080

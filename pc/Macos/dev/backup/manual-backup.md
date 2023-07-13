@@ -8,14 +8,15 @@ use the following format for naming all backup files: `file-Name_$(date +"%Y-%m-
 
 2) copy updated `_backup` folder to OneDrive
 
+3) Open apple books and wait for data to sync, then export all books
 
-3) Google Takeout: Calendar, Contacts, Drive, Mail, Maps
+4) Google Takeout: Calendar, Contacts, Drive, Mail, Maps
 > - Remove unneeded stuff from drive takeout
 
-4) copy big folders to server and backup drives:
-    - Games Archive
-    - Google Takeout
-    - Google Drive _Backup Folder
+5) copy big folders to server and backup drives:
+> - Games Archive
+> - Google Takeout
+> - Google Drive _Backup Folder
 
 ## Sync data to server:
 ```bash

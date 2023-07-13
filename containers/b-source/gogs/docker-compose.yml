@@ -1,0 +1,15 @@
+# docker-compose up -d
+version: '3'
+services:
+  gogs:
+    image: gogs/gogs
+    restart: unless-stopped
+    volumes:
+      - gogs:/data
+    ports:
+      - "8080:3000" # http
+      - "2222:22" # git
+
+volumes:
+  gogs:
+
