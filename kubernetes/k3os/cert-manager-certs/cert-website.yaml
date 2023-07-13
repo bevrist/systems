@@ -1,3 +1,5 @@
+# make sure you update DNS token when adding new domains!
+# refer to domain auth directions in `../cert-manager.yaml`
 ---
 apiVersion: cert-manager.io/v1
 kind: Certificate
@@ -13,8 +15,8 @@ spec:
     - "*.kube.brettevrist.net"
     - "brettevrist.com"
     - "evri.st"
-    - "mealie.brettevrist.net"
-    - "mealie.evri.st"
+    - "*.evri.st"
+    - "evrist.net"
   issuerRef:
     name: letsencrypt-cluster-issuer
     kind: ClusterIssuer
