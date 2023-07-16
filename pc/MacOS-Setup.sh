@@ -14,6 +14,8 @@ sudo echo "starting..."
 if [ ! -d ~/.ssh ]
 then
   mkdir -p ~/.ssh
+  # Use secretive for keys instead of generating keys
+
 #   # Using apple keychain for SSH keys
 #   echo "Generating SSH Key, MUST USE A PASSWORD!"
 #   ssh-keygen -f ~/.ssh/${USER}_key
@@ -25,6 +27,9 @@ fi
 echo "Host *
   #secretive keystore
 	IdentityAgent /Users/${USER}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+  # IdentityFile ~/./ssh/<NAME_OF_PUB_KEY_HERE>
+  ## e.g. for key 'my-key.pub' with cert 'my-key-cert.pub', use 'IdentityFile ~/.ssh/my-key'
+
   ServerAliveInterval 5
   ServerAliveCountMax 1
   # #apple keychain
@@ -49,39 +54,44 @@ Host svn.brettevrist.net
 if ! command -v brew &> /dev/null
 then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/${USER}/.zprofile
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 brew update
 
 #Install Apps
-brew install --cask xquartz google-drive  # install apps that require system password first
+brew install --cask google-drive # xquartz  # install apps that require system password first
 brew install --cask rectangle keepingyouawake homebrew/cask-fonts/font-fira-code-nerd-font numi maccy secretive menuwhere
-brew install --cask iterm2 keepassxc orion firefox google-chrome visual-studio-code obsidian
-brew install --cask discord iina grandperspective microsoft-remote-desktop db-browser-for-sqlite utm
-brew install --cask openlens ios-app-signer
-# blender flutter steam epic-games alt-tab
-# bootstrap-studio chromium http-toolkit postman stoplight-studio drone figma
+brew install --cask iterm2 keepassxc orion chromium visual-studio-code obsidian
+brew install --cask iina grandperspective microsoft-remote-desktop db-browser-for-sqlite ios-app-signer
+# blender flutter steam epic-games discord
+# bootstrap-studio chromium http-toolkit postman stoplight-studio drone figma utm openlens
 # monitorcontrol hiddenbar cider
 # rocket-typist
 
 brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions starship
-brew install wget grep findutils rsync watch entr git git-lfs coreutils lsd restic terminal-notifier macchina python@3.11
+brew install wget grep findutils rsync watch entr git git-lfs coreutils lsd restic terminal-notifier macchina #? python@3.11
 brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq yq rclone atuin clamav
 brew install dstask watchexec hyperfine tokei
 brew install ctop kubernetes-cli helm kubectx skaffold
 # linkerd argocd  #Kubernetes extras
-docker podman docker-compose docker-buildx docker-credential-helper
+brew install podman docker docker-compose docker-buildx docker-credential-helper
 # lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit  #fun extras
 
 # brew install --cask unity-hub; brew install dotnet mono  #unity game dev
 # brew install pandoc basictex  #LaTeX
 # brew install typst ; brew install --cask skim  #better LaTeX alternative
 
+# create local bin dir with open permissions
+sudo mkdir -pm 775 /usr/local/bin/
 
 # symlink aliases (for `watch` command)
-ln -sf /usr/local/bin/kubectl /usr/local/bin/k
+ln -sf $(which kubectl) /usr/local/bin/k
+ln -sf $(which docker) /usr/local/bin/d
+ln -sf $(which podman) /usr/local/bin/p
 
 # install cht.sh
-sudo curl -o /usr/local/bin/cht.sh https://cht.sh/:cht.sh
+curl -o /usr/local/bin/cht.sh https://cht.sh/:cht.sh
 sudo chmod +x /usr/local/bin/cht.sh
 
 
@@ -99,15 +109,14 @@ cp Macos/zshrc ~/.zshrc
 atuin import auto
 
 #.config/
-mkdir ~/.config
+mkdir -p ~/.config
 cp -r Macos/config/ ~/.config/
 
 #.vimrc
 cp Macos/vimrc ~/.vimrc
 
-#Zsh-Completions: first time setup
-chmod -R go-w '/usr/local/share/zsh'
-chmod -R go-w '/usr/local/share'
+#Zsh-Completions: first time setup\
+chmod -R go-w '/opt/homebrew/share'
 
 #Run programs for first time setup
 git lfs install
@@ -125,6 +134,7 @@ echo "Restore restic backup files
 Sort all Apple apps to folders to make room for new Apps
 Open 'secretive' and create an ssh key
 Sign ~/.ssh/${USER}_key key with ca_cert
+copy pub key to .ssh/ and update ssh config 'IdentityFile' to point to key
 Log into Google Drive App
 Setup 'dev/backup/cron-backup.sh' in crontab
 macos Preferences:
@@ -134,34 +144,38 @@ macos Preferences:
   Desktop & Screen Saver > Screen Saver > Hot Corners: Set bottom right to 'Desktop'
   Dock & Menu Bar: check 'Automatically hide and show the dock', uncheck 'Show recent applications in the dock'
   Add 'Full Disk Access' for iTerm, Terminal, and VSCode
-  Mission Control: uncheck 'When switching to an Application, switch to a Space with open windows for that application'
   Spotlight: Disable all but Applications and Calculator
   Keyboard > Text: uncheck 'Add period with double-space'
-  Battery > Power Adapter: uncheck 'Wake for network access'
+  Battery > options: 'Wake for network access' never, enable 'Opimize video streaming while on battery'
 Setup preferences for apps:
   text edit: preferences: check 'Plain Text'
   orion browser:
-    get extensions: firefox: KeepassXC, SponsorBlock
     preferences:
+      set orion as default browser
       appearance > Show Tabs: On the side. Toolbar: check 'Show bookmarks bar' & 'use compact size'. Bookmarks bar: 'Text Only'
-      passwords > password provider: 'orion', password autofill: uncheck 'offer to autofill...' and uncheck 'offer to save...'
+      passwords > password provider: '3rd party provider'
       search > search engine: kagi (set up private window key)
-      websites > auto play: youtube
+      websites > auto play: youtube.com
+      advanced > check 'allow installation ... Firefox Extensions'
+    get popular extensions: consent-o-matic, SponsorBlock
+    get firefox extensions: KeepassXC-browser
     extension settings:
       KeepassXC: sync with desktop app
-	rectangle: start on login, hide menu bar icon
-	keepingyouawake: set enabled by default
+	rectangle: Launch on login, Hide menu bar icon
+	keepingyouawake:
+    General > check 'Activate at Launch'
+    Battery > Check 'Deacivate when battery is below' 10%
 	keepassxc:
-    general > File Management: uncheck all variants of 'Automatically save ...'
     general > startup: check 'automatically launch keepass at system startup', check 'minimize window after unlocking database'
-    set mac preferences to allow auto type '⌘+⇧+V' (security > accessibility: add keepassxc)
-    security > check 'Hide entry notes by default', 'lock database after inactivity'=600 sec
+    general > File Management: uncheck all variants of 'Automatically save ...'
+    set mac preferences app to allow auto type '⌘+⇧+V' (security > accessibility: add keepassxc)
+    security > 'lock database after inactivity'=600 sec, check 'Hide entry notes by default'
     browser integration > enable, firefox. advanced > check 'never ask before accessing credentials'
     connect KeepassXC to orion browser extension
   numi: Precision = 3, uncheck 'Show in menu bar', check 'Launch numi at login'
   maccy:
     General > 'Launch at login'
-    Storage > Dont save 'Files' & 'Images', HistorySize = 25
+    Storage > Dont save 'Files', HistorySize = 25
     Appearance > 'Show recent copy next to menu icon'
 	iTerm:
     General > Closing: disable 'Confirm Quit'
@@ -177,10 +191,8 @@ Setup preferences for apps:
     Advanced > check 'Launch automatically at login'
     Advanced > uncheck 'Show preferences at launch'
     Advanced > Run as 'Faceless' application
-  Rancher Desktop:
-    Configure PATH: 'Manual'
 
-Get store apps: XCode, Wireguard, SnailSVN
+Get store apps: XCode, Wireguard
 Setup Affinity Designer: https://affinity.serif.com
   brew install --cask affinity-designer
 Get Pureref: https://pureref.com

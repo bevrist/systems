@@ -3,7 +3,7 @@ macchina -U
 # Attempt backup script when opening new terminal windows
 ~/dev/backup/cron-backup.sh >> /tmp/cron-backup
 
-ssh-add -q --apple-load-keychain
+# ssh-add -q --apple-load-keychain
 
 export HOMEBREW_NO_ENV_HINTS=1
 
@@ -64,17 +64,19 @@ bindkey "^[^[[C" forward-word # Right
 bindkey "^[^[[D" backward-word # Left
 
 # zsh-syntax-highlighting
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
 ZSH_HIGHLIGHT_STYLES[path]=none
 ZSH_HIGHLIGHT_STYLES[path_prefix]=none
 
 # zsh-autosuggestions
-source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 source <(kubectl completion zsh)
 compdef k='kubectl'  #zsh-completion for `k` alias
+source <(docker completion zsh)
 compdef d='docker'   #zsh-completion for `d` alias
+source <(podman completion zsh)
 compdef p='podman'   #zsh-completion for `p` alias
 
 # center justify text function

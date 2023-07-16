@@ -1,1 +1,1 @@
-ssh -Y -p 2203 bevrist@play.brettevrist.net
+ssh -p 2203 bevrist@play.brettevrist.net
