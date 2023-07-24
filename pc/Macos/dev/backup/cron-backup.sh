@@ -7,7 +7,6 @@
 set -e
 
 HOME="/Users/bevrist"
-PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 
 BACKUP_TMP="/tmp/cron_backup"
 mkdir -p "$BACKUP_TMP"
@@ -15,7 +14,6 @@ BACKUP_LAST_RUN="$BACKUP_TMP/_last-backup"
 BACKUP_DRIVE_FAIL_COUNT="$BACKUP_TMP/_gdrive-mount-fail-count"
 
 RESTIC_REPO="$HOME/.backup/restic-repo"
-RESTIC_HOSTNAME="Bretts-Air.lan"
 export RESTIC_PASSWORD="password"
 
 GOOGLE_DRIVE_ROOT_PATH="/Users/bevrist/Library/CloudStorage/GoogleDrive-brettevrist10@gmail.com/My Drive/"
@@ -74,7 +72,7 @@ code --list-extensions > "$HOME/.backup/backup/vscode-extensions.txt" 2> /dev/nu
 # Orion Browser Tabs
 # Vscode Settings
 # Vscode Extensions
-restic -r "$RESTIC_REPO" --host "$RESTIC_HOSTNAME" backup --exclude .git --compression max \
+restic -r "$RESTIC_REPO" backup --exclude .git --compression max \
   $HOME/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/B-Obsidian-Vault/ \
   $HOME/Library/Application\ Support/Orion/Defaults/favourites.plist \
   $HOME/Library/Application\ Support/Orion/Defaults/browser_state.plist \

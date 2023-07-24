@@ -10,13 +10,14 @@ use the following format for naming all backup files: `file-Name_$(date +"%Y-%m-
 
 3) Open apple books and wait for data to sync, then export all books
 
-4) Google Takeout: Calendar, Contacts, Drive, Mail, Maps
+4) Google Takeout: Calendar, Contacts, Drive, Mail, Maps, Youtube
 > - Remove unneeded stuff from drive takeout
 
 5) copy big folders to server and backup drives:
 > - Games Archive
 > - Google Takeout
 > - Google Drive _Backup Folder
+> - Books
 
 ## Sync data to server:
 ```bash
