@@ -15,6 +15,20 @@ disabled = true
 disabled = false
 format = "[$status]($style)"
 
+[shell]
+disabled = false
+zsh_indicator = ''
+bash_indicator = 'bash '
+format = '[$indicator]($style)'
+
+[shlvl]
+disabled = false
+format = '[$symbol]($style) '
+style = 'bold bright-yellow'
+symbol = '⟩'
+repeat = true
+repeat_offset = 1
+
 [cmd_duration]
 format = "[took $duration]($style) "
 #show_notifications = true

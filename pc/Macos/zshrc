@@ -98,5 +98,10 @@ note () {
   fi
 }
 
+# current data function
+curr-date () {
+  date +"%Y-%m-%d"
+}
+
 eval "$(atuin init zsh --disable-up-arrow)"
 eval "$(starship init zsh)"
