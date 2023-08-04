@@ -9,10 +9,10 @@ export HOMEBREW_NO_ENV_HINTS=1
 
 ### Aliases
 # alias ls="ls -G"
-# alias la="ls -lahG"
-# alias ll="ls -lhG"
 alias ls="lsd"
+# alias la="ls -lahG"
 alias la="lsd -la"
+# alias ll="ls -lhG"
 alias ll="lsd -l"
 alias task="dstask"
 alias k="kubectl"
@@ -21,18 +21,13 @@ alias p="podman"
 
 ### set default binaries:
 ## gnu-coreutils (default install with "g" prefix e.g. "gcat")
-#export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+#export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
 ## gnu-findutils (default install with "g" prefix e.g. "gfind")
-#export PATH="/usr/local/opt/findutils/libexec/gnubin:$PATH"
+export PATH="/opt/homebrew/opt/findutils/libexec/gnubin:$PATH"
 # gnu-sed
-export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
-# rsync
-export PATH="/usr/local/Cellar/rsync:$PATH"
+export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 # grep
-export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
-
-# homebrew sbin
-export PATH="$PATH:/usr/local/sbin"
+export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
 
 ### Zsh Completions
 FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
@@ -88,7 +83,7 @@ center () {
 }
 
 # terminal-notifier function
-note () {
+notify () {
   if [ -z "$*" ]; then
     terminal-notifier -message "Ping."
     afplay /System/Library/Sounds/Ping.aiff
