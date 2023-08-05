@@ -3,7 +3,7 @@ FROM debian:12
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
     && apt-get upgrade -y \
-    && apt-get install wget openjdk-17-jre -y \
+    && apt-get install wget vim openjdk-17-jre -y \
     && apt-get autoremove -y \
     && apt-get clean -y \
     && rm -rf /var/lib/apt/lists/*
