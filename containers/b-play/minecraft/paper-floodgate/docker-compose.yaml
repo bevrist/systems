@@ -8,14 +8,10 @@ services:
       - "25565:25565"
       - "19132:19132/udp"
     volumes:
-        - ${PWD}/cache:/root/cache
-        - ${PWD}/logs:/root/logs
-        - ${PWD}/plugins/Geyser-Spigot/locales:/root/plugins/Geyser-Spigot/locales
-        - ${PWD}/world:/root/world
-        - ${PWD}/world_nether:/root/world_nether
-        - ${PWD}/world_the_end:/root/world_the_end
-        - ${PWD}/banned-ips.json:/root/banned-ips.json
-        - ${PWD}/banned-players.json:/root/banned-players.json
-        - ${PWD}/ops.json:/root/ops.json
-        - ${PWD}/whitelist.json:/root/whitelist.json
+      - papermc-floodgate:/paper
     restart: on-failure
+    stdin_open: true
+    tty: true
+
+volumes:
+  papermc-floodgate:
