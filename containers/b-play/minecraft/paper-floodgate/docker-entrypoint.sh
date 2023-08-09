@@ -1,9 +1,10 @@
 #!/bin/bash
-# startup script to copy initial config files into /paper dir if empty
+# startup script to copy initial config files into /paper dir and start server
+set -e
 
-if [ ! -e "/paper/server-properties" ]; then
-  echo "server.properties file not found, copying initial configs"
-  cp -r /paper-init/* /paper
-fi
+echo "copying initial paperMC configs:"
+ls -la /paper-init
+cp -r /paper-init/* /paper
 
+echo "Starting Server."
 java -jar -Xms256m -Xmx4g ./paper.jar --nogui
