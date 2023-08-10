@@ -9,7 +9,7 @@ services:
       - "19132:19132/udp"
     volumes:
       - papermc-floodgate:/paper
-    restart: on-failure
+    restart: unless-stopped
     stdin_open: true
     tty: true
 
