@@ -1,7 +1,7 @@
 version: '2'
 services:
   homebridge:
-    image: oznu/homebridge:latest
+    image: homebridge/homebridge:latest
     restart: always
     network_mode: host
     volumes:
