@@ -3,6 +3,7 @@ macchina -U
 # Attempt backup script when opening new terminal windows
 ~/dev/backup/cron-backup.sh >> /tmp/cron-backup
 
+# using secretive instead of apple keychain
 # ssh-add -q --apple-load-keychain
 
 export HOMEBREW_NO_ENV_HINTS=1

@@ -25,13 +25,14 @@ then
 fi
 
 echo "Host *
-  #secretive keystore
-	IdentityAgent /Users/${USER}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
-  # IdentityFile ~/./ssh/<NAME_OF_PUB_KEY_HERE>
-  ## e.g. for key 'my-key.pub' with cert 'my-key-cert.pub', use 'IdentityFile ~/.ssh/my-key'
-
   ServerAliveInterval 5
   ServerAliveCountMax 1
+
+  #secretive keystore
+	IdentityAgent /Users/${USER}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+  IdentityFile ~/./ssh/<NAME_OF_PUB_KEY_HERE>
+  ## e.g. for key 'my-key.pub' with cert 'my-key-cert.pub', use 'IdentityFile ~/.ssh/my-key'
+
   # #apple keychain
   # UseKeychain yes
   # AddKeysToAgent yes
@@ -44,9 +45,6 @@ Host play.brettevrist.net
 Host svn.brettevrist.net
   Port 2500
   User bevrist
-
-# Host 192.168.1.10
-#   ForwardAgent yes
 " > ~/.ssh/config
 
 # ========= Install Applications =========
@@ -133,8 +131,8 @@ echo "=============== NOTES ==============="
 echo "Restore restic backup files
 Sort all Apple apps to folders to make room for new Apps
 Open 'secretive' and create an ssh key
-Sign ~/.ssh/${USER}_key key with ca_cert
-copy pub key to .ssh/ and update ssh config 'IdentityFile' to point to key
+Sign ssh pub key with ca_cert
+copy pub key to .ssh/ and update ssh config(~/.ssh/config)  'IdentityFile' to point to secretive pub key
 Log into Google Drive App
 Setup 'dev/backup/cron-backup.sh' in crontab
 macos Preferences:

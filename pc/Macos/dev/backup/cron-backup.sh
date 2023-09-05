@@ -20,6 +20,8 @@ GOOGLE_DRIVE_ROOT_PATH="/Users/bevrist/Library/CloudStorage/GoogleDrive-brettevr
 
 ##################################################
 
+echo "Running:  $(date)"
+
 # create backup timestamp file (backdated really old) if it doesnt exist
 if [ ! -f $BACKUP_LAST_RUN ]; then touch -t 201001010000 $BACKUP_LAST_RUN; echo creating $BACKUP_LAST_RUN; fi
 
@@ -28,8 +30,6 @@ if [ "$(( $(date +%s) - $(date -r $BACKUP_LAST_RUN +%s) ))" -lt 3540 ]; then
   echo ">>exiting because last backup was less than 59 minutes (3540s) ago. [$(( $(date +%s) - $(date -r $BACKUP_LAST_RUN +%s) ))s]"
   exit 0
 fi
-
-echo "Running:  $(date)"
 
 # test that google drive is mounted, exit 1 if too many failures
 if [ ! -d "$GOOGLE_DRIVE_ROOT_PATH" ]; then
@@ -67,7 +67,6 @@ code --list-extensions > "$HOME/.backup/backup/vscode-extensions.txt" 2> /dev/nu
 
 ### RESTIC BACKUP ###
 # Obsidian Personal Vault (dir)
-# Obsidian Shared Vault (dir)
 # Orion Browser Bookmarks
 # Orion Browser Tabs
 # Vscode Settings
@@ -81,7 +80,7 @@ restic -r "$RESTIC_REPO" backup --exclude .git --compression max \
 
 # restic cleanup
 restic -r $RESTIC_REPO forget --prune --compression max --group-by '' \
-  --keep-hourly  2  \
+  --keep-hourly  5  \
   --keep-daily   10 \
   --keep-weekly  8  \
   --keep-monthly 24
