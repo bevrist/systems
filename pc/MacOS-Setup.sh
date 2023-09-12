@@ -69,7 +69,7 @@ brew install --cask iina grandperspective microsoft-remote-desktop db-browser-fo
 
 brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions starship
 brew install wget grep findutils rsync watch entr git git-lfs coreutils lsd restic terminal-notifier macchina #? python@3.11
-brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq yq rclone atuin clamav btop
+brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq yq rclone atuin clamav btop gron
 brew install dstask watchexec hyperfine tokei
 brew install ctop kubernetes-cli helm kubectx skaffold
 # linkerd argocd  #Kubernetes extras

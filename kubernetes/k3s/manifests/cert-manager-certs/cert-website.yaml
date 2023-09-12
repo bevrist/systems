@@ -1,0 +1,22 @@
+# make sure you update DNS token when adding new domains!
+# refer to domain auth directions in `../cert-manager.yaml`
+---
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: brettevrist-net-cert-request
+  namespace: website
+spec:
+  secretName: brettevrist-net-cert-secret
+  commonName: brettevrist.net
+  dnsNames:
+    - "brettevrist.net"
+    - "*.brettevrist.net"
+    - "*.kube.brettevrist.net"
+    - "brettevrist.com"
+    - "evri.st"
+    - "*.evri.st"
+    - "evrist.net"
+  issuerRef:
+    name: letsencrypt-cluster-issuer
+    kind: ClusterIssuer

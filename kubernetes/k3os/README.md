@@ -1,4 +1,5 @@
 # Kube Instructions
+## DEPRICATED!, use `../k3s` instead
 
 <!-- TODO REPLACE klipper with metallb -->
 

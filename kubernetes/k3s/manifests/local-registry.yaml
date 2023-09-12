@@ -1,0 +1,88 @@
+
+# local k3s hosted docker registry
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: registry
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: local-docker-registry
+  namespace: registry
+  labels:
+    app: local-docker-registry
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: local-docker-registry
+  template:
+    metadata:
+      labels:
+        app: local-docker-registry
+    spec:
+      # affinity:
+      #   nodeAffinity:
+      #     requiredDuringSchedulingIgnoredDuringExecution:
+      #       nodeSelectorTerms:
+      #         - matchExpressions:
+      #             - key: registry-node  # schedule registry container on labeled registry node
+      #               operator: Exists
+      containers:
+      - name: local-docker-registry
+        image: registry
+        resources:
+          limits:
+            cpu: 250m
+            memory: 100Mi
+        ports:
+        - containerPort: 5000
+          protocol: TCP
+        volumeMounts:
+        - name: storage
+          mountPath: /var/lib/registry
+        env:
+        - name: REGISTRY_HTTP_ADDR
+          value: :5000
+        - name: REGISTRY_STORAGE_FILESYSTEM_ROOTDIRECTORY
+          value: /var/lib/registry
+        # # docker mirror config
+        # - name: REGISTRY_PROXY_REMOTEURL
+        #   value: https://registry-1.docker.io
+      volumes:
+      - name: storage
+        persistentVolumeClaim:
+          claimName: local-docker-registry-pvc
+
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: local-docker-registry-pvc
+  namespace: registry
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 5Gi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: local-registry-service
+  namespace: registry
+  labels:
+    run: local-docker-registry
+spec:
+  selector:
+    app: local-docker-registry
+  ports:
+    - name: docker-port
+      port: 5000
+      targetPort: 5000
+  type: LoadBalancer
