@@ -3,13 +3,13 @@ version: "3"
 services:
   gitea:
     # https://github.com/go-gitea/gitea/releases
-    image: gitea/gitea:1.19-rootless
+    image: gitea/gitea:1.20.4-rootless
     restart: unless-stopped
     volumes:
       - gitea-data:/var/lib/gitea
       - gitea-config:/etc/gitea
-      # - /etc/timezone:/etc/timezone:ro
-      # - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
     ports:
       - "8080:3000"  # http
       - "2016:2222"  # ssh
