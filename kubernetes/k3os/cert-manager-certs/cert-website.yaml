@@ -12,7 +12,6 @@ spec:
   dnsNames:
     - "brettevrist.net"
     - "*.brettevrist.net"
-    - "*.kube.brettevrist.net"
     - "brettevrist.com"
     - "evri.st"
     - "*.evri.st"
