@@ -1,14 +1,4 @@
 #!/bin/bash
-case "$1" in
-	"-4")
-		API="http://v4.ipv6-test.com/api/myip.php"
-		;;
-	"-6")
-		API="http://v6.ipv6-test.com/api/myip.php"
-		;;
-	*)
-		API="http://ipv6-test.com/api/myip.php"
-		;;
-esac
-curl -s "$API"
-echo
+curl -s https://icanhazip.com
+dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com
+dig -6 TXT +short o-o.myaddr.l.google.com @ns1.google.com

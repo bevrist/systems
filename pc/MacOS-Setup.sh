@@ -7,7 +7,9 @@ if [ $USER == "root" ]; then
   echo "must run script as user..."
   exit 1
 fi
+sudo -v
 sudo echo "starting..."
+cd $(dirname "$0")
 
 
 #if ssh dir does not exist, generate ssh key
@@ -49,10 +51,9 @@ Host svn.brettevrist.net
 
 # ========= Install Applications =========
 #if not installed, Install Homebrew
-if ! command -v brew &> /dev/null
-then
+if ! command -v brew &> /dev/null ; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/${USER}/.zprofile
+  echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >> /Users/${USER}/.zprofile
   eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 brew update
@@ -68,17 +69,16 @@ brew install --cask iina grandperspective microsoft-remote-desktop db-browser-fo
 # rocket-typist
 
 brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions starship
-brew install wget grep findutils rsync watch entr git git-lfs coreutils lsd restic terminal-notifier macchina #? python@3.11
-brew install qpdf netcat p7zip pv htop tree rename gnu-sed jq yq rclone atuin clamav btop gron
-brew install dstask watchexec hyperfine tokei
+brew install wget grep findutils rsync watch entr git git-lfs coreutils lsd restic terminal-notifier macchina
+brew install netcat p7zip pv tree rename gnu-sed jq yq atuin htop btop gron hyperfine
+brew install tokei qpdf rclone
 brew install ctop kubernetes-cli helm kubectx skaffold
 # linkerd argocd  #Kubernetes extras
 brew install podman docker docker-compose docker-buildx docker-credential-helper
 # lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit  #fun extras
 
-# brew install --cask unity-hub; brew install dotnet mono  #unity game dev
-# brew install pandoc basictex  #LaTeX
 # brew install typst ; brew install --cask skim  #better LaTeX alternative
+
 
 # create local bin dir with open permissions
 sudo mkdir -pm 775 /usr/local/bin/
