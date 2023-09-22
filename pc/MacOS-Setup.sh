@@ -72,7 +72,7 @@ brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions sta
 brew install wget grep findutils rsync watch entr git git-lfs coreutils lsd restic terminal-notifier macchina
 brew install netcat p7zip pv tree rename gnu-sed jq yq atuin htop btop gron hyperfine
 brew install tokei qpdf rclone
-brew install ctop kubernetes-cli helm kubectx skaffold
+brew install ctop kubernetes-cli helm kubectx skaffold k3d
 # linkerd argocd  #Kubernetes extras
 brew install podman docker docker-compose docker-buildx docker-credential-helper
 # lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit  #fun extras
