@@ -4,6 +4,7 @@ version: "3.7"
 services:
   svnedge:
     image: svnedge/app:latest
+    restart: unless-stopped
     ports:
       - "18080:18080"
       - "3343:3343"
