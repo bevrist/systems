@@ -77,7 +77,7 @@ brew install ctop kubernetes-cli helm kubectx skaffold k3d
 brew install podman docker docker-compose docker-buildx docker-credential-helper
 # lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit  #fun extras
 
-# brew install typst ; brew install --cask skim  #better LaTeX alternative
+brew install typst ; brew install --cask skim  #better LaTeX alternative
 
 
 # create local bin dir with open permissions
