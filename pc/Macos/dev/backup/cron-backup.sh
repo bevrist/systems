@@ -1,6 +1,6 @@
 #!/bin/bash
 # crontab -e
-#   */10 * * * * /Users/bevrist/dev/backup/cron-backup.sh >> /tmp/cron-backup.txt
+#   */10 * * * * /Users/bevrist/dev/backup/cron-backup.sh >> /tmp/cron-backup.txt 2>&1
 # add "/usr/sbin/cron" to macos security "Full Disk Access" group
 #   (⌘ + ⇧ + G) to type any path in finder when using "+" button
 
