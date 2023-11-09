@@ -179,7 +179,7 @@ Setup preferences for apps:
     download rose pine https://github.com/rose-pine/terminal.app
     use rose pine.terminal theme
     change font to fira code mono
-    edit colors > opacity=75%, Blur=5%
+    edit colors > opacity=85%, Blur=5%
     edit cursor > vertical bar, blinking=true
     window > window size > columns=100, rows=50
 	iTerm:
