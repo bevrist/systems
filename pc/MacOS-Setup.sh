@@ -71,7 +71,7 @@ brew install --cask iina grandperspective microsoft-remote-desktop db-browser-fo
 brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions starship
 brew install wget grep findutils rsync watch entr git git-lfs difftastic coreutils lsd restic terminal-notifier macchina
 brew install netcat p7zip pv tree rename gnu-sed jq yq atuin htop btop gron hyperfine
-brew install tokei qpdf rclone
+brew install tokei qpdf rclone syncthing
 brew install ctop kubernetes-cli helm kubectx skaffold k3d
 # linkerd argocd  #Kubernetes extras
 brew install podman docker docker-compose docker-buildx docker-credential-helper
@@ -79,11 +79,12 @@ brew install podman docker docker-compose docker-buildx docker-credential-helper
 
 brew install typst ; brew install --cask skim  #better LaTeX alternative
 
+###
 
 # create local bin dir with open permissions
 sudo mkdir -pm 775 /usr/local/bin/
 
-# symlink aliases (for `watch` command)
+# symlink "aliases" (for `watch` command)
 ln -sf $(which kubectl) /usr/local/bin/k
 ln -sf $(which docker) /usr/local/bin/d
 ln -sf $(which podman) /usr/local/bin/p
@@ -99,7 +100,7 @@ rsync -rvc Macos/dev ~/
 chmod -R 700 ~/dev
 
 
-# ========== Tool Configuration ==========
+### Tool Configuration
 # customize zsh prompt
 cp Macos/zshrc ~/.zshrc
 
@@ -119,8 +120,10 @@ chmod -R go-w '/opt/homebrew/share'
 #Run programs for first time setup
 git lfs install
 git config --global credential.helper store
+git config --global fetch.prune true
 git config --global pull.ff only
 git config --global color.ui true
+git config --global diff.colorMoved zebra
 git config --global init.defaultBranch main
 git config --global user.name "Brett Evrist"
 git config --global user.email "brettevrist10@gmail.com"
@@ -177,11 +180,15 @@ Setup preferences for apps:
     Appearance > 'Show recent copy next to menu icon'
   Terminal.app:
     download rose pine https://github.com/rose-pine/terminal.app
-    use rose pine.terminal theme
-    change font to fira code mono
-    edit colors > opacity=85%, Blur=5%
-    edit cursor > vertical bar, blinking=true
-    window > window size > columns=100, rows=50
+    install rose pine.terminal theme
+    profiles:
+      enable rose pine theme
+      text:
+        edit colors > opacity=85%, Blur=5%
+        change font to 'fira code mono'
+        edit cursor > blinking=true
+      window > window size > columns=100, rows=50
+      shell > When the shell exits = 'Close if the shell exited cleanly'
 	iTerm:
     General > Closing: disable 'Confirm Quit'
     Appearance > Tabs: 'Show tab bar even when...'
