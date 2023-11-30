@@ -75,7 +75,7 @@ source <(podman completion zsh)
 compdef p='podman'   #zsh-completion for `p` alias
 
 # center justify text function
-center () {
+center() {
   if [ -z "$1" ]; then echo "usage: $0 'String' [Dividing Char] [Total Length]"; return; fi
   if [ -z "$2" ]; then 2='#'; fi
   if [ -z "$3" ]; then 3=40; fi
@@ -83,7 +83,7 @@ center () {
 }
 
 # terminal-notifier function
-notify () {
+notify() {
   if [ -z "$*" ]; then
     terminal-notifier -message "Ping."
     afplay /System/Library/Sounds/Ping.aiff
@@ -94,8 +94,17 @@ notify () {
 }
 
 # current data function
-curr-date () {
+curr-date() {
   date +"%Y-%m-%d"
+}
+
+# file swap function
+swap() {
+  if [ -z "$2" ]; then echo "usage: $0 file1 file2"; return; fi
+  if [[ -d $1 ]] || [[ -d $2 ]]; then echo "cannot swap a directory."; return; fi
+
+  tmpfile=$(mktemp $(dirname "$1")/XXXXXX)
+  mv "$1" "$tmpfile" && mv "$2" "$1" &&  mv "$tmpfile" "$2"
 }
 
 eval "$(atuin init zsh --disable-up-arrow)"
