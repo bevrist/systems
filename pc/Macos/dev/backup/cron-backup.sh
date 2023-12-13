@@ -40,7 +40,7 @@ if [ ! -d "$GOOGLE_DRIVE_ROOT_PATH" ]; then
   FAIL_COUNT=$(<"$BACKUP_DRIVE_FAIL_COUNT")
   ((FAIL_COUNT+=1))
   echo $FAIL_COUNT > "$BACKUP_DRIVE_FAIL_COUNT"
-  # fail if mount fails 3 timesin a row
+  # fail if mount fails 3 times in a row
   if [ "$FAIL_COUNT" -gt "3" ]; then
     echo "Repeatedly failed to mount Google Drive. fail count: $FAIL_COUNT"
     exit 1
@@ -69,12 +69,16 @@ code --list-extensions > "$HOME/.backup/backup/vscode-extensions.txt" 2> /dev/nu
 # Obsidian Personal Vault (dir)
 # Orion Browser Bookmarks
 # Orion Browser Tabs
+# Firefox History/bookmarks
+# Firefox Tabs
 # Vscode Settings
 # Vscode Extensions
 restic -r "$RESTIC_REPO" backup --exclude .git --compression max \
   $HOME/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/B-Obsidian-Vault/ \
   $HOME/Library/Application\ Support/Orion/Defaults/favourites.plist \
   $HOME/Library/Application\ Support/Orion/Defaults/browser_state.plist \
+  $HOME/Library/Application\ Support/Firefox/Profiles/*/places.sqlite \
+  $HOME/Library/Application\ Support/Firefox/Profiles/*/sessionstore-backups/ \
   $HOME/Library/Application\ Support/Code/User/settings.json \
   $HOME/.backup/backup/vscode-extensions.txt
 

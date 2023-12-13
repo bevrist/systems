@@ -61,7 +61,7 @@ brew update
 #Install Apps
 brew install --cask google-drive # xquartz  # install apps that require system password first
 brew install --cask rectangle keepingyouawake homebrew/cask-fonts/font-fira-code-nerd-font numi maccy secretive menuwhere
-brew install --cask keepassxc orion chromium visual-studio-code obsidian
+brew install --cask keepassxc orion firefox chromium visual-studio-code obsidian
 brew install --cask iina grandperspective microsoft-remote-desktop db-browser-for-sqlite ios-app-signer
 # blender flutter steam epic-games discord
 # bootstrap-studio chromium http-toolkit postman stoplight-studio drone figma utm openlens
@@ -162,6 +162,15 @@ Setup preferences for apps:
     get firefox extensions: KeepassXC-browser
     extension settings:
       KeepassXC: sync with desktop app
+  firefox browser:
+    TODO update meeeeee
+    extensions: ublock origin, tree style tabs, sponsorblock, keepassXC browser, privacy badger, i still dont care about cookies, consent-o-matic, user-agent switcher and manager
+    customize firefox configs:
+      open page: 'about:config':
+        toolkit.legacyUserProfileCustomizations.stylesheets = True
+        #browser.uidensity = 1
+    install custom firefox userChrome.css:
+      run '$(pwd)/Macos/install-firefox-userChrome.sh'
 	rectangle: Launch on login, Hide menu bar icon
 	keepingyouawake:
     General > check 'Activate at Launch'
