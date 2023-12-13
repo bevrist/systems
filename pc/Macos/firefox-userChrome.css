@@ -1,16 +1,77 @@
-@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
-
-/* hide top tab bar */
-/* #TabsToolbar {
-  visibility: collapse !important;
-} */
-
 /* hide tree style tabs title bar */
 #sidebar-header {
   display: none;
 }
 
+/* Tighten up drop-down/context/popup menu spacing */
+menupopup:not(.in-menulist) > menuitem,
+menupopup:not(.in-menulist) > menu {
+  padding-block: 4px !important; /* reduce to 3px, 2px, 1px or 0px as needed */
+  min-height: unset !important; /* v92.0 - for padding below 4px */
+}
+:root {
+  --arrowpanel-menuitem-padding: 4px 8px !important;
+}
+
+
+/* BOOKMARKS */
+/* center bookmarks */
 #PlacesToolbarItems {
-  display: flex !important;
   justify-content: center !important;
+}
+/* add padding between bookmark entries */
+.bookmark-item > .toolbarbutton-text  {
+  padding-right: 5px !important;
+}
+
+
+/* WINDOW CONTROLS & TITLEBAR */
+/* Adds a gap to the top of the extended (opened) url box */
+#urlbar[breakout][breakout-extend] {
+  top: 4px !important;
+}
+
+/* Detect Windows */
+@media (-moz-platform: windows) {
+  /* https://github.com/seylorx1/slide/blob/main/userChrome.css */
+  /* https://github.com/Timvde/UserChrome-Tweaks/blob/master/tabs/hide-tabs-windows.css */
+
+  .tabbrowser-tab,#tabbrowser-arrowscrollbox,#alltabs-button,#TabsToolbar .titlebar-spacer {display: none !important;}
+  #firefox-view-button {height: 40px; z-index: 1;}
+  .TabsToolbar-customization-target {max-width: 40px;}
+  .titlebar-button {height: 40px !important;}
+  #nav-bar { margin-left: 60px; margin-top: -42px; margin-right: 160px; box-shadow: none !important; }
+  [uidensity="compact"]:root .titlebar-button {height: 32px !important;}
+  [uidensity="compact"]:root #nav-bar {margin-top: -32px;}
+  #titlebar-buttonbox-container {background-color: var(--chrome-secondary-background-color);}
+  .titlebar-color {background-color: var(--toolbar-bgcolor);}
+  #nav-bar toolbarbutton {min-width: 40px;}
+}
+
+/* Detect MacOS */
+@media (-moz-platform: macos) {
+  /* https://github.com/seylorx1/slide/blob/main/userChrome.css */
+  /* https://github.com/Timvde/UserChrome-Tweaks/blob/master/tabs/hide-tabs-windows.css */
+
+  /* Reposition window controls buttons based on density setting */
+  :root:not([uidensity]) #TabsToolbar .titlebar-buttonbox-container { margin-left: 12px; margin-top: 12px; }
+  :root[uidensity="compact"] #TabsToolbar .titlebar-buttonbox-container { margin-left: 10px; margin-top: 9px; }
+  #TabsToolbar .titlebar-buttonbox.titlebar-color { margin-left: 0px !important; }
+  /* Move window controls when in fullscreen */
+  #main-window:not([inFullscreen]) #nav-bar { padding: 0px 0px 0px 70px !important; }
+
+  /* Position window controls to left of url bar */
+  #TabsToolbar .titlebar-buttonbox-container {
+    display: block;
+    position: absolute;
+    visibility: visible;
+  }
+
+  /* Hides the titlebar (tabs) */
+  #titlebar {visibility: collapse;}
+}
+
+/* Detect Linux */
+@media (-moz-platform: linux) {
+  #TabsToolbar {visibility: collapse !important;}
 }

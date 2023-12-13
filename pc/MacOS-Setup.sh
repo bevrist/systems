@@ -150,25 +150,16 @@ macos Preferences:
   Battery > options: 'Wake for network access' never, enable 'Opimize video streaming while on battery'
 Setup preferences for apps:
   text edit: preferences: check 'Plain Text'
-  orion browser:
-    preferences:
-      set orion as default browser
-      appearance > Show Tabs: On the side. Toolbar: check 'Show bookmarks bar' & 'use compact size'. Bookmarks bar: 'Text Only'
-      passwords > password provider: '3rd party provider'
-      search > search engine: kagi (set up private window key)
-      websites > auto play: youtube.com
-      advanced > check 'allow installation ... Firefox Extensions'
-    get popular extensions: consent-o-matic, SponsorBlock
-    get firefox extensions: KeepassXC-browser
-    extension settings:
-      KeepassXC: sync with desktop app
   firefox browser:
-    TODO update meeeeee
+    set firefox as default browser
+    sign into firefox sync
+    set kagi as search engine
+    Customize Toolbar:
+      Move "Firefox View" down from tab bar to next to URL bar
     extensions: ublock origin, tree style tabs, sponsorblock, keepassXC browser, privacy badger, i still dont care about cookies, consent-o-matic, user-agent switcher and manager
     customize firefox configs:
       open page: 'about:config':
         toolkit.legacyUserProfileCustomizations.stylesheets = True
-        #browser.uidensity = 1
     install custom firefox userChrome.css:
       run '$(pwd)/Macos/install-firefox-userChrome.sh'
 	rectangle: Launch on login, Hide menu bar icon
@@ -198,14 +189,6 @@ Setup preferences for apps:
         edit cursor > blinking=true
       window > window size > columns=100, rows=50
       shell > When the shell exits = 'Close if the shell exited cleanly'
-	iTerm:
-    General > Closing: disable 'Confirm Quit'
-    Appearance > Tabs: 'Show tab bar even when...'
-    Profiles > Colors: Color Preset: 'Tango Dark', Minimum Contrast->40
-    Profiles > Text: Cursor->'Vertical Bar' & 'Blinking Cursor', Font->'Fira code' & Font Size->'12', check: 'Use Ligatures'
-    Profiles > Window: Transparency->25%, enable blur->5%,
-    Profiles > Window: Settings for New Windows: Columns: '100', Rows: '50'
-    Profiles > Terminal: Scrollback Lines: '25,000',
   Menuwhere:
     Hide Menus > 'Apple,Menuwhere'
     check 'Hide disabled menu items'
@@ -220,3 +203,25 @@ Get Pureref: https://pureref.com
 
 RESTART MACOS to finalize xquartz configuration
 " | tee ~/Desktop/Setup-Notes.txt
+
+# old notes:
+  # orion browser:
+  #   preferences:
+  #     set orion as default browser
+  #     appearance > Show Tabs: On the side. Toolbar: check 'Show bookmarks bar' & 'use compact size'. Bookmarks bar: 'Text Only'
+  #     passwords > password provider: '3rd party provider'
+  #     search > search engine: kagi (set up private window key)
+  #     websites > auto play: youtube.com
+  #     advanced > check 'allow installation ... Firefox Extensions'
+  #   get popular extensions: consent-o-matic, SponsorBlock
+  #   get firefox extensions: KeepassXC-browser
+  #   extension settings:
+  #     KeepassXC: sync with desktop app
+  # iTerm:
+  #   General > Closing: disable 'Confirm Quit'
+  #   Appearance > Tabs: 'Show tab bar even when...'
+  #   Profiles > Colors: Color Preset: 'Tango Dark', Minimum Contrast->40
+  #   Profiles > Text: Cursor->'Vertical Bar' & 'Blinking Cursor', Font->'Fira code' & Font Size->'12', check: 'Use Ligatures'
+  #   Profiles > Window: Transparency->25%, enable blur->5%,
+  #   Profiles > Window: Settings for New Windows: Columns: '100', Rows: '50'
+  #   Profiles > Terminal: Scrollback Lines: '25,000'
