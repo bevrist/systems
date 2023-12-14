@@ -19,9 +19,18 @@ menupopup:not(.in-menulist) > menu {
 #PlacesToolbarItems {
   justify-content: center !important;
 }
+/* compact bookmark bar height */
+#PersonalToolbar {
+  height: 1px !important;
+  padding-bottom: 3px !important;
+}
 /* add padding between horizontal bookmark entries */
 .bookmark-item > .toolbarbutton-text  {
   padding-right: 5px !important;
+}
+/* reduce opacity on bookmark items */
+.bookmark-item {
+  opacity: 75%
 }
 
 
