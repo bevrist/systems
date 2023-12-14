@@ -162,6 +162,8 @@ Setup preferences for apps:
         toolkit.legacyUserProfileCustomizations.stylesheets = True
     install custom firefox userChrome.css:
       run '$(pwd)/Macos/install-firefox-userChrome.sh'
+    edit Tree Style Tab extension CSS:
+      open Tree Style Tab Preferences > Advanced: paste contents of Macos/firefox-treeStyleTab.css
 	rectangle: Launch on login, Hide menu bar icon
 	keepingyouawake:
     General > check 'Activate at Launch'

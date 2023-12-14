@@ -1,0 +1,20 @@
+/* This file goes in the Tree Style Tab Preferences under Advanced > Stylesheet */
+
+/* As little space before the tab name as possible.
+ * The fold/unfold icon is not affected. */
+  tab-item:not(.pinned) tab-item-substance {
+  padding-left: 0px !important; /* !important is required when there are enough tabs to cause a scrollbar */
+}
+
+/* Change styling of pending (unloaded) tabs */
+tab-item.discarded tab-item-substance { opacity: 0.75; }
+tab-item.discarded .label-content { color: grey; }
+
+/* set tab height */
+tab-item { --tab-size: 33px !important; }
+tab-item  tab-item-substance { height: var(--tab-size); }
+
+/* hide "x" except on hover */
+#tabbar tab-item tab-item-substance:not(:hover) tab-closebox {
+  display: none;
+}

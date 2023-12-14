@@ -3,7 +3,7 @@
   display: none;
 }
 
-/* Tighten up drop-down/context/popup menu spacing */
+/* Tighten up vertical drop-down/context/popup menu spacing */
 menupopup:not(.in-menulist) > menuitem,
 menupopup:not(.in-menulist) > menu {
   padding-block: 4px !important; /* reduce to 3px, 2px, 1px or 0px as needed */
@@ -19,7 +19,7 @@ menupopup:not(.in-menulist) > menu {
 #PlacesToolbarItems {
   justify-content: center !important;
 }
-/* add padding between bookmark entries */
+/* add padding between horizontal bookmark entries */
 .bookmark-item > .toolbarbutton-text  {
   padding-right: 5px !important;
 }
