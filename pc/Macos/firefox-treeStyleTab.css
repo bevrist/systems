@@ -18,3 +18,8 @@ tab-item  tab-item-substance { height: var(--tab-size); }
 #tabbar tab-item tab-item-substance:not(:hover) tab-closebox {
   display: none;
 }
+
+/* reduce overflow tab title fade distance */
+:root[data-label-overflow="fade"] tab-item tab-label.overflow{
+  mask-image: linear-gradient(to left, transparent 0, black 1em) !important;
+}
