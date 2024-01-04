@@ -2,7 +2,7 @@
 
 /* As little space before the tab name as possible.
  * The fold/unfold icon is not affected. */
-  tab-item:not(.pinned) tab-item-substance {
+tab-item:not(.pinned) tab-item-substance {
   padding-left: 0px !important; /* !important is required when there are enough tabs to cause a scrollbar */
 }
 
