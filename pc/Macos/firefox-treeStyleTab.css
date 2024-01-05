@@ -11,7 +11,7 @@ tab-item.discarded tab-item-substance { opacity: 0.75; }
 tab-item.discarded .label-content { color: grey; }
 
 /* set tab height */
-tab-item { --tab-size: 33px !important; }
+tab-item { --tab-size: 32px !important; }
 tab-item  tab-item-substance { height: var(--tab-size); }
 
 /* hide "x" except on hover */

@@ -1,9 +1,15 @@
-/* hide tree style tabs title bar */
-#sidebar-header {
+/* shrink sidebar title bar */
+.sidebar-header, #sidebar-header {
+  font-size: 1em !important;
+  font-weight: normal !important;
+  padding: 2px !important;
+}
+/* hide sidebar close button */
+#sidebar-close {
   display: none;
 }
 
-/* Tighten up vertical drop-down/context/popup menu spacing */
+/* Tighten up vertical drop-down/context/popup menu spacing (bookmark folders and menus) */
 menupopup:not(.in-menulist) > menuitem,
 menupopup:not(.in-menulist) > menu {
   padding-block: 4px !important; /* reduce to 3px, 2px, 1px or 0px as needed */
@@ -34,7 +40,7 @@ menupopup:not(.in-menulist) > menu {
 }
 
 
-/* WINDOW CONTROLS & TITLEBAR */
+/*** WINDOW CONTROLS & TITLEBAR ***/
 /* Adds a gap to the top of the extended (opened) url box */
 #urlbar[breakout][breakout-extend] {
   top: 4px !important;

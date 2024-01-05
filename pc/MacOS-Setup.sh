@@ -154,8 +154,8 @@ Setup preferences for apps:
     set firefox as default browser
     sign into firefox sync
     set kagi as search engine
-    Customize Toolbar:
-      Move "Firefox View" down from tab bar to next to URL bar
+    Customize Toolbar (from left to right):
+      Tree Style Tab, Back, Forward, Refresh, URL Bar, Downloads, ublock, Extensions, Application Menu
     extensions: ublock origin, tree style tabs, sponsorblock, keepassXC browser, privacy badger, i still dont care about cookies, consent-o-matic, user-agent switcher and manager
     customize firefox configs:
       open page: 'about:config':
