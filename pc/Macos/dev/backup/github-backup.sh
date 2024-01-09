@@ -1,5 +1,5 @@
 #!/bin/bash
-# REPOS LIST Updated `Dec 11 2023` # TODO UPDATE THIS LIST!
+# REPOS LIST Updated `Dec 11 2023` # NOTE: UPDATE THIS LIST!
 REPOS="git@github.com:bevrist/advent-of-code.git
 git@github.com:bevrist/cloudflare-workers-go.git
 git@github.com:bevrist/go-wake-on-lan-server.git

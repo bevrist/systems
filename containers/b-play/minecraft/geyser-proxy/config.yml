@@ -26,7 +26,7 @@ remote:
   # The IP address of the remote (Java Edition) server
   # If it is "auto", for standalone version the remote address will be set to 127.0.0.1,
   # for plugin versions, Geyser will attempt to find the best address to connect to.
-  # FIXME: Set this
+  # NOTE: Set this
   address: 192.168.1.135
   # The port of the remote (Java Edition) server
   # For plugin versions, if address has been set to "auto", the port will also follow the server's listening port.
@@ -46,7 +46,7 @@ floodgate-key-file: public-key.pem
 userAuths:
   the1PR0D1GY: # Your Minecraft: Bedrock Edition username
     email: brettevrist10@gmail.com # Your Minecraft: Java Edition email
-    # FIXME: Set This
+    # NOTE: Set This
     password: "" # Your Minecraft: Java Edition password
 #
 #  bluerkelp2:
