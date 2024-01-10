@@ -62,7 +62,7 @@ compdef k='kubectl'  #zsh-completion for `k` alias
 center () {
   if [ -z "$2" ]; then 2='#'; fi
   if [ -z "$3" ]; then 3=40; fi
-  python3 -c "print(\"{:$2^$3}\".format(\" $1 \"))"
+  echo $(perl -e "print '$2' x $3") $1 $(perl -e "print '$2' x $3")
 }
 
 eval "$(starship init zsh)"

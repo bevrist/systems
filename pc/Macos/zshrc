@@ -30,7 +30,7 @@ export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 export PATH="/opt/homebrew/opt/grep/libexec/gnubin:$PATH"
 
 ### Zsh Completions
-FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
+FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 ### zsh prompt customizations
 autoload -Uz compinit
@@ -79,7 +79,7 @@ center() {
   if [ -z "$1" ]; then echo "usage: $0 'String' [Dividing Char] [Total Length]"; return; fi
   if [ -z "$2" ]; then 2='#'; fi
   if [ -z "$3" ]; then 3=40; fi
-  python3 -c "print(\"{:$2^$3}\".format(\" $1 \"))"
+  echo $(perl -e "print '$2' x $3") $1 $(perl -e "print '$2' x $3")
 }
 
 # terminal-notifier function
