@@ -1,10 +1,10 @@
 #!/bin/bash
 set -e
 
-NOW=$(date +"%Y_%m_%d")
+NOW=$(date +"%Y-%m-%d")
 
 # Copy locally
-GOOGLE_DRIVE_ROOT_PATH="/Users/bevrist/Library/CloudStorage/GoogleDrive-brettevrist10@gmail.com/My Drive/"
+GOOGLE_DRIVE_ROOT_PATH="/Users/bevrist/My Drive"
 mkdir -p ~/.backup/
 cp "$GOOGLE_DRIVE_ROOT_PATH/Personal Files/BrettsPassDatabase.kdbx" ~/.backup/backup/BrettsPassDatabase.kdbx
 

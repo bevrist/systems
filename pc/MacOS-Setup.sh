@@ -61,20 +61,21 @@ brew update
 #Install Apps
 brew install --cask google-drive # xquartz  # install apps that require system password first
 brew install --cask rectangle keepingyouawake homebrew/cask-fonts/font-fira-code-nerd-font numi maccy secretive menuwhere
-brew install --cask keepassxc orion firefox chromium visual-studio-code obsidian
+brew install --cask keepassxc orion firefox chromium visual-studio-code obsidian libreoffice
 brew install --cask iina grandperspective microsoft-remote-desktop db-browser-for-sqlite ios-app-signer
 # blender flutter steam epic-games discord
-# bootstrap-studio chromium http-toolkit postman stoplight-studio drone figma utm openlens
-# monitorcontrol hiddenbar cider iterm2
+# bootstrap-studio http-toolkit postman stoplight-studio figma utm
+# monitorcontrol hiddenbar cider
 # rocket-typist
 
 brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions starship
 brew install wget grep findutils rsync watch entr git git-lfs difftastic coreutils lsd restic terminal-notifier macchina
 brew install netcat p7zip pv tree rename gnu-sed jq yq atuin htop btop gron hyperfine
 brew install tokei qpdf rclone syncthing
-brew install ctop kubernetes-cli helm kubectx skaffold k3d
-# linkerd argocd  #Kubernetes extras
 brew install podman docker docker-compose docker-buildx docker-credential-helper
+# brew install crane dive  #docker helper tools
+brew install ctop kubernetes-cli helm kubectx skaffold k3d
+# linkerd argocd ; brew install --cask openlens  #Kubernetes extras
 # lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit  #fun extras
 
 brew install typst ; brew install --cask skim  #better LaTeX alternative
@@ -137,6 +138,7 @@ Open 'secretive' and create an ssh key
 Sign ssh pub key with ca_cert
 copy pub key to .ssh/ and update ssh config(~/.ssh/config)  'IdentityFile' to point to secretive pub key
 Log into Google Drive App
+  set google drive app to 'Mirror Files'
 Setup 'dev/backup/cron-backup.sh' in crontab
 macos Preferences:
   Apple id: disable photos sync and other unused services

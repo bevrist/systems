@@ -16,7 +16,7 @@ BACKUP_DRIVE_FAIL_COUNT="$BACKUP_TMP/_gdrive-mount-fail-count"
 RESTIC_REPO="$HOME/.backup/restic-repo"
 export RESTIC_PASSWORD="password"
 
-GOOGLE_DRIVE_ROOT_PATH="/Users/bevrist/Library/CloudStorage/GoogleDrive-brettevrist10@gmail.com/My Drive/"
+GOOGLE_DRIVE_ROOT_PATH="/Users/bevrist/My Drive"
 
 ##################################################
 

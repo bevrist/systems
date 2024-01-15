@@ -3,7 +3,7 @@
 set -e
 
 REPO="/Users/bevrist/.backup/restic-repo"
-GOOGLE_DRIVE_ROOT_PATH="/Users/bevrist/Library/CloudStorage/GoogleDrive-brettevrist10@gmail.com/My Drive/"
+GOOGLE_DRIVE_ROOT_PATH="/Users/bevrist/My Drive"
 BACKUP_TIMER="/tmp/cron_backup/_last-backup"
 
 # restic backup immediately
