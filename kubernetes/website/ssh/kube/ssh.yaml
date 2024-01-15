@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: ssh
-        image: 192.168.86.7:5000/ssh-image # FIXME: update IP
+        image: local-registry:5000/ssh-image
         imagePullPolicy: Always
         resources:
           limits:

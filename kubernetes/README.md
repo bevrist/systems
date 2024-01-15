@@ -1,24 +1,27 @@
 # K3S Deployment
 
 ## Fresh Install
-1) Update env vars in `kubernetes/_host/setup-k3s.sh`
-2) Run `kubernetes/_host/setup-k3s.sh`
+1) update vars at the top of `_host/setup-k3s.sh`
+2) run `_host/setup-k3s.sh`
 3) get kubeconfig from k3s `/etc/rancher/k3s/k3s.yaml`  
 > remember to update `server` to point to node ip
-4) Install local registry `kubectl apply -f kubernetes/local-registry/local-registry.yaml`
+4) install local registry `kubectl apply -f local-registry/local-registry.yaml`
 5) install cert manager  
-  1) install cert manager `kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.7.1/cert-manager.yaml`
-  2) update this file and apply credentials `manifests/cert-manager.yaml`
-  3) generate certs `kubectl apply -f manifests/cert-manager-certs/`
+  1) create credentials secret for cert manager, instructions at `cert-manager/cert-manager.yaml`
+  2) install cert manager `kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.7.1/cert-manager.yaml`
+  3) configure cert-manager `kubectl apply -f manifests/cert-manager.yaml`
+  4) generate certs `kubectl apply -f manifests/cert-manager-certs/`
 6) install all other kube apps
-> Search for `# FIXME: update IP` and update relevant IP addresses as needed
+> search for `# FIXME: update IP` and update relevant IP addresses as needed
+
 
 ---
 # DEBUG
 ## Skaffold:
 configure registry for cluster (use registry node IP):  
-`skaffold config set default-repo 192.168.86.7:5000`  
-`skaffold config set insecure-registries 192.168.86.7:5000`
+`skaffold config set default-repo <K3S-IP>:5000`  
+`skaffold config set insecure-registries <K3S-IP>:5000`
+`skaffold config set local-cluster true`
 
 ## Traefik Dashboard
 `kubectl port-forward -n kube-system $(kubectl get pod -n kube-system --selector=app.kubernetes.io/name=traefik -o jsonpath='{.items[0].metadata.name}') 9000:9000`  

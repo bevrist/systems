@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: website
-        image: 192.168.86.7:5000/website-image # FIXME: update IP
+        image: local-registry:5000/website-image
         imagePullPolicy: Always
         ports:
         - name: main-port

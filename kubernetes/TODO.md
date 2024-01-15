@@ -1,2 +1,2 @@
-# TODO
+- TODO: update cert-manager version
 - TODO: change kubernetes to use metallb instead of klipper

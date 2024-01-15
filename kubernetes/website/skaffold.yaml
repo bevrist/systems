@@ -1,0 +1,33 @@
+apiVersion: skaffold/v4beta9
+kind: Config
+metadata:
+  name: website
+build:
+  cluster: {}
+  artifacts:
+    - image: local-registry:5000/ssh-image
+      context: ssh
+      kaniko:
+        insecure: true
+        useNewRun: true
+        cache:
+          cacheCopyLayers: true
+    - image: local-registry:5000/website-image
+      context: website
+      kaniko:
+        insecure: true
+        useNewRun: true
+        cache:
+          cacheCopyLayers: true
+manifests:
+  rawYaml:
+    - kube/external-git.yaml
+    - kube/external-jellyfin.yaml
+    - kube/external-svn.yaml
+    - kube/traefik-middlewares.yaml
+    - kube/website-ingress-traefik.yaml
+    - kube/website-play-ingress.yaml
+    - ssh/kube/ssh-pvc.yaml
+    - ssh/kube/ssh.yaml
+    - website/kube/website-pvc.yaml
+    - website/kube/website.yaml
