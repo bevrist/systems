@@ -18,7 +18,7 @@ spec:
  acme:
   # The ACME server URL (STAGING DEFAULT)
   server: https://acme-staging-v02.api.letsencrypt.org/directory
-  #  server: https://acme-v02.api.letsencrypt.org/directory
+  #!  server: https://acme-v02.api.letsencrypt.org/directory
   email: brettevrist10@gmail.com
   privateKeySecretRef:
     name: letsencrypt
@@ -28,7 +28,6 @@ spec:
       # - example.org
     dns01:
       cloudflare:
-        email: brettevrist10@gmail.com
         # !! Remember to create a k8s secret before
         apiTokenSecretRef:
           name: cloudflare-api-token-secret
@@ -52,10 +51,10 @@ metadata:
   name: test-cert
   namespace: default
 spec:
-  commonName: test.com
+  commonName: example.com
   secretName: test-cert-secret
   dnsNames:
-    - test.com
+    - example.com
   issuerRef:
     name: selfsigned-cluster-issuer
     kind: ClusterIssuer

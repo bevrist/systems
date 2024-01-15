@@ -8,7 +8,7 @@
 4) install local registry `kubectl apply -f local-registry/local-registry.yaml`
 5) install cert manager  
   1) create credentials secret for cert manager, instructions at `cert-manager/cert-manager.yaml`
-  2) install cert manager `kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.7.1/cert-manager.yaml`
+  2) install cert manager `kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.13.3/cert-manager.yaml`
   3) configure cert-manager `kubectl apply -f manifests/cert-manager.yaml`
   4) generate certs `kubectl apply -f manifests/cert-manager-certs/`
 6) deploy website `cd website/; skaffold run --cache-artifacts=false`
