@@ -23,7 +23,7 @@
 #       containers:
 #         - name: kaniko-builder
 #           image: gcr.io/kaniko-project/executor:debug
-#           command: ["sh", "-c","/kaniko/executor --cache --cache-dir=/cache --destination=192.168.86.7:5000/test ; wget -qO - 192.168.86.7:5000/v2/_catalog"] # FIXME: update IP
+#           command: ["sh", "-c","/kaniko/executor --cache --cache-dir=/cache --destination=192.168.86.7:5000/test ; wget -qO - 192.168.86.7:5000/v2/_catalog"] #! NOTE: update IP
 #           volumeMounts:
 #           - name: dockerfile-volume
 #             mountPath: /workspace/

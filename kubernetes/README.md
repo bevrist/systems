@@ -11,8 +11,9 @@
   2) install cert manager `kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.7.1/cert-manager.yaml`
   3) configure cert-manager `kubectl apply -f manifests/cert-manager.yaml`
   4) generate certs `kubectl apply -f manifests/cert-manager-certs/`
+6) deploy website `cd website/; skaffold run --cache-artifacts=false`
+> search for `#! NOTE: update IP` and update relevant IP addresses as needed for external applications
 6) install all other kube apps
-> search for `# FIXME: update IP` and update relevant IP addresses as needed
 
 
 ---

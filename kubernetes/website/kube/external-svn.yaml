@@ -19,7 +19,7 @@ metadata:
   namespace: website
 subsets:
   - addresses:
-      - ip: 192.168.86.16 # FIXME: update IP (Internal SVN Server)
+      - ip: 192.168.86.16 #! NOTE: update IP (Internal SVN Server)
     ports:
       - port: 18080
         name: http

@@ -19,7 +19,7 @@ metadata:
   namespace: website
 subsets:
   - addresses:
-      - ip: 192.168.86.15 # FIXME: update IP (Internal jellyfin server)
+      - ip: 192.168.86.15 #! NOTE: update IP (Internal jellyfin server)
     ports:
       - port: 8096
         name: http
