@@ -1,24 +1,27 @@
 
-# local k3s hosted docker registry
+# local k3os docker registry
+# ensute containerd config is updated to be able to load from insecure registries
 ---
 apiVersion: v1
 kind: Namespace
 metadata:
-  name: registry
+  name: local-registry
+  annotations:
+    linkerd.io/inject: enabled
 
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: local-docker-registry
-  namespace: registry
+  namespace: local-registry
   labels:
     app: local-docker-registry
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: local-docker-registry
+      app: "local-docker-registry"
   template:
     metadata:
       labels:
@@ -51,7 +54,7 @@ spec:
           value: /var/lib/registry
         # # docker mirror config
         # - name: REGISTRY_PROXY_REMOTEURL
-        #   value: https://registry-1.docker.io
+        #   value: "https://registry-1.docker.io"
       volumes:
       - name: storage
         persistentVolumeClaim:
@@ -62,7 +65,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: local-docker-registry-pvc
-  namespace: registry
+  namespace: local-registry
 spec:
   accessModes:
     - ReadWriteOnce
@@ -75,7 +78,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: local-registry-service
-  namespace: registry
+  namespace: local-registry
   labels:
     run: local-docker-registry
 spec:
