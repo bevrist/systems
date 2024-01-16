@@ -1,5 +1,5 @@
 #!/bin/bash
-export IP="192.168.1.22"
+export IP="$(ip a | grep -oP 'inet\s\S+' | grep -oP '192\.168\.\d+\.\d+')"  # k3s host ip address
 export INSTALL_K3S_VERSION="v1.29.0+k3s1"
 
 # run as root

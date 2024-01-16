@@ -2,7 +2,6 @@
 # REPOS LIST Updated `Dec 11 2023` # NOTE: UPDATE THIS LIST!
 REPOS="git@github.com:bevrist/advent-of-code.git
 git@github.com:bevrist/cloudflare-workers-go.git
-git@github.com:bevrist/go-wake-on-lan-server.git
 git@github.com:bevrist/golang-library-bin-sizes.git
 git@github.com:bevrist/playground.git
 git@github.com:bevrist/resume.git
