@@ -1,2 +1,5 @@
 # /etc/rancher/k3s/config.yaml
 secrets-encryption: true
+# disable:
+  # - metrics-server
+  # - local-storage

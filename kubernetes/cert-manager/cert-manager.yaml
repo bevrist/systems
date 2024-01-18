@@ -16,9 +16,9 @@ metadata:
   namespace: cert-manager
 spec:
  acme:
-  # The ACME server URL (STAGING DEFAULT)
-  server: https://acme-staging-v02.api.letsencrypt.org/directory
-  #!  server: https://acme-v02.api.letsencrypt.org/directory
+  # The ACME server URL
+  # server: https://acme-staging-v02.api.letsencrypt.org/directory
+  server: https://acme-v02.api.letsencrypt.org/directory
   email: brettevrist10@gmail.com
   privateKeySecretRef:
     name: letsencrypt

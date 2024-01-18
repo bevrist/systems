@@ -1,13 +1,18 @@
-apiVersion: skaffold/v2beta27
+# skaffold build --cache-artifacts=false
+# skaffold run --cache-artifacts=false
+apiVersion: skaffold/v4beta9
 kind: Config
 metadata:
   name: ssh-skaffold
 build:
+  cluster: {}
   artifacts:
-  - image: ssh-image
-    docker:
-      dockerfile: Dockerfile
-deploy:
-  kubectl:
-    manifests:
-    - kube/ssh.yaml
+    - image: local-registry:5000/ssh-image
+      kaniko:
+        insecure: true
+        useNewRun: true
+        cache:
+          cacheCopyLayers: true
+manifests:
+  rawYaml:
+    - kube/*.yaml

@@ -7,15 +7,7 @@ metadata:
 build:
   cluster: {}
   artifacts:
-    - image: local-registry:5000/ssh-image
-      context: ssh
-      kaniko:
-        insecure: true
-        useNewRun: true
-        cache:
-          cacheCopyLayers: true
     - image: local-registry:5000/website-image
-      context: website
       kaniko:
         insecure: true
         useNewRun: true
@@ -24,5 +16,3 @@ build:
 manifests:
   rawYaml:
     - kube/*.yaml
-    - ssh/kube/*.yaml
-    - website/kube/*.yaml
