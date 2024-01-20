@@ -31,4 +31,3 @@ find /etc/ssh -name "*_host_*" -exec cp {} /ssh-host-keys/ \;  \n\
 CMD ["/sbin/tini", "-v", "--", "/entrypoint.sh"]
 
 EXPOSE 22
-# TODO run ssh on a high port number as non-root user
