@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+  garrys-mod:
+    build:
+      context: .
+    ports:
+      - "8211"
+    volumes:
+      - ${PWD}/data:/app
+      - ${PWD}/config:/config
+    restart: on-failure
+    stdin_open: true
+    tty: true
+    environment:
+      - UPDATE=${UPDATE}
