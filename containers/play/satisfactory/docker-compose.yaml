@@ -10,7 +10,7 @@ services:
       - "15777/udp"
     volumes:
       - ${PWD}/data:/app
-    restart: on-failure
+    restart: unless-stopped
     stdin_open: true
     tty: true
     environment:

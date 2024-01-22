@@ -7,4 +7,5 @@ if [ ! -z $UPDATE ] || [ ! -d "/app/satisfactory" ]; then
   exit
 fi
 
+echo "starting: $(date)" | tee /app/satisfactory/startLog.txt
 /app/satisfactory/FactoryServer.sh -log -unattended

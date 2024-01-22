@@ -9,7 +9,7 @@ services:
     volumes:
       - ${PWD}/data:/app
       - ${PWD}/config:/config
-    restart: on-failure
+    restart: unless-stopped
     stdin_open: true
     tty: true
     environment:

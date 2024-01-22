@@ -16,4 +16,4 @@ services:
         - ${PWD}/banned-players.json:/root/banned-players.json
         - ${PWD}/ops.json:/root/ops.json
         - ${PWD}/whitelist.json:/root/whitelist.json
-    restart: on-failure
+    restart: unless-stopped

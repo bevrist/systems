@@ -16,4 +16,5 @@ if [ ! -z $UPDATE ] || [ ! -d "/app/gmod" ]; then
   exit
 fi
 
+echo "starting: $(date)" | tee /app/gmod/startLog.txt
 /app/gmod/srcds_run -console -game garrysmod +maxplayers 50 +host_workshop_collection 779196126 -authkey 759CFCE4302E24D8F83A9E078FEF35A7 +gamemode murder +map mu_abandoned

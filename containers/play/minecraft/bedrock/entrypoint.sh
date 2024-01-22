@@ -25,5 +25,5 @@ fi
 cd /app
 cp -f /config/* ./
 
-echo Docker Image Minecraft Version: $(grep -o "bedrock-server.*" /app/minecraft-link.txt)
+echo $(date) Docker Image Minecraft Version: $(grep -o "bedrock-server.*" /app/minecraft-link.txt) | tee ./bedrock_server/startLog.txt
 LD_LIBRARY_PATH=. ./bedrock_server

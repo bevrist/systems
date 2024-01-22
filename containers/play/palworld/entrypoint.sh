@@ -2,6 +2,7 @@
 
 set -e
 
+mkdir -p /app/palworld/Pal/Saved/Config/LinuxServer/
 cp -f /config/PalWorldSettings.ini /app/palworld/Pal/Saved/Config/LinuxServer/PalWorldSettings.ini
 
 if [ ! -z $UPDATE ] || [ ! -d "/app/palworld" ]; then

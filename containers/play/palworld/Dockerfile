@@ -1,4 +1,4 @@
-FROM ubuntu 22.04
+FROM ubuntu:22.04
 # install dependencies
 ENV DEBIAN_FRONTEND=noninteractive
 RUN apt-get update \
