@@ -1,1 +1,1 @@
-ssh bevrist@192.168.86.7
+ssh bevrist@k3s

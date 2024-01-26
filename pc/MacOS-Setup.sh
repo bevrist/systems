@@ -68,9 +68,9 @@ brew install --cask iina grandperspective microsoft-remote-desktop db-browser-fo
 # monitorcontrol hiddenbar cider
 # rocket-typist
 
-brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions starship
+brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions starship mas
 brew install wget grep findutils rsync watch entr git git-lfs difftastic coreutils lsd restic terminal-notifier macchina
-brew install netcat p7zip pv tree rename gnu-sed jq yq atuin htop btop gron hyperfine
+brew install netcat p7zip pv tree rename gnu-sed jq yq atuin htop btop gron hyperfine tailscale
 brew install tokei qpdf rclone syncthing
 brew install podman docker docker-compose docker-buildx docker-credential-helper
 # brew install crane dive  #docker helper tools
@@ -79,6 +79,11 @@ brew install ctop kubernetes-cli helm kubectx skaffold k3d
 # lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit  #fun extras
 
 brew install typst ; brew install --cask skim  #better LaTeX alternative
+
+# install mac app store apps
+mas install 497799835  # xcode
+mas install 1451685025  # wireguard
+mas install 1475387142  # tailscale
 
 ###
 
@@ -200,7 +205,6 @@ Setup preferences for apps:
     Advanced > uncheck 'Show preferences at launch'
     Advanced > Run as 'Faceless' application
 
-Get store apps: XCode, Wireguard
 Setup Affinity Designer: https://affinity.serif.com
   brew install --cask affinity-designer
 Get Pureref: https://pureref.com
@@ -208,7 +212,7 @@ Get Pureref: https://pureref.com
 RESTART MACOS to finalize xquartz configuration
 " | tee ~/Desktop/Setup-Notes.txt
 
-# old notes:
+# inactive notes:
   # orion browser:
   #   preferences:
   #     set orion as default browser

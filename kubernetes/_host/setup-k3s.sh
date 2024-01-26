@@ -1,7 +1,9 @@
 #!/bin/bash
 set -e
 
-export IP="$(ip a | grep -oP 'inet\s\S+' | grep -oP '192\.168\.\d+\.\d+')"  # k3s host ip address
+# export IP="$(ip a | grep -oP 'inet\s\S+' | grep -oP '192\.168\.\d+\.\d+')"  # k3s host ip address
+export IP="k3s"  # use magicDNS
+
 # k3s install variables
 export INSTALL_K3S_VERSION="v1.29.0+k3s1"
 

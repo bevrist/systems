@@ -5,8 +5,9 @@
 2) install local-registry: [local-registry/README.md](local-registry/README.md)
 3) install cert-manager: [cert-manager/README.md](cert-manager/README.md)
 4) set up skaffold configs:
-  1) `skaffold config set default-repo $K3S_IP:5000`  
-  2) `skaffold config set insecure-registries $K3S_IP:5000`
+  0) `export IP="k3s"`
+  1) `skaffold config set default-repo $IP:5000`  
+  2) `skaffold config set insecure-registries $IP:5000`
   3) `skaffold config set local-cluster true`
 5) deploy website: [website/README.md](website/README.md)
 8) install all other kube apps

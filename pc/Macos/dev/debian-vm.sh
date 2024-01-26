@@ -1,1 +1,1 @@
-ssh bevrist@192.168.1.22
+ssh bevrist@debian-vm
