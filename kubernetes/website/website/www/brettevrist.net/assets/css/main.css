@@ -1,6 +1,7 @@
 @charset "UTF-8";
-@import url(font-awesome.min.css);
-@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300");
+/* @import url(font-awesome-4.6.3.min.css); */
+/* @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300"); */
+/* @import url(source-sans-pro-300.css); */
 
 /*
 	Identity by HTML5 UP
@@ -534,19 +535,20 @@
 					ul.icons li a:before {
 						-moz-osx-font-smoothing: grayscale;
 						-webkit-font-smoothing: antialiased;
-						font-family: FontAwesome;
+						/* font-family: FontAwesome; */
 						font-style: normal;
 						font-weight: normal;
 						text-transform: none !important;
 					}
 
 					ul.icons li a:before {
-						color: #ffffff;
-						text-shadow: 1.25px 0px 0px #c8cccf, -1.25px 0px 0px #c8cccf, 0px 1.25px 0px #c8cccf, 0px -1.25px 0px #c8cccf;
+						color: #414f57;
+						/* text-shadow: 1.25px 0px 0px #c8cccf, -1.25px 0px 0px #c8cccf, 0px 1.25px 0px #c8cccf, 0px -1.25px 0px #c8cccf; */
 					}
 
 					ul.icons li a:hover:before {
-						text-shadow: 1.25px 0px 0px #ff7496, -1.25px 0px 0px #ff7496, 0px 1.25px 0px #ff7496, 0px -1.25px 0px #ff7496;
+						color: #ff7496;
+						/* text-shadow: 1.25px 0px 0px #ff7496, -1.25px 0px 0px #ff7496, 0px 1.25px 0px #ff7496, 0px -1.25px 0px #ff7496; */
 					}
 
 					ul.icons li a:before {
@@ -555,7 +557,7 @@
 						left: 0;
 						width: inherit;
 						height: inherit;
-						font-size: 1.85rem;
+						font-size: 2.2rem;
 						line-height: inherit;
 						text-align: center;
 						text-indent: 0;

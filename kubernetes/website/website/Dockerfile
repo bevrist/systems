@@ -49,3 +49,4 @@ RUN chown -R caddy:caddy /data/caddy
 USER caddy
 COPY Caddyfile /etc/caddy/Caddyfile
 COPY --from=optimizer /www/ /www
+# COPY /www/ /www

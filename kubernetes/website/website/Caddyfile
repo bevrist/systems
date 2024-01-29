@@ -8,6 +8,21 @@
 	file_server /ios/* browse
 	file_server /ios browse
 
+	header {
+		# disable FLoC tracking and unused browser functions
+		Permissions-Policy "interest-cohort=(), accelerometer=(), autoplay=(), camera=(), cross-origin-isolated=(), display-capture=(), encrypted-media=(), fullscreen=(), geolocation=(), gyroscope=(), keyboard-map=(), magnetometer=(), microphone=(), midi=(), payment=(), picture-in-picture=(), publickey-credentials-get=(), screen-wake-lock=(), sync-xhr=(), usb=(), xr-spatial-tracking=(), clipboard-read=(), clipboard-write=(), gamepad=(), hid=(), idle-detection=(), serial=(), window-placement=()"
+		# enable HSTS
+		#Strict-Transport-Security max-age=31536000;
+		# disable clients from sniffing the media type
+		#X-Content-Type-Options nosniff
+		# clickjacking protection
+		X-Frame-Options DENY
+		# deny loading content from other origins
+		Content-Security-Policy "default-src 'self' https://static.cloudflareinsights.com 'unsafe-inline' 'unsafe-eval' 'unsafe-hashes';"
+		# disable page referrer header on http links
+		Referrer-Policy no-referrer-when-downgrade
+	}
+
 	# serve all other files/directories without browser
 	file_server {
 		# use precompressed assets (if available)
