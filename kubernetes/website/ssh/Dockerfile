@@ -18,9 +18,8 @@ RUN printf "SSH SHARE SERVER\n\
 - /www/brettevrist.net/ios\n\n\
 " > /etc/motd
 
-RUN /usr/bin/ssh-keygen -A
-
 RUN printf '#!/bin/sh  \n\
+/usr/bin/ssh-keygen -A  \n\
 # copy stored ssh host keys between volume  \n\
 cp /ssh-host-keys/* /etc/ssh/ || true  \n\
 find /etc/ssh -name "*_host_*" -exec cp {} /ssh-host-keys/ \;  \n\

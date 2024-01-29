@@ -73,7 +73,7 @@ brew install wget grep findutils rsync watch entr git git-lfs difftastic coreuti
 brew install netcat p7zip pv tree rename gnu-sed jq yq atuin htop btop gron hyperfine tailscale
 brew install tokei qpdf rclone syncthing
 brew install podman docker docker-compose docker-buildx docker-credential-helper
-# brew install crane dive  #docker helper tools
+# brew install crane dive  grype trivy  #docker helper tools
 brew install ctop kubernetes-cli helm kubectx skaffold k3d
 # linkerd argocd ; brew install --cask openlens  #Kubernetes extras
 # lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit  #fun extras

@@ -1,11 +1,12 @@
 #!/bin/bash
 set -e
 
+# k3s install variables
+# https://github.com/k3s-io/k3s/releases/latest
+export INSTALL_K3S_VERSION="v1.29.0+k3s1"
+
 # export IP="$(ip a | grep -oP 'inet\s\S+' | grep -oP '192\.168\.\d+\.\d+')"  # k3s host ip address
 export IP="k3s"  # use magicDNS
-
-# k3s install variables
-export INSTALL_K3S_VERSION="v1.29.0+k3s1"
 
 # run as root
 if [ $USER != "root" ]; then

@@ -1,6 +1,6 @@
 
 # local k3os docker registry
-# ensute containerd config is updated to be able to load from insecure registries
+# ensure containerd config is updated to be able to load from insecure registries
 ---
 apiVersion: v1
 kind: Namespace
