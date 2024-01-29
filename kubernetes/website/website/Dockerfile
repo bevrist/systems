@@ -36,8 +36,8 @@ RUN find . -type f -name "*.gif.webp" -exec rename .gif.webp .webp {} \;
 RUN grep -Rl ".gif" . | xargs sed -i 's/\.gif/.webp/g'
 # compress everything with gzip compression
 RUN find . -type f -exec gzip --best -k {} \;
-# compress web files with brotli compression
-RUN find . -type f -regex '.*\.\(css\|html\|js\|json\|svg\|xml\)$' -exec brotli --best {} \;
+# compress everything with brotli compression
+RUN find . -type f ! -name "*.gz" -exec brotli --best {} \;
 
 
 FROM caddy:2-alpine
