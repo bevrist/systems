@@ -1,6 +1,5 @@
 #!/bin/bash
-
-# this script extracts and prints the songnames from *.bnk files for rocket league
+# this script extracts and prints therocket league song names from *.bnk files
 
 RL_DIR="/mnt/e/SteamLibrary/steamapps/common/rocketleague/"
 
