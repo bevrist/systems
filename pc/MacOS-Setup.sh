@@ -81,7 +81,7 @@ brew install ctop kubernetes-cli helm kubectx skaffold k3d
 brew install typst ; brew install --cask skim  #better LaTeX alternative
 
 # install mac app store apps
-mas install 497799835  # xcode
+mas install 497799835   # xcode
 mas install 1451685025  # wireguard
 mas install 1475387142  # tailscale
 
@@ -130,7 +130,17 @@ git config --global fetch.prune true
 git config --global pull.ff only
 git config --global color.ui true
 git config --global diff.colorMoved zebra
+git config --global diff.algorithm histogram
 git config --global init.defaultBranch main
+git config --global merge.conflictstyle diff3
+git config --global transfer.fsckobjects = true
+git config --global fetch.fsckobjects = true
+git config --global receive.fsckObjects = true
+git config --global push.autoSetupRemote
+git config --global push.default current
+git config --global commit.verbose true
+git config --global core.pager delta
+git config --global branch.sort -committerdate
 git config --global user.name "Brett Evrist"
 git config --global user.email "brettevrist10@gmail.com"
 
