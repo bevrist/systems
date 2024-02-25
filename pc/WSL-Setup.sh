@@ -76,12 +76,12 @@ sudo apt install -y nvidia-container-toolkit
 sudo nvidia-ctk runtime configure --runtime=docker
 sudo systemctl restart docker
 
-# download ollama models
-sudo docker run -d --gpus=all -v $HOME/.ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
-sudo docker exec -it ollama ollama pull dolphin-mixtral
-sudo docker exec -it ollama ollama pull codellama
-sudo docker container stop ollama
-sudo docker container rm ollama
+# # download ollama models
+# sudo docker run -d --gpus=all -v $HOME/.ollama:/root/.ollama -p 11434:11434 --name ollama ollama/ollama
+# sudo docker exec -it ollama ollama pull dolphin-mixtral
+# sudo docker exec -it ollama ollama pull codellama
+# sudo docker container stop ollama
+# sudo docker container rm ollama
 
 printf "if docker ps -a -f name=ollama -q > /dev/null; then
   docker start ollama
