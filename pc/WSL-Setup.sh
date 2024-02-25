@@ -20,11 +20,28 @@ sudo -v
 sudo echo "starting..."
 cd
 
-# Enable WSL direct networking
-printf "[wsl2]
+
+### Create dev Scripts ###
+mkdir -p dev
+
+# create networking scripts
+printf "'[wsl2]
 networkingMode=mirrored
 memory=${WSL_MEMORY}
-" > /mnt/c/Users/${WINDOWS_USERNAME}/.wslconfig
+' > /mnt/c/Users/${WINDOWS_USERNAME}/.wslconfig
+" > dev/network-lan.sh && chmod +x dev/network-lan.sh
+
+printf "'[wsl2]
+#networkingMode=mirrored
+memory=${WSL_MEMORY}
+' > /mnt/c/Users/${WINDOWS_USERNAME}/.wslconfig
+" > dev/network-local.sh && chmod +x dev/network-local.sh
+
+# create update script
+printf 'apt update && apt upgrade -y && apt autoremove -y && apt clean -y
+' > dev/update.sh && chmod +x dev/update.sh
+
+### # ###
 
 # enable systemd if not enabled
 if ! sudo systemctl status; then
@@ -34,10 +51,6 @@ if ! sudo systemctl status; then
   echo "in powershell, reboot wsl: 'wsl --shutdown'"
   exit 0
 fi
-
-# create update script
-printf 'apt update && apt upgrade -y && apt autoremove -y && apt clean -y
-' > update.sh && chmod +x update.sh
 
 # ensure packages are up to date
 sudo apt update
@@ -77,6 +90,8 @@ else
 fi
 echo run a model with: 'docker exec -it ollama ollama run dolphin-mixtral'
 echo run ollama ui with: 'docker run -p 3000:3000 -e OLLAMA_HOST='http://$(ip n | grep eth0 | grep -vP '\d+\.\d+\.\d+\.1 ' | awk '{print $1}'):11434' ghcr.io/ivanfioravanti/chatbot-ollama:main npx next start --hostname 0.0.0.0'
-" > start-ollama.sh && chmod +x start-ollama.sh
+" > dev/start-ollama.sh && chmod +x dev/start-ollama.sh
+
+# TODO add stable diffusion image apps
 
 sudo shutdown now
