@@ -6,6 +6,8 @@ if [ $USER == "root" ]; then
   exit 1
 fi
 
+mas upgrade
+
 brew update
 brew upgrade
 brew cleanup -s

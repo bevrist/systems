@@ -64,13 +64,13 @@ brew install --cask rectangle keepingyouawake homebrew/cask-fonts/font-fira-code
 brew install --cask keepassxc firefox chromium visual-studio-code obsidian
 brew install --cask iina grandperspective microsoft-remote-desktop db-browser-for-sqlite ios-app-signer
 # orion libreoffice blender flutter steam epic-games discord
-# bootstrap-studio http-toolkit postman stoplight-studio figma utm
+# bootstrap-studio http-toolkit stoplight-studio figma utm bruno
 # monitorcontrol hiddenbar cider menuwhere
 # rocket-typist
 
 brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions starship mas
 brew install wget grep findutils rsync watch entr git git-lfs difftastic coreutils lsd restic terminal-notifier macchina
-brew install netcat p7zip pv tree rename gnu-sed jq yq atuin htop btop gron hyperfine dust
+brew install netcat p7zip pv tree rename gnu-sed jq yq atuin htop btop gron hyperfine dust taskell
 brew install tokei qpdf rclone syncthing
 brew install podman docker docker-compose docker-buildx docker-credential-helper
 # brew install crane dive  grype trivy  #docker helper tools
