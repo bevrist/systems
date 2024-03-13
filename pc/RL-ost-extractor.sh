@@ -1,13 +1,13 @@
 #!/bin/bash
 # this script extracts and prints therocket league song names from *.bnk files
 
-RL_DIR="/mnt/e/SteamLibrary/steamapps/common/rocketleague/"
+RL_DIR='/mnt/c/Program Files (x86)/Steam/steamapps/common/rocketleague'
 
 
 # extract string version of all files in /tmp/rltmp/strings/<file>
 rm -rf /tmp/rltmp
 mkdir -p /tmp/rltmp/strings
-find $RL_DIR -name "MX_*.bnk" -execdir bash -c 'cat {} | strings > /tmp/rltmp/strings/{}' \;
+find "$RL_DIR" -name "MX_*.bnk" -execdir bash -c 'cat {} | strings > /tmp/rltmp/strings/{}' \;
 
 # trim nonsense stings from all files
 # all songs are form Aa_Bb(_Cc), so trim out rest
