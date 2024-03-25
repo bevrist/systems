@@ -97,8 +97,11 @@ ln -sf $(which podman) /usr/local/bin/p
 
 # install cht.sh
 curl -o /usr/local/bin/cht.sh https://cht.sh/:cht.sh
-sudo chmod +x /usr/local/bin/cht.sh
+chmod +x /usr/local/bin/cht.sh
 
+# add gnu grep and find first in PATH
+ln -s /opt/homebrew/bin/ggrep /usr/local/bin/grep
+ln -s /opt/homebrew/bin/gfind /usr/local/bin/find
 
 #create dev folder and scripts
 mkdir -p ~/dev
