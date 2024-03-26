@@ -13,7 +13,7 @@ disabled = true
 
 [status]
 disabled = false
-format = "[$status]($style)"
+format = "[$status]($style) "
 
 [shell]
 disabled = false
