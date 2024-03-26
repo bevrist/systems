@@ -28,6 +28,7 @@ style = 'bold bright-yellow'
 symbol = '⟩'
 repeat = true
 repeat_offset = 1
+threshold = 2
 
 [cmd_duration]
 format = "[took $duration]($style) "
