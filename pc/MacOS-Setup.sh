@@ -84,6 +84,7 @@ brew install typst ; brew install --cask skim  #better LaTeX alternative
 mas install 497799835   # xcode
 mas install 1451685025  # wireguard
 mas install 1475387142  # tailscale
+mas install 1481853033  # strongbox pro
 
 ###
 
