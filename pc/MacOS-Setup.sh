@@ -177,7 +177,7 @@ Setup preferences for apps:
     set kagi as search engine
     Customize Toolbar (from left to right):
       Tree Style Tab, Back, Forward, Refresh, URL Bar, Downloads, ublock, Extensions, Application Menu
-    extensions: ublock origin, tree style tabs, sponsorblock, keepassXC browser, privacy badger, i still dont care about cookies, consent-o-matic, user-agent switcher and manager
+    extensions: ublock origin, tree style tabs, sponsorblock, privacy badger, i still dont care about cookies, consent-o-matic, Strongbox auto fill      ~keepassXC browser~
     customize firefox configs:
       open page: 'about:config':
         toolkit.legacyUserProfileCustomizations.stylesheets = True
@@ -189,13 +189,14 @@ Setup preferences for apps:
 	keepingyouawake:
     General > check 'Activate at Launch'
     Battery > Check 'Deacivate when battery is below' 10%
-	keepassxc:
-    general > startup: check 'automatically launch keepass at system startup', check 'minimize window after unlocking database'
-    general > File Management: uncheck all variants of 'Automatically save ...'
-    set mac preferences app to allow auto type '⌘+⇧+V' (security > accessibility: add keepassxc)
-    security > 'lock database after inactivity'=600 sec, check 'Hide entry notes by default'
-    browser integration > enable, firefox. advanced > check 'never ask before accessing credentials'
-    connect KeepassXC to orion browser extension
+	Strongbox:
+    Application Settings:
+      General: Start at Login, Dont Keep in Menu Bar
+      Appearance: No Markdown Notes, Database manager: dont show at startup, hide after launching database
+      Security: Block screenshots, Auto clear clipboard after 60 seconds, Lock after backgrouns for 5 minutes
+    Database Settings:
+      Side bar: Show sections: dont show quick views
+      Touch ID: enable touch id unlock, dont automatically prompt, require password after app exit
   numi: Precision = 3, uncheck 'Show in menu bar', check 'Launch numi at login'
   maccy:
     General > 'Launch at login'
@@ -247,3 +248,10 @@ RESTART MACOS to finalize xquartz configuration
   #   Advanced > check 'Launch automatically at login'
   #   Advanced > uncheck 'Show preferences at launch'
   #   Advanced > Run as 'Faceless' application
+  # keepassxc:
+  #   general > startup: check 'automatically launch keepass at system startup', check 'minimize window after unlocking database'
+  #   general > File Management: uncheck all variants of 'Automatically save ...'
+  #   set mac preferences app to allow auto type '⌘+⇧+V' (security > accessibility: add keepassxc)
+  #   security > 'lock database after inactivity'=600 sec, check 'Hide entry notes by default'
+  #   browser integration > enable, firefox. advanced > check 'never ask before accessing credentials'
+  #   connect KeepassXC to orion browser extension

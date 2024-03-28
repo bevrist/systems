@@ -2,7 +2,6 @@
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 
-
 set number                      "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
 set belloff=all                 "No sounds
@@ -13,6 +12,10 @@ set autoread                    "Reload files changed outside vim
 "set syntax                      "Enable syntax highlighting
 set incsearch                   "Jump to first match when searching
 set smartcase                   "Find/Replace handle letter case intellegently
+
+" =============== Mouse/Cursor =====================
+set clipboard=unnamedplus
+set mouse=r
 
 " ================ Scrolling ========================
 set scrolloff=4         "Start scrolling when we're 4 lines away from margins
