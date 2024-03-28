@@ -191,9 +191,9 @@ Setup preferences for apps:
     Battery > Check 'Deacivate when battery is below' 10%
 	Strongbox:
     Application Settings:
-      General: Start at Login, Dont Keep in Menu Bar
+      General: Start at Login, Keep in Menu Bar, dont Always show the dock icon
       Appearance: No Markdown Notes, Database manager: dont show at startup, hide after launching database
-      Security: Block screenshots, Auto clear clipboard after 60 seconds, Lock after backgrouns for 5 minutes
+      Security: Block screenshots, Auto clear clipboard after 60 seconds, Lock after background for 5 minutes
     Database Settings:
       Side bar: Show sections: dont show quick views
       Touch ID: enable touch id unlock, dont automatically prompt, require password after app exit
