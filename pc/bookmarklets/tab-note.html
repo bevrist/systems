@@ -1,0 +1,43 @@
+data:text/html,
+<!-- Creates a simple notes page, the first line becomes the tab name -->
+<html>
+  <head>
+    <!-- icons found at https://searchfox.org/mozilla-release/source/browser/themes/shared/icons/ -->
+    <!-- zoom-out.svg -->
+    <link rel="icon" type="image/svg+xml" sizes"32x32"
+    href="data:image/svg+xml;base64,PCEtLSBUaGlzIFNvdXJjZSBDb2RlIEZvcm0gaXMgc3ViamVjdCB0byB0aGUgdGVybXMgb2YgdGhlIE1vemlsbGEgUHVibGljCiAgIC0gTGljZW5zZSwgdi4gMi4wLiBJZiBhIGNvcHkgb2YgdGhlIE1QTCB3YXMgbm90IGRpc3RyaWJ1dGVkIHdpdGggdGhpcwogICAtIGZpbGUsIFlvdSBjYW4gb2J0YWluIG9uZSBhdCBodHRwOi8vbW96aWxsYS5vcmcvTVBMLzIuMC8uIC0tPgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgdmlld0JveD0iMCAwIDE2IDE2IiB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIGZpbGw9ImNvbnRleHQtZmlsbCIgZmlsbC1vcGFjaXR5PSJjb250ZXh0LWZpbGwtb3BhY2l0eSI+CiAgPHBhdGggZD0iTTEzLjM3NSA5LjI1YS42MjUuNjI1IDAgMCAwIDAtMS4yNUwyLjYyNSA4YS42MjUuNjI1IDAgMCAwIDAgMS4yNWwxMC43NSAweiIvPgo8L3N2Zz4K">
+
+    <title>---</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+      }
+
+      textarea {
+        padding: 10px;
+        font-family: Courier;
+        font-size: 16px;
+        height: 100%;
+        width: 100%;
+        border: none;
+        outline: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <textarea
+      style="height: 100%; width: 100%; font-size: 16px; padding: 10px"
+    ></textarea>
+    <script>
+      var textarea = document.getElementsByTagName("textarea")[0];
+      textarea.focus();
+      textarea.addEventListener("keyup", sendCode);
+      function sendCode() {
+        document.title = textarea.value.split("\n")[0];
+      }
+    </script>
+  </body>
+</html>

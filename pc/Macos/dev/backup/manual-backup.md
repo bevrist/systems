@@ -4,7 +4,6 @@ use the following format for naming all backup files: `file-Name_$(date +"%Y-%m-
 
 1) update `_Backup` files in Google Drive:
 > - all backup files in google drive backup folder should be updated  
-> - generate ticktick.com backup https://ticktick.com/webapp/#settings/backup
 
 2) copy updated `_backup` folder to OneDrive
 
