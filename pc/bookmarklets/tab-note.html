@@ -44,8 +44,15 @@ data:text/html,
     textarea.focus();
     textarea.addEventListener("keyup", setTitle);
     function setTitle() {
-      document.title = textarea.value.split("\n")[0];
+      var firstLine = textarea.value.split("\n")[0];
+      if (firstLine == "") {
+        document.title = "---";
+      } else {
+        document.title = firstLine;
+      }
     }
+    /*delay initial call so browser has time to load textarea value from sleepy tabs*/
+    setTimeout(setTitle, 50);
   </script>
 </body>
 
