@@ -4,10 +4,10 @@ set -e
 
 REPO="/Users/bevrist/.backup/restic-repo"
 GOOGLE_DRIVE_ROOT_PATH="/Users/bevrist/My Drive"
-BACKUP_TIMER="/tmp/cron_backup/_last-backup"
+BACKUP_LAST_RUN_FILE="/tmp/cron-backup/_last-backup"
 
 # restic backup immediately
-rm -f "$BACKUP_TIMER"
+rm -f "$BACKUP_LAST_RUN_FILE" || :;
 ~/dev/backup/cron-backup.sh
 
 # copy restic repo to B-Server
