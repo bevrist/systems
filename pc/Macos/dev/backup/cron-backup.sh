@@ -8,9 +8,7 @@ set -e
 
 HOME="/Users/bevrist"
 
-BACKUP_TMP="/tmp/cron-backup"
-mkdir -p "$BACKUP_TMP"
-BACKUP_LAST_RUN_FILE="$BACKUP_TMP/_last-backup"
+BACKUP_LAST_RUN_FILE="/tmp/cron-backup_last-backup"
 
 RESTIC_REPO="$HOME/.backup/restic-repo"
 export RESTIC_PASSWORD="password"

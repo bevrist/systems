@@ -1,7 +1,7 @@
 macchina -U
 
 # Attempt backup script when opening new terminal windows
-~/dev/backup/cron-backup.sh >> /tmp/cron-backup  2>> /tmp/cron-backup.log
+~/dev/backup/cron-backup.sh >> /tmp/cron-backup.log 2>&1
 
 # using secretive instead of apple keychain
 # ssh-add -q --apple-load-keychain
