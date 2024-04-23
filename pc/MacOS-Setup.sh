@@ -162,7 +162,8 @@ Setup 'dev/backup/cron-backup.sh' in crontab
 macos Preferences:
   Apple id: disable photos sync and other unused services
   Sign into Google Account for Contacts
-  General: Default browser 'orion'
+  General: Set Default Web Browser
+  General > Airdrop & Handoff: uncheck 'Airplay Receiver'
   Desktop & Screen Saver > Screen Saver > Hot Corners: Set bottom right to 'Desktop'
   Dock & Menu Bar: check 'Automatically hide and show the dock', uncheck 'Show recent applications in the dock'
   Add 'Full Disk Access' for iTerm, Terminal, and VSCode
