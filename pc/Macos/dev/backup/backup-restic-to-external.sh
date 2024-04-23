@@ -4,7 +4,7 @@ set -e
 
 REPO="/Users/bevrist/.backup/restic-repo"
 GOOGLE_DRIVE_ROOT_PATH="/Users/bevrist/My Drive"
-BACKUP_LAST_RUN_FILE="/tmp/cron-backup/_last-backup"
+BACKUP_LAST_RUN_FILE="/tmp/cron-backup_last-backup"
 
 # restic backup immediately
 rm -f "$BACKUP_LAST_RUN_FILE" || :;
