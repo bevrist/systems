@@ -57,7 +57,7 @@ sudo apt update
 sudo apt upgrade -y
 
 # install packages
-sudo apt install -y vim tmux wget curl rsync tree gpg binutils git git-lfs 7zip rename
+sudo apt install -y vim tmux wget curl rsync tree gpg binutils git git-lfs p7zip-full rename
 
 # install docker
 sudo apt install -y docker-compose
