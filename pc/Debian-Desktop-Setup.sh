@@ -72,7 +72,8 @@ sudo apt-get upgrade -y
 # install tools and programs
 sudo apt-get install -y vim tmux curl wget git git-lfs gpg rsync
 sudo apt-get install -y zsh zsh-autosuggestions zsh-syntax-highlighting
-sudo apt-get install -y docker.io docker-compose p7zip-full htop tree rename hyperfine lolcat rclone
+sudo apt-get install -y docker.io docker-compose 7zip htop tree rename hyperfine lolcat rclone
+# p7zip-full
 
 brew install starship zsh-completions lsd yq jq macchina
 brew install watchexec

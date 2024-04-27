@@ -70,7 +70,7 @@ brew install --cask iina grandperspective microsoft-remote-desktop db-browser-fo
 
 brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions starship mas
 brew install wget grep findutils rsync watch entr git git-lfs difftastic coreutils lsd restic terminal-notifier macchina
-brew install netcat p7zip pv tree rename gnu-sed jq yq atuin htop btop gron hyperfine dust taskell
+brew install netcat 7zip pv tree rename gnu-sed jq yq atuin htop btop gron hyperfine dust taskell
 brew install tokei qpdf rclone syncthing
 brew install podman docker docker-compose docker-buildx docker-credential-helper
 # brew install crane dive  grype trivy  #docker helper tools
