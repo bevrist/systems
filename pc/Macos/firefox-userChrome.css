@@ -72,8 +72,11 @@ menupopup:not(.in-menulist) > menu {
   :root:not([uidensity]) #TabsToolbar .titlebar-buttonbox-container { margin-left: 0px; margin-top: 12px; }
   :root[uidensity="compact"] #TabsToolbar .titlebar-buttonbox-container { margin-left: 10px; margin-top: 9px; }
   #TabsToolbar .titlebar-buttonbox.titlebar-color { margin-left: 0px !important; }
-  /* Move window controls when in fullscreen */
   #main-window:not([inFullscreen]) #nav-bar { padding: 0px 0px 0px 65px !important; }
+  /* Hide all firefox navbar UI when in fullscreen */
+  #main-window[inFullscreen] #nav-bar {
+    visibility: collapse !important;
+  }
 
   /* Position window controls to left of url bar */
   #TabsToolbar .titlebar-buttonbox-container {
