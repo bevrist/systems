@@ -68,6 +68,8 @@ brew install --cask iina grandperspective microsoft-remote-desktop db-browser-fo
 # monitorcontrol hiddenbar cider menuwhere
 # rocket-typist
 
+# brew install --cask wacom-tablet
+
 brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions starship mas
 brew install wget grep findutils rsync watch entr git git-lfs difftastic coreutils lsd restic terminal-notifier macchina
 brew install netcat p7zip pv tree rename gnu-sed jq yq atuin htop btop gron hyperfine dust taskell
