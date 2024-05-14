@@ -3,7 +3,7 @@ set -e
 
 # k3s install variables
 # https://github.com/k3s-io/k3s/releases/latest
-export INSTALL_K3S_VERSION="v1.29.0+k3s1"
+export INSTALL_K3S_VERSION="v1.30.0+k3s1"
 
 # export IP="$(ip a | grep -oP 'inet\s\S+' | grep -oP '192\.168\.\d+\.\d+')"  # k3s host ip address
 export IP="k3s"  # use magicDNS
@@ -19,9 +19,9 @@ cd $(dirname "$0")
 mkdir -p /etc/rancher/k3s/
 cp k3s-config.yaml /etc/rancher/k3s/config.yaml
 
-# setup containerd config
-mkdir -p /var/lib/rancher/k3s/agent/etc/containerd/
-cat containerd-config.toml | envsubst > /var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl
+# setup registries
+mkdir -p /etc/rancher/k3s/
+cat containerd-config.toml | envsubst > /etc/rancher/k3s/registries.yaml
 
 # install k3s (env vars above will be utilized)
 wget -qO- https://get.k3s.io | sh -s -

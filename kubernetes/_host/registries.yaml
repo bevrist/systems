@@ -1,0 +1,12 @@
+# /etc/rancher/k3s/registries.yaml
+# export IP="192.168.1.22" ; cat registries.yaml | envsubst
+# push images to "$IP:5000/image-name"
+
+mirrors:
+  $IP:5000:
+    endpoint:
+      - http://$IP:5000/v2
+configs:
+  $IP:5000:
+    tls:
+      insecure_skip_verify: true
