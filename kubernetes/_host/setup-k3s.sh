@@ -21,7 +21,7 @@ cp k3s-config.yaml /etc/rancher/k3s/config.yaml
 
 # setup registries
 mkdir -p /etc/rancher/k3s/
-cat containerd-config.toml | envsubst > /etc/rancher/k3s/registries.yaml
+cat registries.yaml | envsubst > /etc/rancher/k3s/registries.yaml
 
 # install k3s (env vars above will be utilized)
 wget -qO- https://get.k3s.io | sh -s -
