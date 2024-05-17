@@ -54,7 +54,7 @@ restic -r $RESTIC_REPO forget --prune --compression max --group-by '' \
   --keep-hourly  5  \
   --keep-daily   10 \
   --keep-weekly  8  \
-  --keep-monthly 24
+  --keep-monthly 12
 
 # update last backup timestamp
 echo -e ">>Backed Up: $(date "+%Y-%m-%d_%H:%M")\n" | tee $BACKUP_LAST_RUN_FILE

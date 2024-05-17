@@ -48,5 +48,5 @@ RUN chown -R caddy:caddy /config/caddy
 RUN chown -R caddy:caddy /data/caddy
 USER caddy
 COPY Caddyfile /etc/caddy/Caddyfile
-COPY --from=optimizer /www/ /www
-# COPY /www/ /www
+COPY --from=optimizer --chown=caddy:caddy /www/ /www
+# COPY --chown=caddy:caddy /www/ /www
