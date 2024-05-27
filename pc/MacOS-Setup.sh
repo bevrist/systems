@@ -64,8 +64,8 @@ brew install --cask rectangle keepingyouawake homebrew/cask-fonts/font-fira-code
 brew install --cask keepassxc firefox chromium visual-studio-code obsidian
 brew install --cask iina grandperspective microsoft-remote-desktop db-browser-for-sqlite ios-app-signer
 # orion libreoffice blender flutter steam epic-games discord
-# bootstrap-studio http-toolkit stoplight-studio figma utm bruno
-# monitorcontrol hiddenbar cider menuwhere
+# bootstrap-studio http-toolkit stoplight-studio figma bruno
+# monitorcontrol hiddenbar cider menuwhere utm
 # rocket-typist
 
 # brew install --cask wacom-tablet
@@ -87,6 +87,9 @@ mas install 497799835   # xcode
 mas install 1451685025  # wireguard
 mas install 1475387142  # tailscale
 mas install 1481853033  # strongbox pro
+
+# recording/presenting software
+brew install --cask kdenlive scroll-reverser
 mas install 1507246666  # presentify
 
 ###

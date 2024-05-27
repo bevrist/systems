@@ -1,0 +1,15 @@
+# this defines the NFS mount that will be used for PV's
+---
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: nfs-csi
+provisioner: nfs.csi.k8s.io
+parameters:
+  server: 192.168.86.4  # nfs server IP
+  share: /mnt/6TB-5400RPM/share
+  subDir: "/kube/${pvc.metadata.namespace}_${pvc.metadata.name}/"
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
+mountOptions:
+  - nfsvers=4.2

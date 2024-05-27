@@ -9,7 +9,7 @@ fi
 mas upgrade
 
 brew update
-brew upgrade
+brew upgrade --greedy
 brew cleanup -s
 brew missing
 brew doctor
