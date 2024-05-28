@@ -31,7 +31,7 @@ metadata:
   name: git-ingress
   namespace: website
   annotations:
-    kubernetes.io/ingress.class: "traefik"
+    kubernetes.io/ingressClassName: "traefik"
     traefik.ingress.kubernetes.io/router.middlewares: website-https-redirect@kubernetescrd
 spec:
   tls:
@@ -42,7 +42,7 @@ spec:
     service:
       name: git-service-external
       port:
-        number: 80
+        number: 8080
   rules:
   - host: git.brettevrist.net
     http:

@@ -1,4 +1,4 @@
-FROM alpine
+FROM alpine:3
 RUN apk add samba tini
 
 RUN mkdir -p /usr/local/samba/var/cores

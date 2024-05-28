@@ -1,6 +1,6 @@
 # website-image
 # optimize javascript with closure compiler
-FROM debian as closure
+FROM debian:12 as closure
 RUN apt-get update && apt-get install closure-compiler htmlmin -y
 COPY www/ /www
 WORKDIR /www
@@ -15,7 +15,7 @@ RUN find . -name "*.css" ! -name "*.min.css" -exec htmlmin -cs {} {}.min \;
 RUN find . -name "*.css" ! -name "*.min.css" -exec rm -f {} \; -exec mv {}.min {} \;
 
 # pre-compress files
-FROM alpine as optimizer
+FROM alpine:3 as optimizer
 RUN apk add brotli util-linux libwebp-tools
 COPY --from=closure /www/ /www
 WORKDIR /www

@@ -23,6 +23,10 @@ cp k3s-config.yaml /etc/rancher/k3s/config.yaml
 mkdir -p /etc/rancher/k3s/
 cat registries.yaml | envsubst > /etc/rancher/k3s/registries.yaml
 
+# configure traefik
+mkdir -p /var/lib/rancher/k3s/server/manifests/
+cp traefik-config.yaml /var/lib/rancher/k3s/server/manifests/traefik-config.yaml
+
 # install k3s (env vars above will be utilized)
 wget -qO- https://get.k3s.io | sh -s -
 

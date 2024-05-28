@@ -1,0 +1,10 @@
+# /var/lib/rancher/k3s/server/manifests/traefik-config.yaml
+apiVersion: helm.cattle.io/v1
+kind: HelmChartConfig
+metadata:
+  name: traefik
+  namespace: kube-system
+spec:
+  valuesContent: |-
+    globalArguments:
+    - "--providers.kubernetesingress.allowexternalnameservices=true"

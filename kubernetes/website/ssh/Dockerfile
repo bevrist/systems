@@ -1,5 +1,5 @@
 # ssh-image
-FROM alpine
+FROM alpine:3
 RUN apk add openssh-server openssh rsync tini
 
 # configure sshd

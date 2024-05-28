@@ -1,0 +1,67 @@
+---
+# Deployment for share
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: share-deployment
+  namespace: share
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: share  # must match spec.template.metadata.labels
+  template:
+    metadata:
+      labels:
+        app: share  # must match spec.selector.matchLabels
+    spec:
+      containers:
+      - name: share
+        image: docker.io/caddy:2
+        imagePullPolicy: Always
+        ports:
+        - name: web-port
+          containerPort: 8080
+        - name: healthz
+          containerPort: 8888
+        resources:
+          limits:
+            cpu: 250m
+            memory: 100Mi
+        readinessProbe:
+          httpGet:
+            port: 8888
+        livenessProbe:
+           httpGet:
+            port: 8888
+        volumeMounts:
+        - name: share-volume
+          mountPath: /usr/share/caddy/
+          readOnly: true
+        - name: config
+          mountPath: "/etc/caddy"
+          readOnly: true
+      volumes:
+      - name: share-volume
+        persistentVolumeClaim:
+          claimName: share-pvc
+      - name: config
+        configMap:
+          name: share-configmap
+          items:
+          - key: "Caddyfile"
+            path: "Caddyfile"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: share-service
+  namespace: share
+spec:
+  selector:
+    app: share
+  ports:
+    - name: web-port
+      protocol: TCP
+      port: 8080

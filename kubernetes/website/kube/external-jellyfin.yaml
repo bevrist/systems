@@ -31,7 +31,7 @@ metadata:
   name: jelly-ingress
   namespace: website
   annotations:
-    kubernetes.io/ingress.class: "traefik"
+    kubernetes.io/ingressClassName: "traefik"
     traefik.ingress.kubernetes.io/router.middlewares: website-https-redirect@kubernetescrd
 spec:
   tls:

@@ -5,7 +5,7 @@ metadata:
   name: website-ingress
   namespace: website
   annotations:
-    kubernetes.io/ingress.class: "traefik"
+    kubernetes.io/ingressClassName: "traefik"
     # traefik.ingress.kubernetes.io/router.middlewares: <namespace>-<MiddlewareName>@kubernetescrd
     traefik.ingress.kubernetes.io/router.middlewares: website-redirects@kubernetescrd
 spec:

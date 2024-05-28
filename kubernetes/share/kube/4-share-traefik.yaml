@@ -2,21 +2,21 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: mealie-service-externalname
+  name: share-service-externalname
   namespace: website
 spec:
   type: ExternalName
-  externalName: mealie-service.mealie.svc.cluster.local
+  externalName: share-service.share.svc.cluster.local
   ports:
   - name: http
-    port: 3000
+    port: 8080
     protocol: TCP
 
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: mealie-ingress
+  name: share-ingress
   namespace: website
   annotations:
     kubernetes.io/ingressClassName: "traefik"
@@ -25,32 +25,21 @@ metadata:
 spec:
   tls:
   - hosts:
-    - mealie.brettevrist.net
-    - mealie.evri.st
-    secretName: brettevrist-net-cert-secret
+    - share.brettevrist.net
+    # no secretName specified, use default certificate
   defaultBackend:
     service:
-      name: mealie-service-externalname
+      name: share-service-externalname
       port:
-        number: 3000
+        number: 8080
   rules:
-  - host: mealie.brettevrist.net
+  - host: share.brettevrist.net
     http:
       paths:
       - path: /
         pathType: Prefix
         backend:
           service:
-            name: mealie-service-externalname
+            name: share-service-externalname
             port:
-              number: 3000
-  - host: mealie.evri.st
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: mealie-service-externalname
-            port:
-              number: 3000
+              number: 8080

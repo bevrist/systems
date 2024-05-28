@@ -1,0 +1,25 @@
+# inlining a Caddyfile here for easy deployment
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: share-configmap
+data:
+  Caddyfile: |-
+    :8080 {
+      basicauth {
+        bevrist $2a$14$BDd.JyoJkYvrfFMVg2Wypu3pVkUi44QlBmnMpsLNio34KpbleRJ5K
+        guest $2a$14$j.eekuFXPfacEIGh2AS2WutPbvRdHhhSj63zSzxAqSdahnCGFMfw2
+      }
+
+      root * /usr/share/caddy/
+
+      file_server browse {
+        index ""
+      }
+    }
+
+    # healthz endpoint
+    :8888 {
+      respond "OK" 200
+    }

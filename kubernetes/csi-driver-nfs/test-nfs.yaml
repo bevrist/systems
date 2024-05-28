@@ -5,10 +5,10 @@ metadata:
   name: pvc-deployment-nfs-test
 spec:
   accessModes:
-    - ReadWriteMany  # In this example, multiple Pods consume the same PVC.
+    - ReadWriteMany  # effectively only supports ReadWriteMany regardless of this setting
   resources:
     requests:
-      storage: 1Gi
+      storage: 1Gi  # not enforced by csi driver
   storageClassName: nfs-csi
 ---
 apiVersion: apps/v1

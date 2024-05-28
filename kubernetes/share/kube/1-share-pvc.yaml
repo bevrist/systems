@@ -1,0 +1,40 @@
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: share-pvc
+  namespace: share
+spec:
+  accessModes:
+    - ReadWriteMany  # only supports ReadWriteMany
+  resources:
+    requests:
+      storage: 1Gi  # not enforced by csi driver
+  volumeName: share-pv
+  storageClassName: ""  # explicitly mounting nfs in PV, so no storage class used
+
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    pv.kubernetes.io/provisioned-by: nfs.csi.k8s.io
+  name: share-pv
+  namespace: share
+spec:
+  capacity:
+    storage: 1Gi  # not enforced by csi driver
+  accessModes:
+    - ReadWriteMany   # only supports ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain  #! set to "Retain" to avoid deletion of folders
+  mountOptions:
+    - nfsvers=4.2
+  csi:
+    driver: nfs.csi.k8s.io
+    # volumeHandle format: {nfs-server-address}#{sub-dir-name}#{share-name}
+    #! make sure this value is unique for every share in the cluster
+    volumeHandle: 192.168.86.4#/mnt/6TB-5400RPM/share#/BACKUP/Games_Archive
+    volumeAttributes:
+      server: 192.168.86.4  # nfs server IP
+      share: /mnt/6TB-5400RPM/share
+      subDir: "/BACKUP/Games Archive"
