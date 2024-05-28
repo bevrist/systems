@@ -76,7 +76,7 @@ sudo apt-get install -y docker.io docker-compose p7zip-full htop tree rename hyp
 
 brew install starship zsh-completions lsd yq jq macchina
 brew install watchexec
-brew install ctop kubernetes-cli helm kubectx skaffold k3d  #linkerd argocd
+brew install ctop kubernetes-cli helm kubectx skaffold k3d  #argocd
 
 # install cht.sh
 sudo curl -o /usr/local/bin/cht.sh https://cht.sh/:cht.sh

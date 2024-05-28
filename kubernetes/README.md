@@ -35,30 +35,6 @@ visit: http://localhost:9999
 
 
 ## Service Mesh/Networking
-### Linkerd Install
-`linkerd check --pre`
-`linkerd install | kubectl apply -f -`
-`linkerd check` (may take a few minutes)
-
-### Linkerd Injector
-Patch k3s resources (traefik)
-`k patch -n kube-system deployment traefik -p='{"spec":{"template":{"metadata":{"annotations":{"linkerd.io/inject":"enabled"}}}}}'`
-`k patch -n kube-system daemonsets svclb-traefik -p='{"spec":{"template":{"metadata":{"annotations":{"linkerd.io/inject":"enabled"}}}}}'`
-Apply label to each namespace that will use linkerd:  `linkerd.io/inject: enabled`
-`k patch ns default -p='{"metadata":{"annotations":{"linkerd.io/inject":"enabled"}}}'`
-> Namespaces that need Labels:
-> - default
-> - longhorn-system
-> - cert-manager
-
-### Linkerd Extensions
-viz: `linkerd viz install | kubectl apply -f -`
-`linkerd viz dashboard`
-jaeger: `linkerd jaeger install | kubectl apply -f -`
-`linkerd jaeger dashboard`
-`linkerd check`
-
-
 # Celium
 > Install k3s without flannel CNI
 `curl -sfL https://get.k3s.io | sh -s - --flannel-backend none --disable-network-policy`  
