@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: share
-        image: docker.io/caddy:2
+        image: docker.io/caddy:2.8-alpine
         imagePullPolicy: Always
         ports:
         - name: web-port

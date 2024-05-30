@@ -2,15 +2,16 @@
 
 ## Fresh Install
 1) deploy k3s: [_host/README.md](_host/README.md)
-2) install local-registry: [local-registry/README.md](local-registry/README.md)
-3) install cert-manager: [cert-manager/README.md](cert-manager/README.md)
-4) set up skaffold configs:
+2) install nfs csi driver: [csi-driver-nfs/README.md](csi-driver-nfs/README.md)
+3) install local-registry: [local-registry/README.md](local-registry/README.md)
+4) install cert-manager: [cert-manager/README.md](cert-manager/README.md)
+5) set up skaffold configs:
   0) `export IP="k3s"`
   1) `skaffold config set default-repo $IP:5000`  
   2) `skaffold config set insecure-registries $IP:5000`
   3) `skaffold config set local-cluster true`
-5) deploy website: [website/README.md](website/README.md)
-8) install all other kube apps
+6) deploy website: [website/README.md](website/README.md)
+7) install all other kube apps
 
 
 ---

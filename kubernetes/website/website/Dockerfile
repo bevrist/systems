@@ -40,7 +40,7 @@ RUN find . -type f -exec gzip --best -k {} \;
 RUN find . -type f ! -name "*.gz" -exec brotli --best {} \;
 
 
-FROM caddy:2-alpine
+FROM caddy:2.8-alpine
 # non-root user
 RUN adduser -DH caddy
 RUN chown -R caddy:caddy /usr/share/caddy

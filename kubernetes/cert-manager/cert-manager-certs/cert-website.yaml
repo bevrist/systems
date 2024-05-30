@@ -16,6 +16,7 @@ spec:
     - "evri.st"
     - "*.evri.st"
     - "evrist.net"
+    - "*.evrist.net"
   issuerRef:
     name: letsencrypt-cluster-issuer
     kind: ClusterIssuer
