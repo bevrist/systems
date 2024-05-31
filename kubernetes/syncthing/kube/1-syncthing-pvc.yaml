@@ -1,16 +1,28 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: syncthing-config-pvc
+  namespace: syncthing
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 50Mi
+
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: share-pvc
-  namespace: share
+  name: syncthing-pvc
+  namespace: syncthing
 spec:
   accessModes:
     - ReadWriteMany  # only supports ReadWriteMany
   resources:
     requests:
       storage: 1Gi  # not enforced by csi driver
-  volumeName: share-pv
+  volumeName: syncthing-pv
   storageClassName: ""  # explicitly mounting nfs in PV, so no storage class used
 
 ---
@@ -19,8 +31,8 @@ kind: PersistentVolume
 metadata:
   annotations:
     pv.kubernetes.io/provisioned-by: nfs.csi.k8s.io
-  name: share-pv
-  namespace: share
+  name: syncthing-pv
+  namespace: syncthing
 spec:
   capacity:
     storage: 1Gi  # not enforced by csi driver
@@ -33,8 +45,8 @@ spec:
     driver: nfs.csi.k8s.io
     # volumeHandle format: {nfs-server-address}#{sub-dir-name}#{share-name}
     #! make sure this value is unique for every share in the cluster
-    volumeHandle: 192.168.86.4#/BACKUP/Games_Archive#share-pv
+    volumeHandle: 192.168.86.4#/sync#syncthing-pv
     volumeAttributes:
       server: 192.168.86.4  # nfs server IP
       share: /mnt/6TB-5400RPM/share
-      subDir: "/BACKUP/Games Archive"
+      subDir: "/sync"

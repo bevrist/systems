@@ -1,0 +1,77 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: syncthing-deployment
+  namespace: syncthing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: syncthing
+  template:
+    metadata:
+      labels:
+        app: syncthing
+    spec:
+      containers:
+      - name: syncthing
+        image: syncthing/syncthing:1
+        imagePullPolicy: Always
+        env:
+        - name: HOME
+          value: "/share"
+        command: ["/bin/syncthing"]
+        securityContext:
+          runAsUser: 1000
+          runAsGroup: 1000
+        ports:
+        # - containerPort: 8384
+        #   name: syncthing
+        #   protocol: TCP
+        - containerPort: 22000
+          protocol: TCP
+          name: tocp-sync
+        - containerPort: 22000
+          protocol: UDP
+          name: udp-sync
+        resources:
+          limits:
+            memory: 256Mi
+            cpu: 500m
+            ephemeral-storage: 2Gi
+        volumeMounts:
+        - name: syncthing-config-storage
+          mountPath: /var/syncthing/config
+        - name: syncthing-storage
+          mountPath: /share
+      volumes:
+      - name: syncthing-config-storage
+        persistentVolumeClaim:
+          claimName: syncthing-config-pvc
+      - name: syncthing-storage
+        persistentVolumeClaim:
+          claimName: syncthing-pvc
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: syncthing-service
+  namespace: syncthing
+spec:
+  selector:
+    app: syncthing
+  ports:
+    # - name: web-ui
+    #   port: 8384
+    #   targetPort: 8384
+    #   protocol: TCP
+    - name: tcp-sync
+      protocol: TCP
+      port: 22000
+      targetPort: 22000
+    - name: udp-sync
+      protocol: UDP
+      port: 22000
+      targetPort: 22000
+  type: LoadBalancer
