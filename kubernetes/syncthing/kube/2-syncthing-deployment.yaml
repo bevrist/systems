@@ -30,7 +30,7 @@ spec:
         #   protocol: TCP
         - containerPort: 22000
           protocol: TCP
-          name: tocp-sync
+          name: tcp-sync
         - containerPort: 22000
           protocol: UDP
           name: udp-sync
