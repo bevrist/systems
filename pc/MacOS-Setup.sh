@@ -59,7 +59,7 @@ fi
 brew update
 
 #Install Apps
-brew install --cask google-drive # xquartz  # install apps that require system password first
+# brew install --cask google-drive # xquartz  # install apps that require system password first
 brew install --cask rectangle keepingyouawake homebrew/cask-fonts/font-fira-code-nerd-font numi maccy secretive
 brew install --cask keepassxc firefox chromium visual-studio-code obsidian
 brew install --cask iina grandperspective microsoft-remote-desktop db-browser-for-sqlite ios-app-signer
@@ -162,8 +162,6 @@ Sort all Apple apps to folders to make room for new Apps
 Open 'secretive' and create an ssh key
 Sign ssh pub key with ca_cert
 copy pub key to .ssh/ and update ssh config(~/.ssh/config)  'IdentityFile' to point to secretive pub key
-Log into Google Drive App
-  set google drive app to 'Mirror Files'
 Setup 'dev/backup/cron-backup.sh' in crontab
 macos Preferences:
   Apple id: disable photos sync and other unused services
@@ -262,3 +260,6 @@ RESTART MACOS to finalize xquartz configuration
   #   security > 'lock database after inactivity'=600 sec, check 'Hide entry notes by default'
   #   browser integration > enable, firefox. advanced > check 'never ask before accessing credentials'
   #   connect KeepassXC to orion browser extension
+  # Google Drive:
+  #   Log into Google Drive App
+  #   set google drive app to 'Mirror Files'
