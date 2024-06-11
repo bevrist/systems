@@ -1,1 +1,0 @@
-ssh bevrist@debian-vm
