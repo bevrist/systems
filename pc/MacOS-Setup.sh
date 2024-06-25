@@ -220,13 +220,13 @@ Setup preferences for apps:
       shell > When the shell exits = 'Close if the shell exited cleanly'
 
 Setup Affinity Designer: https://affinity.serif.com
-  brew install --cask affinity-designer
+  brew install --cask affinity-designer affinity-photo
+Get Davinci Resolve: https://www.blackmagicdesign.com/products/davinciresolve
 Get Pureref: https://pureref.com
-
-RESTART MACOS to finalize xquartz configuration
 " | tee ~/Desktop/Setup-Notes.txt
 
 # inactive notes:
+  # RESTART MACOS to finalize xquartz configuration
   # orion browser:
   #   preferences:
   #     set orion as default browser
