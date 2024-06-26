@@ -37,4 +37,4 @@ spec:
     volumeAttributes:
       server: 192.168.86.4  # nfs server IP
       share: /mnt/6TB-5400RPM/share
-      subDir: "/sync/Games Archive"
+      subDir: "/syncthing/Games Archive"
