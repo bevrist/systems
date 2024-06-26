@@ -31,7 +31,7 @@ spec:
     - nfsvers=4.2
   csi:
     driver: nfs.csi.k8s.io
-    # volumeHandle format: {nfs-server-address}#{sub-dir-name}#{share-name}
+    # volumeHandle format: {nfs-server-address}#{sub-dir-name}#{pv-name}
     #! make sure this value is unique for every share in the cluster
     volumeHandle: 192.168.86.4#/BACKUP/Games_Archive#share-pv
     volumeAttributes:

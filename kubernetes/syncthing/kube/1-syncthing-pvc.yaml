@@ -8,7 +8,7 @@ spec:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 50Mi
+      storage: 500Mi
 
 ---
 apiVersion: v1
@@ -43,10 +43,10 @@ spec:
     - nfsvers=4.2
   csi:
     driver: nfs.csi.k8s.io
-    # volumeHandle format: {nfs-server-address}#{sub-dir-name}#{share-name}
+    # volumeHandle format: {nfs-server-address}#{sub-dir-name}#{pv-name}
     #! make sure this value is unique for every share in the cluster
-    volumeHandle: 192.168.86.4#/sync#syncthing-pv
+    volumeHandle: 192.168.86.4#/#syncthing-pv
     volumeAttributes:
       server: 192.168.86.4  # nfs server IP
       share: /mnt/6TB-5400RPM/share
-      subDir: "/sync"
+      subDir: "/"
