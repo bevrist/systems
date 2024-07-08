@@ -17,6 +17,7 @@ use the following format for naming all backup files: `file-Name_$(date +"%Y-%m-
 > - Google Takeout
 > - Google Drive _Backup Folder
 > - Books
+> - Playnite Library (Windows)
 
 ## Sync data to server:
 ```bash
