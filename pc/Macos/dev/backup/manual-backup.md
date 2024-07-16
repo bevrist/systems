@@ -2,12 +2,12 @@
 
 use the following format for naming all backup files: `file-Name_$(date +"%Y-%m-%d")`
 
-1) update `_Backup` files in Google Drive:
+1) Open apple books and wait for data to sync, then export all books
+
+2) update `_Backup` files in Google Drive: `MOVE ALL BACKUP ZIPS TO SERVER BACKUP/ DIRECTLY`
 > - all backup files in google drive backup folder should be updated  
 
-2) copy updated `_backup` folder to OneDrive
-
-3) Open apple books and wait for data to sync, then export all books
+3) copy updated `_backup` folder to OneDrive
 
 4) Google Takeout: Calendar, Contacts, Drive, Mail, Maps, Youtube
 > - Remove unneeded stuff from drive takeout
