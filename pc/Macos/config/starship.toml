@@ -67,62 +67,14 @@ ssh_symbol = " "
 [username]
 format = "[$user]($style) "
 
-### Symbol config ###
-[aws]
-symbol = "  "
-[buf]
-symbol = " "
-[c]
-symbol = " "
-[conda]
-symbol = " "
-[crystal]
-symbol = " "
-[dart]
-symbol = " "
-[docker_context]
-symbol = " "
-[elixir]
-symbol = " "
-[elm]
-symbol = " "
-[fennel]
-symbol = " "
-[fossil_branch]
-symbol = " "
-[golang]
-symbol = " "
-[guix_shell]
-symbol = " "
-[haskell]
-symbol = " "
-[haxe]
-symbol = " "
-[hg_branch]
-symbol = " "
-[java]
-symbol = " "
-[julia]
-symbol = " "
-[kotlin]
-symbol = " "
-[lua]
-symbol = " "
-[memory_usage]
-symbol = "󰍛 "
-[meson]
-symbol = "󰔷 "
-[nim]
-symbol = "󰆥 "
-[nix_shell]
-symbol = " "
-[nodejs]
-symbol = " "
-[ocaml]
-symbol = " "
+### nerd font symbols ###
+### https://starship.rs/presets/nerd-font
+### No Runtimes Versions Format ###
+### https://starship.rs/presets/no-runtimes
 [os.symbols]
 Alpaquita = " "
 Alpine = " "
+AlmaLinux = " "
 Amazon = " "
 Android = " "
 Arch = " "
@@ -138,6 +90,7 @@ Garuda = "󰛓 "
 Gentoo = " "
 HardenedBSD = "󰞌 "
 Illumos = "󰈸 "
+Kali = " "
 Linux = " "
 Mabox = " "
 Macos = " "
@@ -154,31 +107,156 @@ Pop = " "
 Raspbian = " "
 Redhat = " "
 RedHatEnterprise = " "
+RockyLinux = " "
 Redox = "󰀘 "
 Solus = "󰠳 "
 SUSE = " "
 Ubuntu = " "
 Unknown = " "
+Void = " "
 Windows = "󰍲 "
+
+[aws]
+symbol = "  "
+[buf]
+symbol = " "
+format = "via [$symbol]($style)"
+[bun]
+format = "via [$symbol]($style)"
+[c]
+symbol = " "
+[cmake]
+format = "via [$symbol]($style)"
+[cobol]
+format = "via [$symbol]($style)"
+[conda]
+symbol = " "
+[crystal]
+symbol = " "
+format = "via [$symbol]($style)"
+[daml]
+format = "via [$symbol]($style)"
+[dart]
+symbol = " "
+format = "via [$symbol]($style)"
+[deno]
+format = "via [$symbol]($style)"
+# [directory]
+# read_only = " 󰌾"
+[docker_context]
+symbol = " "
+[dotnet]
+format = "[$symbol(🎯 $tfm )]($style)"
+[elixir]
+symbol = " "
+format = "via [$symbol]($style)"
+[elm]
+symbol = " "
+format = "via [$symbol]($style)"
+[erlang]
+format = "via [$symbol]($style)"
+[fennel]
+symbol = " "
+format = "via [$symbol]($style)"
+[fossil_branch]
+symbol = " "
+# [git_branch]
+# symbol = " "
+[gleam]
+format = "via [$symbol]($style)"
+[golang]
+symbol = " "
+format = "via [$symbol]($style)"
+[gradle]
+format = "via [$symbol]($style)"
+[guix_shell]
+symbol = " "
+[haskell]
+symbol = " "
+[haxe]
+symbol = " "
+format = "via [$symbol]($style)"
+[helm]
+format = "via [$symbol]($style)"
+[hg_branch]
+symbol = " "
+# [hostname]
+# ssh_symbol = " "
+[java]
+symbol = " "
+format = "via [$symbol]($style)"
+[julia]
+symbol = " "
+format = "via [$symbol]($style)"
+[kotlin]
+symbol = " "
+format = "via [$symbol]($style)"
+[lua]
+symbol = " "
+format = "via [$symbol]($style)"
+[memory_usage]
+symbol = "󰍛 "
+[meson]
+symbol = "󰔷 "
+format = "via [$symbol]($style)"
+[nim]
+symbol = "󰆥 "
+format = "via [$symbol]($style)"
+[nix_shell]
+symbol = " "
+[nodejs]
+symbol = " "
+format = "via [$symbol]($style)"
+[ocaml]
+symbol = " "
+format = "via [$symbol]($style)"
+[opa]
+format = "via [$symbol]($style)"
 [package]
 symbol = "󰏗 "
 [perl]
 symbol = " "
+format = "via [$symbol]($style)"
 [php]
 symbol = " "
+format = "via [$symbol]($style)"
 [pijul_channel]
 symbol = " "
+[pulumi]
+format = "via [$symbol$stack]($style)"
+[purescript]
+format = "via [$symbol]($style)"
 [python]
 symbol = " "
+format = "via [$symbol]($style)"
+[quarto]
+format = "via [$symbol]($style)"
+[raku]
+format = "via [$symbol]($style)"
+[red]
+format = "via [$symbol]($style)"
 [rlang]
 symbol = "󰟔 "
+format = "via [$symbol]($style)"
 [ruby]
 symbol = " "
+format = "via [$symbol]($style)"
 [rust]
-symbol = " "
+symbol = "󱘗 "
+format = "via [$symbol]($style)"
 [scala]
 symbol = " "
+[solidity]
+format = "via [$symbol]($style)"
 [swift]
 symbol = " "
+format = "via [$symbol]($style)"
+[typst]
+format = "via [$symbol]($style)"
+[vagrant]
+format = "via [$symbol]($style)"
+[vlang]
+format = "via [$symbol]($style)"
 [zig]
 symbol = " "
+format = "via [$symbol]($style)"

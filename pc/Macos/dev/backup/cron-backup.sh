@@ -41,13 +41,13 @@ code --list-extensions > "$HOME/.backup/backup/vscode-extensions.txt" 2> /dev/nu
 ### RESTIC BACKUP ###
 restic -r "$RESTIC_REPO" backup --exclude .git --compression max \
   $HOME/Library/Mobile\ Documents/iCloud\~md\~obsidian/Documents/B-Obsidian-Vault/ `#Obsidian Personal Vault (dir)` \
-  $HOME/Library/Application\ Support/Firefox/Profiles/*/places.sqlite `#Firefox History/bookmarks` \
+  $HOME/Library/Application\ Support/Orion/Defaults/favourites.plist `#Orion Browser Bookmarks` \
+  $HOME/Library/Application\ Support/Orion/Defaults/browser_state.plist `#Orion Browser Tabs` \
   $HOME/Library/Application\ Support/Code/User/settings.json `#Vscode Settings` \
   $HOME/.backup/backup/vscode-extensions.txt `#Vscode Extensions`
 
   # $HOME/Library/Group\ Containers/group.com.apple.notes/ `#Apple Notes App` \
-  # $HOME/Library/Application\ Support/Orion/Defaults/favourites.plist `#Orion Browser Bookmarks` \
-  # $HOME/Library/Application\ Support/Orion/Defaults/browser_state.plist `#Orion Browser Tabs` \
+  # $HOME/Library/Application\ Support/Firefox/Profiles/*/places.sqlite `#Firefox History/bookmarks` \
 
 # restic cleanup
 restic -r $RESTIC_REPO forget --prune --compression max --group-by '' \
