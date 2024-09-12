@@ -3,7 +3,7 @@ set -e
 
 # k3s install variables
 # https://github.com/k3s-io/k3s/releases/latest
-export INSTALL_K3S_VERSION="v1.30.2+k3s1"
+export INSTALL_K3S_VERSION="v1.31.0+k3s1"
 
 # export IP="$(ip a | grep -oP 'inet\s\S+' | grep -oP '192\.168\.\d+\.\d+')"  # k3s host ip address
 export IP="k3s"  # use magicDNS

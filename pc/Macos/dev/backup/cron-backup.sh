@@ -53,7 +53,7 @@ restic -r "$RESTIC_REPO" backup --exclude .git --compression max \
 restic -r $RESTIC_REPO forget --prune --compression max --group-by '' \
   --keep-hourly  5  \
   --keep-daily   10 \
-  --keep-weekly  8  \
+  --keep-weekly  5  \
   --keep-monthly 12
 
 # update last backup timestamp

@@ -35,6 +35,7 @@ spec:
       containers:
       - name: local-docker-registry
         image: registry
+        imagePullPolicy: Always
         resources:
           limits:
             cpu: 250m
