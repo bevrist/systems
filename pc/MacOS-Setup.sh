@@ -175,22 +175,19 @@ macos Preferences:
   Spotlight: Disable all but Applications and Calculator
   Keyboard > Text: uncheck 'Add period with double-space'
   Battery > options: 'Wake for network access' never, enable 'Opimize video streaming while on battery'
+
 Setup preferences for apps:
   text edit: preferences: check 'Plain Text'
-  firefox browser:
-    set firefox as default browser
-    sign into firefox sync
-    set kagi as search engine
-    Customize Toolbar (from left to right):
-      Tree Style Tab, Back, Forward, Refresh, URL Bar, Downloads, ublock, Extensions, Application Menu
-    extensions: ublock origin, tree style tabs, sponsorblock, privacy badger, i still dont care about cookies, consent-o-matic, Strongbox auto fill      ~keepassXC browser~
-    customize firefox configs:
-      open page: 'about:config':
-        toolkit.legacyUserProfileCustomizations.stylesheets = True
-    install custom firefox userChrome.css:
-      run '$(pwd)/Macos/install-firefox-userChrome.sh'
-    edit Tree Style Tab extension CSS:
-      open Tree Style Tab Preferences > Advanced: paste contents of Macos/firefox-treeStyleTab.css
+  orion browser:
+    preferences:
+      set orion as default browser
+      appearance > Show Tabs: On the side. Toolbar: check 'Show bookmarks bar' & 'use compact size'. Bookmarks bar: 'Text Only'
+      Browsing > Disable 'Open External Links in Preview'
+      passwords > password provider: '3rd party provider'
+      search > search engine: kagi (set up private window key)
+      websites > auto play: youtube.com
+      advanced > check 'allow installation ... Firefox Extensions'
+    get firefox extensions: consent-o-matic, I Still Dont Care About Cookies, SponsorBlock, Strongbox Autofill
 	rectangle: Launch on login, Hide menu bar icon
 	keepingyouawake:
     General > check 'Activate at Launch'
@@ -227,19 +224,20 @@ Get Pureref: https://pureref.com
 " | tee ~/Desktop/Setup-Notes.txt
 
 # inactive notes:
-  # RESTART MACOS to finalize xquartz configuration
-  # orion browser:
-  #   preferences:
-  #     set orion as default browser
-  #     appearance > Show Tabs: On the side. Toolbar: check 'Show bookmarks bar' & 'use compact size'. Bookmarks bar: 'Text Only'
-  #     passwords > password provider: '3rd party provider'
-  #     search > search engine: kagi (set up private window key)
-  #     websites > auto play: youtube.com
-  #     advanced > check 'allow installation ... Firefox Extensions'
-  #   get popular extensions: consent-o-matic, SponsorBlock
-  #   get firefox extensions: KeepassXC-browser
-  #   extension settings:
-  #     KeepassXC: sync with desktop app
+  # firefox browser:
+  #   set firefox as default browser
+  #   sign into firefox sync
+  #   set kagi as search engine
+  #   Customize Toolbar (from left to right):
+  #     Tree Style Tab, Back, Forward, Refresh, URL Bar, Downloads, ublock, Extensions, Application Menu
+  #   extensions: ublock origin, tree style tabs, sponsorblock, privacy badger, i still dont care about cookies, consent-o-matic, Strongbox auto fill      ~keepassXC browser~
+  #   customize firefox configs:
+  #     open page: 'about:config':
+  #       toolkit.legacyUserProfileCustomizations.stylesheets = True
+  #   install custom firefox userChrome.css:
+  #     run '$(pwd)/Macos/install-firefox-userChrome.sh'
+  #   edit Tree Style Tab extension CSS:
+  #     open Tree Style Tab Preferences > Advanced: paste contents of Macos/firefox-treeStyleTab.css
   # iTerm:
   #   General > Closing: disable 'Confirm Quit'
   #   Appearance > Tabs: 'Show tab bar even when...'
