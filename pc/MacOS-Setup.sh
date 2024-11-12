@@ -75,10 +75,10 @@ brew install wget grep findutils rsync watch entr git git-lfs difftastic coreuti
 brew install netcat p7zip pv tree rename gnu-sed jq yq atuin htop btop gron hyperfine dust taskell
 brew install tokei qpdf rclone syncthing grex
 brew install podman docker docker-compose docker-buildx docker-credential-helper
-# brew install crane dive  grype trivy  #docker helper tools
-brew install ctop kubernetes-cli helm kubectx skaffold k3d
-# argocd ; brew install --cask openlens  #Kubernetes extras
-# lolcat sl nyancat cowsay fastlane foreman lazydocker lazygit  #fun extras
+# brew install crane dive grype trivy lazydocker  # container helper tools
+brew install ctop kubernetes-cli helm kubectx skaffold kind
+# argocd flux k3d  #Kubernetes extras
+# lolcat sl nyancat cowsay fastlane foreman lazygit  #fun extras
 
 brew install typst ; brew install --cask skim  #better LaTeX alternative
 

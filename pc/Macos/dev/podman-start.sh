@@ -1,7 +1,7 @@
 #!/bin/bash
 VM_NAME=bretts-podman-vm
 
-echo $VM_NAME
+echo Machine name: $VM_NAME
 
 # create machine if it doesnt exist
 if [ $(podman machine list | grep -P "^${VM_NAME}\*?\s" | wc -l) -ne 1 ]; then
@@ -11,6 +11,9 @@ if [ $(podman machine list | grep -P "^${VM_NAME}\*?\s" | wc -l) -ne 1 ]; then
     --memory 2048
     # --image-path stable
 fi
+
+# make vm rootless
+podman machine set --rootful ${VM_NAME}
 
 # Start podman vm
 podman machine start ${VM_NAME}
