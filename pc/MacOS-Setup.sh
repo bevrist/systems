@@ -18,21 +18,22 @@ then
   mkdir -p ~/.ssh
   # Use secretive for keys instead of generating keys
 
-#   # Using apple keychain for SSH keys
-#   echo "Generating SSH Key, MUST USE A PASSWORD!"
-#   ssh-keygen -f ~/.ssh/${USER}_key
-#   chmod 500 ~/.ssh/${USER}_key
-#   echo "Adding SSH Key to Keychain..."
-#   ssh-add --apple-use-keychain ~/.ssh/${USER}_key
+  # # Using apple keychain for SSH keys
+  # echo "Generating SSH Key, MUST USE A PASSWORD!"
+  # ssh-keygen -f ~/.ssh/${USER}_key
+  # chmod 500 ~/.ssh/${USER}_key
+  # echo "Adding SSH Key to Keychain..."
+  # ssh-add --apple-use-keychain ~/.ssh/${USER}_key
 fi
 
-echo "Host *
+echo "# ~/.ssh/config
+Host *
   ServerAliveInterval 5
   ServerAliveCountMax 1
 
   #secretive keystore
 	IdentityAgent /Users/${USER}/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
-  IdentityFile ~/./ssh/<NAME_OF_PUB_KEY_HERE>
+  IdentityFile ~/.ssh/<NAME_OF_PUB_KEY_HERE>
   ## e.g. for key 'my-key.pub' with cert 'my-key-cert.pub', use 'IdentityFile ~/.ssh/my-key'
 
   # #apple keychain
@@ -42,10 +43,6 @@ echo "Host *
 
 Host play.brettevrist.net
   Port 2213
-  User bevrist
-
-Host svn.brettevrist.net
-  Port 2500
   User bevrist
 " > ~/.ssh/config
 
@@ -65,7 +62,7 @@ brew install --cask keepassxc firefox chromium visual-studio-code obsidian
 brew install --cask iina grandperspective db-browser-for-sqlite ios-app-signer
 # orion libreoffice blender flutter steam epic-games discord
 # bootstrap-studio http-toolkit stoplight-studio figma bruno
-# monitorcontrol hiddenbar cider menuwhere utm
+# monitorcontrol hiddenbar scroll-reverser cider menuwhere
 # rocket-typist
 
 # brew install --cask wacom-tablet
@@ -83,14 +80,13 @@ brew install ctop kubernetes-cli helm kubectx skaffold kind
 brew install typst ; brew install --cask skim  #better LaTeX alternative
 
 # install mac app store apps
-mas install 497799835   # xcode
 mas install 1451685025  # wireguard
-mas install 1475387142  # tailscale
 mas install 1481853033  # strongbox pro
-mas install 1295203466  # microsoft remote desktop
+mas install 1295203466  # microsoft windows app
+# mas install 1475387142  # tailscale
 
 # recording/presenting software
-brew install --cask kdenlive scroll-reverser
+# brew install --cask kdenlive
 mas install 1507246666  # presentify
 
 ###
@@ -100,7 +96,6 @@ sudo mkdir -pm 775 /usr/local/bin/
 
 # symlink "aliases" (for `watch` command)
 ln -sf $(which kubectl) /usr/local/bin/k
-ln -sf $(which docker) /usr/local/bin/d
 ln -sf $(which podman) /usr/local/bin/p
 
 # install cht.sh
