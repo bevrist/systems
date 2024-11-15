@@ -74,7 +74,7 @@ brew install tokei qpdf rclone syncthing grex
 brew install podman docker docker-compose docker-buildx docker-credential-helper
 # brew install crane dive grype trivy lazydocker  # container helper tools
 brew install ctop kubernetes-cli helm kubectx skaffold kind
-# argocd flux k3d  #Kubernetes extras
+# argocd flux #Kubernetes extras
 # lolcat sl nyancat cowsay fastlane foreman lazygit  #fun extras
 
 brew install typst ; brew install --cask skim  #better LaTeX alternative
