@@ -71,9 +71,9 @@ brew install zsh zsh-autosuggestions zsh-syntax-highlighting zsh-completions sta
 brew install wget grep findutils rsync watch entr git git-lfs difftastic coreutils lsd restic terminal-notifier macchina
 brew install netcat p7zip pv tree rename gnu-sed jq yq atuin htop btop gron hyperfine dust taskell
 brew install tokei qpdf rclone syncthing grex
-brew install podman docker docker-compose docker-buildx docker-credential-helper
-# brew install crane dive grype trivy lazydocker  # container helper tools
-brew install ctop kubernetes-cli helm kubectx skaffold kind
+brew install colima docker docker-compose docker-buildx docker-credential-helper
+# brew install crane dive grype trivy lazydocker podman  # container helper tools
+brew install ctop kubernetes-cli helm kubectx skaffold kind k3d
 # argocd flux #Kubernetes extras
 # lolcat sl nyancat cowsay fastlane foreman lazygit  #fun extras
 
@@ -96,7 +96,8 @@ sudo mkdir -pm 775 /usr/local/bin/
 
 # symlink "aliases" (for `watch` command)
 ln -sf $(which kubectl) /usr/local/bin/k
-ln -sf $(which podman) /usr/local/bin/p
+# ln -sf $(which podman) /usr/local/bin/p
+ln -sf $(which docker) /usr/local/bin/d
 
 # install cht.sh
 curl -o /usr/local/bin/cht.sh https://cht.sh/:cht.sh
@@ -169,10 +170,15 @@ macos Preferences:
   Add 'Full Disk Access' for iTerm, Terminal, and VSCode
   Spotlight: Disable all but Applications and Calculator
   Keyboard > Text: uncheck 'Add period with double-space'
-  Battery > options: 'Wake for network access' never, enable 'Opimize video streaming while on battery'
+  Battery > options: 'Wake for network access' never, enable 'Optimize video streaming while on battery'
+  Control Center > Battery: Show energy mode=Always
+  Control Center > Hearing: Enable "Show in control center"
+  Desktop & Dock > "Double click a windows title bar to"=minimize
+  Desktop & Dock > Windows: Disable "Tiled windows have margins"
 
 Setup preferences for apps:
-  text edit: preferences: check 'Plain Text'
+  Text Edit: preferences: check 'Plain Text'
+  iPhone Mirroring > Settings: set "Automatically authenticate"
   orion browser:
     preferences:
       set orion as default browser
