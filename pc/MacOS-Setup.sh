@@ -149,7 +149,7 @@ git config --global commit.verbose true
 git config --global core.pager delta
 git config --global branch.sort -committerdate
 git config --global user.name "Brett Evrist"
-git config --global user.email "brettevrist10@gmail.com"
+git config --global user.email "me@brettevrist.net"
 
 
 #Notes

@@ -118,7 +118,7 @@ git config --global pull.ff only
 git config --global color.ui true
 git config --global init.defaultBranch main
 git config --global user.name "Brett Evrist"
-git config --global user.email "brettevrist10@gmail.com"
+git config --global user.email "me@brettevrist.net"
 
 
 #Notes
