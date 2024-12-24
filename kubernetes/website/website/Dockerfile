@@ -24,6 +24,11 @@ RUN find . -type f -name "*.jpg" -exec cwebp {} -o {}.webp \;
 RUN find . -type f -name "*.jpg" -exec rm -f {} \;
 RUN find . -type f -name "*.jpg.webp" -exec rename .jpg.webp .webp {} \;
 RUN grep -Rl ".jpg" . | xargs sed -i 's/\.jpg/.webp/g'
+# optimize jpeg images
+RUN find . -type f -name "*.jpeg" -exec cwebp {} -o {}.webp \;
+RUN find . -type f -name "*.jpeg" -exec rm -f {} \;
+RUN find . -type f -name "*.jpeg.webp" -exec rename .jpeg.webp .webp {} \;
+RUN grep -Rl ".jpeg" . | xargs sed -i 's/\.jpeg/.webp/g'
 # optimize png images
 RUN find . -type f -name "*.png" -exec cwebp {} -o {}.webp \;
 RUN find . -type f -name "*.png" -exec rm -f {} \;
