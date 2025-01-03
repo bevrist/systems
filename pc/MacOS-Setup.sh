@@ -58,9 +58,9 @@ brew update
 #Install Apps
 # brew install --cask google-drive # xquartz  # install apps that require system password first
 brew install --cask rectangle keepingyouawake homebrew/cask-fonts/font-fira-code-nerd-font numi maccy secretive
-brew install --cask keepassxc firefox chromium visual-studio-code obsidian
+brew install --cask keepassxc orion chromium visual-studio-code obsidian
 brew install --cask iina grandperspective db-browser-for-sqlite ios-app-signer
-# orion libreoffice blender flutter steam epic-games discord
+# firefox libreoffice blender flutter steam epic-games discord
 # bootstrap-studio http-toolkit stoplight-studio figma bruno
 # monitorcontrol hiddenbar scroll-reverser cider menuwhere
 # rocket-typist

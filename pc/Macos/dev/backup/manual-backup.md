@@ -9,10 +9,13 @@ use the following format for naming all backup files: `file-Name_$(date +"%Y-%m-
 
 3) copy updated `_backup` folder to OneDrive
 
-4) Google Takeout: Calendar, Contacts, Drive, Mail, Maps, Youtube
+4) Google Takeout: Drive, Maps, Youtube
 > - Remove unneeded stuff from drive takeout
 
-5) copy big folders to server and backup drives:
+5) Export Fastmail data:
+> - Visit `Settings > Migration` then export Mail, Contacts, and all Calendars
+
+6) copy big folders to server and backup drives:
 > - Games Archive
 > - Google Takeout
 > - Google Drive _Backup Folder
