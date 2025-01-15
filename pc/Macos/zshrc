@@ -19,6 +19,9 @@ alias k="kubectl"
 alias d="docker"
 alias p="podman"
 
+# enable socket for colima
+export DOCKER_HOST="unix://$HOME/.colima/docker.sock"
+
 ### set default binaries:
 ## gnu-coreutils (default install with "g" prefix e.g. "gcat")
 #export PATH="/opt/homebrew/opt/coreutils/libexec/gnubin:$PATH"
@@ -73,8 +76,8 @@ source <(kubectl completion zsh)
 compdef k='kubectl'  #zsh-completion for `k` alias
 source <(docker completion zsh)
 compdef d='docker'   #zsh-completion for `d` alias
-source <(podman completion zsh)
-compdef p='podman'   #zsh-completion for `p` alias
+# source <(podman completion zsh)
+# compdef p='podman'   #zsh-completion for `p` alias
 
 # center justify text function
 center() {
