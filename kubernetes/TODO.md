@@ -1,2 +1,1 @@
 - TODO: change kubernetes to use metallb instead of klipper
-- TODO: replace local-path-provisioner with nfs storage or longhorn

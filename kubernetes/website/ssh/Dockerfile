@@ -7,6 +7,7 @@ COPY --chown=root:root ./ca_key.pub /etc/ssh/ca_key.pub
 RUN echo "TrustedUserCAKeys /etc/ssh/ca_key.pub" >> /etc/ssh/sshd_config
 RUN sed -i 's/#PasswordAuthentication yes/PasswordAuthentication no/' /etc/ssh/sshd_config
 RUN sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin no/' /etc/ssh/sshd_config
+RUN echo 'ChallengeResponseAuthentication=no' >> /etc/ssh/sshd_config
 
 # create ssh users
 RUN addgroup share
